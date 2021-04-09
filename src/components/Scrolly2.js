@@ -1,0 +1,154 @@
+import React, { useEffect, useState } from 'react';
+import { Card } from 'react-bootstrap';
+import { iOS, isSafari } from './iosSupport';
+import { create } from '@lottiefiles/lottie-interactivity';
+import className from 'classnames';
+
+import D3Header from './D3Header';
+import LottiePlayer from './LottiePlayer';
+import WaterAnimation from './WaterAnimation';
+import WaypointCard from './WaypointCard';
+import VideoBackground from './VideoBackground';
+
+import itemsJSON from '../assets/data/items.json';
+import '../assets/styles/components/Scrollyteller.css';
+
+const Scrollyteller = () => {
+  const items = itemsJSON;
+  const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
+
+  const [componentNumberstate, setComponentNumberstate] = useState([]);
+  const lotties = items ? [...items].filter((e) => e[0].frames !== '') : null;
+  const [load, setLoad] = useState(false)
+
+  useEffect(() => {
+    console.log("lotties",lotties)
+    
+    document.querySelectorAll('lottie-player').forEach((lottie, i) => {
+      lottie.addEventListener('load', function (e) {
+        create({
+          mode: 'scroll',
+          autoplay: false,
+          player: `#lottie${lottie.id.split('lottie')[1]}`,
+          container: `#step${Math.trunc(lottie.id.split('lottie')[1])}`,
+          actions: [
+            {
+              visibility: [0, 0.8],
+              type: 'seek',
+              frames: [0, lotties[i][0].frames],
+            },
+          ],
+        });
+      });
+        lottie.addEventListener('frame', function (e) {
+        const canvasdiv = lottie.shadowRoot.querySelectorAll('.main > .animation');
+        if (canvasdiv && canvasdiv.length > 0) {
+          const canvasdivNodes = canvasdiv[0].childNodes;
+          if (canvasdivNodes) {
+            const canvas = canvasdivNodes[2];
+            if (canvas) {
+              lottie.resize();
+            }
+          }
+        }
+      });
+    });
+    setLoad(true);
+  }, []);
+  
+  return (
+    <div className="Scrollyteller">
+      <section className="main Scrollyteller__section">
+        <div className="graphic">
+          {items && items.length > 0
+            ? items.map((left, i) => {
+                switch (left[0].slideType) {
+                  case 'header3d':
+                    return (
+                      <div
+                        className="left-side video"
+                        key={i}
+                        style={{
+                          display: componentNumberstate[i] ? 'flex' : 'none',
+                        }}
+                      >
+                        <D3Header texts={left.map((e) => e.description)} />
+                      </div>
+                    );
+                  case 'video':
+                    return (
+                      <div
+                        className="left-side video"
+                        key={i}
+                        style={{
+                          display: componentNumberstate[i] ? 'flex' : 'none',
+                        }}
+                      >
+                        <VideoBackground src={left[0].data} />
+                      </div>
+                    );
+                  case '2d':
+                    return (
+                      <div
+                        className={isSafarioIos}
+                        style={{
+                          display: componentNumberstate[i] ? 'flex' : 'none',
+                          width: '100%',
+                          transformOrigin: '0px 0px 0px',
+                        }}
+                        id={`canvascontainer${i}`}
+                        key={i}
+                      >
+                        <LottiePlayer className="left-side" id={`lottie${i}`} mode="seek" src={left[0].data} key={i} renderer="canvas" />
+                      </div>
+                    );
+                  case '3d':
+                    if (left[0].data === 'dark') {
+                      return (
+                        <div
+                          className="left-side video"
+                          key={i}
+                          style={{
+                            display: componentNumberstate[i] ? 'flex' : 'none',
+                          }}
+                        >
+                          <WaterAnimation />
+                        </div>
+                      );
+                    } else return null;
+                  default:
+                    return null;
+                }
+              })
+            : null}
+        </div>
+        <div className="scroller" id="scroller">
+          {items.length > 0 ? (
+            items.map((narr, i) => (
+              <div className={className('w-card-maindiv',{'w-card-maindiv-first':i===0},{'w-card-maindiv-last':i===items.length-1})} id={`step${i}`} key={i}>
+                <WaypointCard
+                  setComponentNumberstate={setComponentNumberstate}
+                  componentNumberstate={componentNumberstate}
+                  i={i}
+                  text={narr?.map((card) => card.description)}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="step" id={`step${0}`} style={{ marginBottom: '100px' }} key={0}>
+              <div className="desc" id={'desc' + 0}>
+                <Card>
+                  <Card.Body>
+                    <Card.Text>{'Loading'}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Scrollyteller;

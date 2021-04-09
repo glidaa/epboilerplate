@@ -1,0 +1,33 @@
+.w-card-maindiv{
+    margin: 95vh 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: max-content;
+}
+.w-card-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.w-card{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 50vh 10%;
+}
+.w-card-first{
+    padding-top: 0;
+}
+.w-card-last{
+    padding-bottom: 0;
+}
+.w-card-maindiv-first{
+    margin-top: 40vh;
+}
+.w-card-maindiv-last{
+    margin-bottom: 40vh;
+}
