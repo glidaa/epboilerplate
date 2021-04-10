@@ -10,20 +10,28 @@ import WaterAnimation from './WaterAnimation';
 import WaypointCard from './WaypointCard';
 import VideoBackground from './VideoBackground';
 
-import itemsJSON from '../assets/data/items.json';
 import '../assets/styles/components/Scrollyteller.css';
 
 const Scrollyteller = () => {
-  const items = itemsJSON;
+  const [itemJson, setItemJson] = useState([]);
+  useEffect(() => {
+    fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
+      .then((response) => response.json())
+      .then((data) => {
+        setItemJson(data);
+        console.log(data);
+      })
+      .catch(function (err) {
+        console.log('Error: ', err);
+      });
+  }, []);
   const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
 
   const [componentNumberstate, setComponentNumberstate] = useState([]);
-  const lotties = items ? [...items].filter((e) => e[0].frames !== '') : null;
-  const [load, setLoad] = useState(false)
 
   useEffect(() => {
-    console.log("lotties",lotties)
-    
+    const lotties = itemJson ? [...itemJson].filter((e) => e[0].frames !== '') : null;
+
     document.querySelectorAll('lottie-player').forEach((lottie, i) => {
       lottie.addEventListener('load', function (e) {
         create({
@@ -40,7 +48,7 @@ const Scrollyteller = () => {
           ],
         });
       });
-        lottie.addEventListener('frame', function (e) {
+      lottie.addEventListener('frame', function (e) {
         const canvasdiv = lottie.shadowRoot.querySelectorAll('.main > .animation');
         if (canvasdiv && canvasdiv.length > 0) {
           const canvasdivNodes = canvasdiv[0].childNodes;
@@ -53,15 +61,14 @@ const Scrollyteller = () => {
         }
       });
     });
-    setLoad(true);
-  }, []);
-  
+  }, [itemJson]);
+
   return (
     <div className="Scrollyteller">
       <section className="main Scrollyteller__section">
         <div className="graphic">
-          {items && items.length > 0
-            ? items.map((left, i) => {
+          {itemJson && itemJson.length > 0
+            ? itemJson.map((left, i) => {
                 switch (left[0].slideType) {
                   case 'header3d':
                     return (
@@ -123,9 +130,17 @@ const Scrollyteller = () => {
             : null}
         </div>
         <div className="scroller" id="scroller">
-          {items.length > 0 ? (
-            items.map((narr, i) => (
-              <div className={className('w-card-maindiv',{'w-card-maindiv-first':i===0},{'w-card-maindiv-last':i===items.length-1})} id={`step${i}`} key={i}>
+          {itemJson?.length > 0 ? (
+            itemJson.map((narr, i) => (
+              <div
+                className={className(
+                  'w-card-maindiv',
+                  { 'w-card-maindiv-first': i === 0 },
+                  { 'w-card-maindiv-last': i === itemJson.length - 1 }
+                )}
+                id={`step${i}`}
+                key={i}
+              >
                 <WaypointCard
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
