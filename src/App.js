@@ -1,5 +1,4 @@
-import './App.css';
-import Scrollyteller from './components/Scrollyteller';
+import Scrollyteller from './components/Explainerpage';
 
 function App() {
   return (

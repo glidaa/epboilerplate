@@ -4,9 +4,7 @@ import { iOS, isSafari } from './iosSupport';
 import { create } from '@lottiefiles/lottie-interactivity';
 import className from 'classnames';
 
-import D3Header from './D3Header';
 import LottiePlayer from './LottiePlayer';
-import WaterAnimation from './WaterAnimation';
 import WaypointCard from './WaypointCard';
 import VideoBackground from './VideoBackground';
 
@@ -19,7 +17,6 @@ const Scrollyteller = () => {
       .then((response) => response.json())
       .then((data) => {
         setItemJson(data);
-        console.log(data);
       })
       .catch(function (err) {
         console.log('Error: ', err);
@@ -70,18 +67,6 @@ const Scrollyteller = () => {
           {itemJson && itemJson.length > 0
             ? itemJson.map((left, i) => {
                 switch (left[0].slideType) {
-                  case 'header3d':
-                    return (
-                      <div
-                        className="left-side video"
-                        key={i}
-                        style={{
-                          display: componentNumberstate[i] ? 'flex' : 'none',
-                        }}
-                      >
-                        <D3Header texts={left.map((e) => e.description)} />
-                      </div>
-                    );
                   case 'video':
                     return (
                       <div
@@ -109,20 +94,6 @@ const Scrollyteller = () => {
                         <LottiePlayer className="left-side" id={`lottie${i}`} mode="seek" src={left[0].data} key={i} renderer="canvas" />
                       </div>
                     );
-                  case '3d':
-                    if (left[0].data === 'dark') {
-                      return (
-                        <div
-                          className="left-side video"
-                          key={i}
-                          style={{
-                            display: componentNumberstate[i] ? 'flex' : 'none',
-                          }}
-                        >
-                          <WaterAnimation />
-                        </div>
-                      );
-                    } else return null;
                   default:
                     return null;
                 }
@@ -150,15 +121,22 @@ const Scrollyteller = () => {
               </div>
             ))
           ) : (
-            <div className="step" id={`step${0}`} style={{ marginBottom: '100px' }} key={0}>
-              <div className="desc" id={'desc' + 0}>
-                <Card>
-                  <Card.Body>
-                    <Card.Text>{'Loading'}</Card.Text>
-                  </Card.Body>
-                </Card>
+            <div
+                className={className(
+                  'w-card-maindiv',
+                  { 'w-card-maindiv-first': true },
+                  { 'w-card-maindiv-last': true }
+                )}
+                id={`step0`}
+                key={0}
+              >
+                <WaypointCard
+                  setComponentNumberstate={setComponentNumberstate}
+                  componentNumberstate={componentNumberstate}
+                  i={0}
+                  text={["Loading.."]}
+                />
               </div>
-            </div>
           )}
         </div>
       </section>
