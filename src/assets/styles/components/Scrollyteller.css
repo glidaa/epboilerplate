@@ -10,25 +10,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
 }
-/* @media not (hover: none) {
-  .Scrollyteller {
-    background-image: url(../../images/background2.png);
-    height: 100vh;
-    min-width: 100%;
-    min-height: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    background-size: initial;
-
-    display: block;
-    top: 0;
-    left: 0;
-  }
-} */
 .Scrollyteller__section {
   position: sticky;
-  /* transform: translateY(-100%); */
   width: 100%;
 }
 .hiddenclass {
@@ -38,10 +21,6 @@
 img {
   max-width: 100%;
 }
-
-/* .scrollyTeller-lottie-height {
-    
-  } */
 .left-side,
 .left-side__lottie {
   height: 100vh;
@@ -99,7 +78,7 @@ img {
   }
 }
 .video {
-  transition: opacity ease 0.1s;
+  transition: opacity ease 0.01s;
 }
 
 .graphic {
@@ -132,7 +111,6 @@ img {
   max-width: 450px;
   padding-bottom: 35vh;
   padding-top: 0;
-  /* height: 70vh; */
 }
 .step_header .desc:first-child {
   padding-top: 35vh;
@@ -239,6 +217,9 @@ lottie-player {
   .step_header .desc {
     width: 100%;
   }
+  .scroller {
+    transform: translateY(-50vh);
+  }
 }
 .step__div {
   margin-bottom: 80vh;
@@ -274,6 +255,6 @@ lottie-player {
   left: 0;
   right: 0;
 }
-.scroller{
+.scroller {
   z-index: 1;
 }

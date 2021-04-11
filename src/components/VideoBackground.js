@@ -3,7 +3,6 @@ import React from "react";
 import "../assets/styles/components/VideoBackground.css";
 
 const VideoBackground = React.memo(({ src }) => {
-  console.log(src)
   return (
     <div className="video__div">
       <picture>
