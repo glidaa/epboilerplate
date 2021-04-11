@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
 import { iOS, isSafari } from './iosSupport';
 import { create } from '@lottiefiles/lottie-interactivity';
 import className from 'classnames';
@@ -10,7 +9,7 @@ import VideoBackground from './VideoBackground';
 
 import '../assets/styles/components/Scrollyteller.css';
 
-const Scrollyteller = () => {
+const Explainerpage = () => {
   const [itemJson, setItemJson] = useState([]);
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
@@ -122,21 +121,17 @@ const Scrollyteller = () => {
             ))
           ) : (
             <div
-                className={className(
-                  'w-card-maindiv',
-                  { 'w-card-maindiv-first': true },
-                  { 'w-card-maindiv-last': true }
-                )}
-                id={`step0`}
-                key={0}
-              >
-                <WaypointCard
-                  setComponentNumberstate={setComponentNumberstate}
-                  componentNumberstate={componentNumberstate}
-                  i={0}
-                  text={["Loading.."]}
-                />
-              </div>
+              className={className('w-card-maindiv', { 'w-card-maindiv-first': true }, { 'w-card-maindiv-last': true })}
+              id={`step0`}
+              key={0}
+            >
+              <WaypointCard
+                setComponentNumberstate={setComponentNumberstate}
+                componentNumberstate={componentNumberstate}
+                i={0}
+                text={['Loading..']}
+              />
+            </div>
           )}
         </div>
       </section>
@@ -144,4 +139,4 @@ const Scrollyteller = () => {
   );
 };
 
-export default Scrollyteller;
+export default Explainerpage;

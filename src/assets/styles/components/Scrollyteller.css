@@ -1,4 +1,5 @@
 .Scrollyteller {
+  z-index: -2;
   position: relative;
   height: 100%;
   background-image: url(../../images/background.png);
@@ -82,10 +83,11 @@ img {
 }
 
 .graphic {
+  z-index: -1;
   flex-basis: 50%;
   position: sticky;
   top: 0;
-  /* height: 75vh; */
+  height: 100vh;
   width: 100%;
   align-self: flex-start;
 }
@@ -199,6 +201,7 @@ lottie-player {
 
 @media screen and (max-width: 600px) {
   .main {
+    display: block;
     grid-template-columns: 1fr;
   }
   .step {
@@ -217,8 +220,9 @@ lottie-player {
   .step_header .desc {
     width: 100%;
   }
-  .scroller {
-    transform: translateY(-50vh);
+  .graphic {
+    position: fixed;
+    /* transform: translateY(-50vh); */
   }
 }
 .step__div {
@@ -256,5 +260,6 @@ lottie-player {
   right: 0;
 }
 .scroller {
-  z-index: 1;
+  z-index: 2;
+  padding: 40vh 0;
 }

@@ -1,9 +1,7 @@
-import Scrollyteller from './components/Explainerpage';
+import Explainerpage from './components/Explainerpage';
 
 function App() {
-  return (
-    <Scrollyteller/>
-  );
+  return <Explainerpage />;
 }
 
 export default App;
