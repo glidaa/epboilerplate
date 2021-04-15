@@ -44,8 +44,8 @@ const Video = (props) => {
             //onStart={() => console.log('onStart')}
             onPlay={handlePlay}
             onPause={handlePause}
-            //onBuffer={() => console.log('onBuffer')}
-            //onSeek={(e) => console.log('onSeek', e)}
+            onBuffer={() => console.log('onBuffer')}
+            onSeek={(e) => console.log('onSeek', e)}
             onEnded={handleEnded}
             onError={(e) => console.log('onError', e)}
           />
