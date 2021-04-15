@@ -8,6 +8,8 @@ import WaypointCard from './WaypointCard';
 import VideoBackground from './VideoBackground';
 
 import '../assets/styles/components/Scrollyteller.css';
+import Text from './Text';
+import Video from './Video';
 
 const Explainerpage = () => {
   const [itemJson, setItemJson] = useState([]);
@@ -63,21 +65,27 @@ const Explainerpage = () => {
     <div className="Scrollyteller">
       <section className="main Scrollyteller__section">
         <div className="graphic">
-          {itemJson && itemJson.length > 0
+          {itemJson?.length > 0
             ? itemJson.map((left, i) => {
                 switch (left[0].slideType) {
                   case 'video':
                     return (
+                      
+                        <Video key={i} src={left[0].data} visible = {true} display = {componentNumberstate[i]}/>
+                    );
+                    case 'text':
+                    return (
                       <div
-                        className="left-side video"
+                        className="left-side text video"
                         key={i}
                         style={{
                           display: componentNumberstate[i] ? 'flex' : 'none',
                         }}
                       >
-                        <VideoBackground src={left[0].data} />
+                        <Text text={left[0].description} />
                       </div>
                     );
+                    
                   case '2d':
                     return (
                       <div
@@ -119,20 +127,7 @@ const Explainerpage = () => {
                 />
               </div>
             ))
-          ) : (
-            <div
-              className={className('w-card-maindiv', { 'w-card-maindiv-first': true }, { 'w-card-maindiv-last': true })}
-              id={`step0`}
-              key={0}
-            >
-              <WaypointCard
-                setComponentNumberstate={setComponentNumberstate}
-                componentNumberstate={componentNumberstate}
-                i={0}
-                text={['Loading..']}
-              />
-            </div>
-          )}
+          ):null}
         </div>
       </section>
     </div>

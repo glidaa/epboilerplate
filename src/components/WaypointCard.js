@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import className from 'classnames';
 import { Card } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
@@ -7,15 +7,20 @@ import '../assets/styles/components/WaypointCard.css';
 const WaypointCard = (props) => {
   const { i, setComponentNumberstate, componentNumberstate, text } = props;
   const { ref, inView } = useInView();
+  const [Text, setText] = useState(text);
   useEffect(() => {
     const auxarray = Array(...componentNumberstate);
     auxarray[i] = inView;
     setComponentNumberstate(auxarray);
   }, [inView]);
+  const setHTML = (data) => {
+    data = Array.isArray(data)?data.filter(t=>(t!==',')):data;
+    return { __html: data };
+  };
   return (
     <div ref={ref} className="w-card-div">
-      {text ? (
-        text.map((card, j) => (
+      {Text ? (
+        Text.map((card, j) => (
           <div
             className={className('w-card', { 'w-card-first': j === 0 }, { 'w-card-last': j === text.length - 1 })}
             id={`desc${i}-${j}`}
@@ -23,7 +28,8 @@ const WaypointCard = (props) => {
           >
             <Card>
               <Card.Body>
-                <Card.Text>{card}</Card.Text>
+                  <div dangerouslySetInnerHTML={setHTML(card)}>
+                  </div>
               </Card.Body>
             </Card>
           </div>

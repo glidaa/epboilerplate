@@ -1,5 +1,4 @@
 import Explainerpage from './components/Explainerpage';
-
 function App() {
   return <Explainerpage />;
 }
