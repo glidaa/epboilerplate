@@ -71,7 +71,7 @@ const Explainerpage = () => {
                   case 'video':
                     return (
                       
-                        <Video key={i} src={left[0].data} visible = {true} display = {componentNumberstate[i]}/>
+                        <Video key={i} src={componentNumberstate[i]?left[0].data:""} visible = {true} display = {componentNumberstate[i]}/>
                     );
                     case 'text':
                     return (
