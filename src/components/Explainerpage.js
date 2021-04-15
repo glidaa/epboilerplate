@@ -116,7 +116,7 @@ const Explainerpage = () => {
                   { 'w-card-maindiv-first': i === 0 },
                   { 'w-card-maindiv-last': i === itemJson.length - 1 }
                 )}
-                style={{opacity:narr.slideType==='text'?0:100}}
+                style={{opacity:narr[0].slideType==='text'?0:100}}
                 id={`step${i}`}
                 key={i}
               >
