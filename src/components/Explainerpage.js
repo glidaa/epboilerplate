@@ -7,9 +7,8 @@ import LottiePlayer from './LottiePlayer';
 import WaypointCard from './WaypointCard';
 
 import '../assets/styles/components/Scrollyteller.css';
-import Text from './Text';
 //import Video from './Video-React-player';
-import Videojs from './Videojs'
+import Videojs from './Videojs';
 //import VideoDash from './VideoDash'
 
 const Explainerpage = () => {
@@ -71,9 +70,14 @@ const Explainerpage = () => {
                 switch (left[0].slideType) {
                   case 'video':
                     return (
-                        <Videojs key={i} src={componentNumberstate[i]?left[0].data:left[0].data} visible = {componentNumberstate[i]} display = {componentNumberstate[i]}/>
+                      <Videojs
+                        key={i}
+                        src={componentNumberstate[i] ? left[0].data : left[0].data}
+                        visible={componentNumberstate[i]}
+                        display={componentNumberstate[i]}
+                      />
                     );
-                    case 'text':
+                  case 'text':
                     return (
                       <div
                         className="left-side text video"
@@ -82,10 +86,10 @@ const Explainerpage = () => {
                           display: componentNumberstate[i] ? 'flex' : 'none',
                         }}
                       >
-                        <Text  />
+                        <div />
                       </div>
                     );
-                    
+
                   case '2d':
                     return (
                       <div
@@ -108,21 +112,20 @@ const Explainerpage = () => {
             : null}
         </div>
         <div className="scroller" id="scroller">
-          {itemJson?.length > 0 ? (
-            itemJson.map((narr, i) => (
-              
+          {itemJson?.length > 0
+            ? itemJson.map((narr, i) => (
                 <WaypointCard
                   key={i}
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
                   i={i}
                   text={narr?.map((card) => card.description)}
-                  isText = {narr[0].slideType==='text'}
-                  isFirst = {i===0}
-                  islast = {i === itemJson.length - 1}
+                  isText={narr[0].slideType === 'text'}
+                  isFirst={i === 0}
+                  islast={i === itemJson.length - 1}
                 />
-            ))
-          ):null}
+              ))
+            : null}
         </div>
       </section>
     </div>

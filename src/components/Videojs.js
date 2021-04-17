@@ -1,8 +1,10 @@
+import 'video.js/dist/video-js.css';
+
 import React, { useEffect, useRef } from 'react'
 import VideoJs from 'video.js'
 
-
 const videoJsOptions = {
+  // techOrder: ['html5', 'flash'],
   controls: false,
   autoplay: true,
   fluid: false,
@@ -24,6 +26,8 @@ const VideoPlayer = ({ url, display }) => {
         <video class="video-js" />
         </div>
         `
+        
+
         const player = VideoJs(videoContainer.current.querySelector('video'), videoJsOptions, async () => {
             player.src({ src: 'https://e20604ef07e8336ff0929ea8d86cd342.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/355b7150bcf14b9983768d087dfd291c/31cd178ecba441c9b76145a0305fd05c/8d904062595a47f09f4cec8d4e4009b6/index.m3u8'/*url/*, type: fileType */})
     })
