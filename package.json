@@ -17,6 +17,7 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
     "react-player": "^2.9.0",
+    "react-resize-detector": "^6.6.5",
     "react-scripts": "4.0.3",
     "react-three-fiber": "^5.3.22",
     "three": "^0.127.0",
