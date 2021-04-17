@@ -125,7 +125,17 @@ const Explainerpage = () => {
                   islast={i === itemJson.length - 1}
                 />
               ))
-            : null}
+            : <WaypointCard
+            key={0}
+            setComponentNumberstate={setComponentNumberstate}
+            componentNumberstate={componentNumberstate}
+            i={0}
+            text={["Loading"]}
+            isText={false}
+            isFirst={true}
+            isLast={true}
+          />
+          }
         </div>
       </section>
     </div>
