@@ -9,7 +9,9 @@ import VideoBackground from './VideoBackground';
 
 import '../assets/styles/components/Scrollyteller.css';
 import Text from './Text';
-import Video from './Video';
+//import Video from './Video-React-player';
+import Videojs from './Videojs'
+//import VideoDash from './VideoDash'
 
 const Explainerpage = () => {
   const [itemJson, setItemJson] = useState([]);
@@ -70,8 +72,7 @@ const Explainerpage = () => {
                 switch (left[0].slideType) {
                   case 'video':
                     return (
-                      
-                        <Video key={i} src={componentNumberstate[i]?left[0].data:""} visible = {true} display = {componentNumberstate[i]}/>
+                        <Videojs key={i} src={componentNumberstate[i]?left[0].data:left[0].data} visible = {componentNumberstate[i]} display = {componentNumberstate[i]}/>
                     );
                     case 'text':
                     return (
