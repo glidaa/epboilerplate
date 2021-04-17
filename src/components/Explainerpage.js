@@ -5,7 +5,6 @@ import className from 'classnames';
 
 import LottiePlayer from './LottiePlayer';
 import WaypointCard from './WaypointCard';
-import VideoBackground from './VideoBackground';
 
 import '../assets/styles/components/Scrollyteller.css';
 import Text from './Text';
@@ -83,7 +82,7 @@ const Explainerpage = () => {
                           display: componentNumberstate[i] ? 'flex' : 'none',
                         }}
                       >
-                        <Text text={left[0].description} />
+                        <Text  />
                       </div>
                     );
                     
@@ -111,23 +110,17 @@ const Explainerpage = () => {
         <div className="scroller" id="scroller">
           {itemJson?.length > 0 ? (
             itemJson.map((narr, i) => (
-              <div
-                className={className(
-                  'w-card-maindiv',
-                  { 'w-card-maindiv-first': i === 0 },
-                  { 'w-card-maindiv-last': i === itemJson.length - 1 }
-                )}
-                style={{opacity:narr[0].slideType==='text'?0:100}}
-                id={`step${i}`}
-                key={i}
-              >
+              
                 <WaypointCard
+                  key={i}
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
                   i={i}
                   text={narr?.map((card) => card.description)}
+                  isText = {narr[0].slideType==='text'}
+                  isFirst = {i===0}
+                  islast = {i === itemJson.length - 1}
                 />
-              </div>
             ))
           ):null}
         </div>

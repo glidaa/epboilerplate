@@ -8,6 +8,11 @@
   width: 100%;
   height: max-content;
 }
+.w-card-text{
+  position: absolute;
+  left: 0;
+
+}
 .w-card-div {
   display: flex;
   flex-direction: column;
@@ -31,4 +36,30 @@
 }
 .w-card-maindiv-last {
   margin-bottom: 0;
+}
+.card {
+  width: 100%;
+  height: max-content;
+}
+.card {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 10%;
+  background: #3584f7;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+}
+.card-body {
+  display: grid;
+  align-items: center;
+  width: 100%;
+}
+.card-text {
+  background: #ffffff08;
+}
+.card__notPadding {
+  padding: 0%;
 }
