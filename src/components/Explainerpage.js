@@ -11,10 +11,12 @@ import '../assets/styles/components/Scrollyteller.css';
 import Videojs from './Videojs';
 //import VideoDash from './VideoDash'
 
-const Explainerpage = () => {
+const Explainerpage = (props) => {
+  const {itemJsonFile} = props;
   const [itemJson, setItemJson] = useState([]);
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
+    if(!itemJsonFile){
+      fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
       .then((response) => response.json())
       .then((data) => {
         setItemJson(data);
@@ -22,7 +24,10 @@ const Explainerpage = () => {
       .catch(function (err) {
         console.log('Error: ', err);
       });
-  }, []);
+    }else{
+      setItemJson(itemJsonFile);
+    }
+  }, [itemJsonFile]);
   const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
 
   const [componentNumberstate, setComponentNumberstate] = useState([]);
@@ -122,7 +127,7 @@ const Explainerpage = () => {
                   text={narr?.map((card) => card.description)}
                   isText={narr[0].slideType === 'text'}
                   isFirst={i === 0}
-                  islast={i === itemJson.length - 1}
+                  isLast={i === itemJson.length - 1}
                 />
               ))
             : <WaypointCard

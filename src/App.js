@@ -1,6 +1,7 @@
 import Explainerpage from './components/Explainerpage';
-//import Video from './components/Videojs'
+// import Editor from './components/Editor'
 function App() {
+  // return <Editor />;
   return <Explainerpage />;
 }
 
