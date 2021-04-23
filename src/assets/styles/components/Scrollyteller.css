@@ -197,6 +197,7 @@ lottie-player {
   }
   .graphic {
     position: fixed;
+    z-index: -1;
     /* transform: translateY(-50vh); */
   }
 }

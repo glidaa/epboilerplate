@@ -1,4 +1,5 @@
 import 'video.js/dist/video-js.css';
+import '../assets/styles/components/Video.css'
 
 import React, { useEffect, useRef } from 'react'
 import VideoJs from 'video.js'
@@ -10,15 +11,16 @@ const videoJsOptions = {
   fluid: false,
   loop: true,
   width: '100%',
-  aspectRatio: '16:9'
+  muted: true
 }
 
-const VideoPlayer = ({ url, display }) => {
+const VideoPlayer = ({ src, display, width }) => {
   const videoContainer = useRef()
-
+  //console.log(src)
   //  Setup the player
   useEffect(() => {
     //  Setting content like this because player.dispose() remove also the html contentif
+    //console.log(videoContainer)
     if(videoContainer?.current){
 
         videoContainer.current.innerHTML = `
@@ -29,13 +31,13 @@ const VideoPlayer = ({ url, display }) => {
         
 
         const player = VideoJs(videoContainer.current.querySelector('video'), videoJsOptions, async () => {
-            player.src({ src: 'https://e20604ef07e8336ff0929ea8d86cd342.egress.mediapackage-vod.us-east-1.amazonaws.com/out/v1/355b7150bcf14b9983768d087dfd291c/31cd178ecba441c9b76145a0305fd05c/8d904062595a47f09f4cec8d4e4009b6/index.m3u8'/*url/*, type: fileType */})
+            player.src({ src: src})
     })
     
     //  When destruct dispose the player
     return () => player.dispose()
 }
-  }, [display])
+  }, [display,src])
 
   return (
     <div
@@ -44,7 +46,7 @@ const VideoPlayer = ({ url, display }) => {
       display: display /*|| !display & !load */? 'flex' : 'none',
     }}
   >
-    <div className="video__div">
+    <div className="video__div" style={{width:`${width}px`}}>
       {display?<div style={{ width: '100%', height: '100%', display:'flex', alignItems:'center'}} ref={videoContainer}/>:null}
       </div>
       </div>

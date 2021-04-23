@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.video__div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 98.8vw;
+}
 .video-js{
     width: 100%;
     height: 100%;
