@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { iOS, isSafari } from './iosSupport';
 import className from 'classnames';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
-import WebFont from 'webfontloader';
 import { useInView } from 'react-intersection-observer';
 
 import LottiePlayer from './LottiePlayer';
@@ -36,28 +35,15 @@ const Explainerpage = (props) => {
   }, [itemJsonFile]);
   useEffect(() => {
     if (itemJson?.fonts) {
-      var new_font = new FontFace(itemJson.fonts.families[0], 'url('+itemJson.fonts.urls[0]+')')
-      new_font.load().then(function(loaded_face) {
-        // use font here
-        console.log("La fuente cargó")
-        document.fonts.add(loaded_face)
-    }).catch(function(error) {
-    
-    });
-//       var newStyle = document.createElement('style');
-// newStyle.appendChild(document.createTextNode(`
-// @font-face {
-//     font-family: " + ${itemJson.fonts.families[0]} + ";
-//     src: url('" + ${itemJson.fonts.urls[0]} + "') format('yourFontFormat');
-// }
-// `));
-// document.head.appendChild(newStyle);
-
-      // WebFont.load({
-      //   custom: {
-      //     ...itemJson.fonts,
-      //   },
-      // });
+      var new_font = new FontFace(itemJson.fonts.families[0], 'url(' + itemJson.fonts.urls[0] + ')');
+      new_font
+        .load()
+        .then(function (loaded_face) {
+          // use font here
+          console.log('La fuente cargó');
+          document.fonts.add(loaded_face);
+        })
+        .catch(function (error) {});
     }
   }, [itemJson]);
 
@@ -68,11 +54,18 @@ const Explainerpage = (props) => {
   const [refView, inView] = useInView();
   return (
     <>
-      <div ref={refView}>
-      <Header header={itemJson?.header} fonts={itemJson?.fonts}/>
-      </div>
-      <div style={{position:"relative"}}>
-        <Dots isHeader={inView} setComponentNumberstate={setComponentNumberstate} componentNumberstate={componentNumberstate} itemJson={itemJson.data} />
+      {itemJson?.header ? (
+        <div ref={refView}>
+          <Header header={itemJson?.header} fonts={itemJson?.fonts} />
+        </div>
+      ) : null}
+      <div style={{ position: 'relative' }}>
+        <Dots
+          isHeader={inView}
+          setComponentNumberstate={setComponentNumberstate}
+          componentNumberstate={componentNumberstate}
+          itemJson={itemJson.data}
+        />
         <div ref={ref} className="Scrollyteller">
           <section className="main Scrollyteller__section">
             <div className="graphic">
@@ -143,6 +136,7 @@ const Explainerpage = (props) => {
                     SetWaypointRef={SetWaypointRef}
                     i={i}
                     text={narr?.map((card) => card.description)}
+                    styles={narr?.map((card) => card.style)}
                     isText={narr[0].slideType === 'text'}
                     isFirst={i === 0}
                     isLast={i === itemJson.data.length - 1}
@@ -165,7 +159,6 @@ const Explainerpage = (props) => {
             </div>
           </section>
         </div>
-
       </div>
     </>
   );

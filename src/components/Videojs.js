@@ -10,7 +10,7 @@ const videoJsOptions = {
   autoplay: true,
   fluid: false,
   loop: true,
-  width: '100%',
+  height: '100%',
   muted: true
 }
 

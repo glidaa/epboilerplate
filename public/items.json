@@ -1,13 +1,7 @@
 {
-    "header":{
-        "title":"Salmond Salad",
-        "background":"https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/backgrounds/Samurai_suchi_salad.png",
-        "alt":"Salmond Salad",
-        "backgroundColor":"#1b3663"
-    },
     "fonts": {
-        "color":"#d66e40",
-        "fontSize":"80px",
+        "color": "#d66e40",
+        "fontSize": "80px",
         "families": [
             "Gang of Three"
         ],
@@ -38,12 +32,17 @@
                 "slide": "1",
                 "card": "1",
                 "slideType": "video",
-                "description": "Samurai Salmon Sashimi Salad",
+                "description": "<div style='background-color: rgb(27, 54, 99);'><div><img src='https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/backgrounds/Samurai_suchi_salad.png' alt='Salmond Salad'></div><div><h1 style='FONT-WEIGHT: 200;font-family: &quot;Gang of Three&quot;;font-size: 50px;color: rgb(214, 110, 64);'>Salmond Salad</h1></div></div>",
                 "descriptionType": "",
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/00topfull/00topfull.m3u8",
                 "frames": "69",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundImage":"none",
+                    "backgroundColor": "#1b3663",
+                    "color": "#2c2c2c"
+                }
             },
             {
                 "slide": "1",
@@ -54,7 +53,11 @@
                 "data": "",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -67,7 +70,11 @@
                 "data": "https://assets7.lottiefiles.com/private_files/lf30_k6oprjex.json",
                 "frames": "451",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -80,7 +87,11 @@
                 "data": "",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#ffffff08",
+                    "color": "white"
+                }
             }
         ],
         [
@@ -93,7 +104,11 @@
                 "data": "https://assets8.lottiefiles.com/packages/lf20_nwjbhlzr.json",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -106,7 +121,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/01salmonwhole/01salmonwhole.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -119,7 +138,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/04miso_sauce/04miso_sauce.m3u8",
                 "frames": "450",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -132,7 +155,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/03green_sauce/03green_sauce.m3u8",
                 "frames": "510",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -145,7 +172,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/leaf/leaf.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -158,7 +189,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -171,7 +206,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/05plate/05plate.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -184,7 +223,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -197,7 +240,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/06sear_salmon/06sear_salmon.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -210,7 +257,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/07salmon_cut/07salmon_cut.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -223,7 +274,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/08turn_plate/08turn_plate.m3u8",
                 "frames": "748",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -236,7 +291,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/09picklesandgreen/09picklesandgreen.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -249,7 +308,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/10raddish/10raddish.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -262,7 +325,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/11salad/11salad.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -275,7 +342,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/12herbs/12herbs.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ],
         [
@@ -288,7 +359,11 @@
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/13end_2/13end_2.m3u8",
                 "frames": "",
                 "graphChange": "",
-                "static": ""
+                "static": "",
+                "style": {
+                    "backgroundColor": "#e5e5e5",
+                    "color": "#2c2c2c"
+                }
             }
         ]
     ]

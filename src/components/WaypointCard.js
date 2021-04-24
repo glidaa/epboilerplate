@@ -6,7 +6,7 @@ import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import SubCard from './SubCard';
 
 const WaypointCard = (props) => {
-  const { i, setComponentNumberstate, componentNumberstate, text, isText, isFirst, isLast, background } = props;
+  const { i, setComponentNumberstate, componentNumberstate, text, isText, isFirst, isLast, background, styles } = props;
   const [refView, inView] = useInView();
   const { height, ref } = useResizeDetector();
   const [subview, setSubview] = useState([])
@@ -27,11 +27,11 @@ const WaypointCard = (props) => {
         <div ref={ref} style={{ width: '100%' }}>
           {text ? (
             text.map((card, j) => (
-              <SubCard subview={subview} setSubview={setSubview} j={j} length={text.length} i={i} isText={isText} card = {card} background={background}/>
+              <SubCard key={j} subview={subview} setSubview={setSubview} j={j} length={text.length} i={i} isText={isText} card = {card} background={isText?null:background} styles={styles?styles[j]:null}/>
             ))
           ) : (
             <div className="desc" id={`desc${i + 1}`} key={`${i}-0`}>
-              <SubCard subview={subview} setSubview={setSubview} j={0} text={text} i={0} isText={false} card = {'Loading...'} background={background}/>
+              <SubCard subview={subview} setSubview={setSubview} j={0} text={text} i={0} isText={false} card = {'Loading...'} background={isText?null:background}/>
             </div>
           )}
         </div>

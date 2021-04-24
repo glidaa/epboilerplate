@@ -3,7 +3,7 @@ import '../assets/styles/components/Dots.css';
 import className from 'classnames';
 
 const Dots = (props) => {
-  const { setComponentNumberstate, componentNumberstate, itemJson, isHeader} = props;
+  const { componentNumberstate, itemJson, isHeader} = props;
   console.log(itemJson?.length);
   return (
     <div className={className("Dots", {"Dots-Absolute":isHeader})}  >

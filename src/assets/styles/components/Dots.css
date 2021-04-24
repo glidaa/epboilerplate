@@ -5,14 +5,17 @@
     z-index: 100;
     display: flex;
     align-items: center;
+    justify-content: center;
     top: 0;
+    width: 10%;
+    max-width: 58px;
 }
 .Dots-Absolute{
     position: absolute;
     top: 0;
 }
 .Dots-circle {
-    margin: 5px 5px 5px 20px;
+    margin: 5px 0 5px 0;
     width: 12px;
     height: 12px;
     -moz-border-radius: 50%;
