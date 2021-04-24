@@ -15,7 +15,15 @@ const WaypointCard = (props) => {
     auxarray[i] = {isView:inView, isSubView:[...subview]};
     if(auxarray[i].isView)console.log(i,auxarray[i])
     setComponentNumberstate([...auxarray]);
-  }, [inView,subview]);
+  }, [inView,subview,setComponentNumberstate]);
+  // useEffect(()=>{
+  //   setTimeout(() => {
+  //     const auxarray = Array(...componentNumberstate);
+  //   auxarray[i] = {isView:inView, isSubView:[...subview]};
+  //   if(auxarray[i].isView)console.log(i,auxarray[i])
+  //   setComponentNumberstate([...auxarray]);
+  //   }, 1000);
+  // },[])
   return (
     <div
       className={className('w-card-maindiv', { 'w-card-maindiv-first': isFirst }, { 'w-card-maindiv-last': isLast })}

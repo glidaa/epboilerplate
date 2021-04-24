@@ -3,6 +3,7 @@ import { iOS, isSafari } from './iosSupport';
 import className from 'classnames';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import { useInView } from 'react-intersection-observer';
+import { Element } from 'react-scroll';
 
 import LottiePlayer from './LottiePlayer';
 import WaypointCard from './WaypointCard';
@@ -29,7 +30,7 @@ const Explainerpage = (props) => {
           console.log('Error: ', err);
         });
     } else {
-      console.log('ExplainerPage:', itemJson.dataFile);
+      //console.log('ExplainerPage:', itemJson.dataFile);
       setItemJson(itemJsonFile);
     }
   }, [itemJsonFile]);
@@ -50,7 +51,6 @@ const Explainerpage = (props) => {
   const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
 
   const [componentNumberstate, setComponentNumberstate] = useState([]);
-  const [waypointRef, SetWaypointRef] = useState([]);
   const [refView, inView] = useInView();
   return (
     <>
@@ -129,26 +129,23 @@ const Explainerpage = (props) => {
             <div className="scroller" id="scroller">
               {itemJson?.data?.length > 0 ? (
                 itemJson.data.map((narr, i) => (
-                  <WaypointCard
-                    key={i}
-                    setComponentNumberstate={setComponentNumberstate}
-                    componentNumberstate={componentNumberstate}
-                    SetWaypointRef={SetWaypointRef}
-                    i={i}
-                    text={narr?.map((card) => card.description)}
-                    styles={narr?.map((card) => card.style)}
-                    isText={narr[0].slideType === 'text'}
-                    isFirst={i === 0}
-                    isLast={i === itemJson.data.length - 1}
-                    background={itemJson.background}
-                  />
+                    <WaypointCard key={i}
+                      setComponentNumberstate={setComponentNumberstate}
+                      componentNumberstate={componentNumberstate}
+                      i={i}
+                      text={narr?.map((card) => card.description)}
+                      styles={narr?.map((card) => card.style)}
+                      isText={narr[0].slideType === 'text'}
+                      isFirst={i === 0}
+                      isLast={i === itemJson.data.length - 1}
+                      background={itemJson.background}
+                    />
                 ))
               ) : (
                 <WaypointCard
                   key={0}
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
-                  SetWaypointRef={SetWaypointRef}
                   i={0}
                   text={['Loading']}
                   isText={false}

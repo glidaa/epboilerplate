@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import className from 'classnames';
 import { Card } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
+import { Element } from 'react-scroll';
+
 const SubCard = (props) => {
   const { j, length, i, isText, card, setSubview, subview, background, styles } = props;
   const [refView, inView] = useInView();
@@ -23,15 +25,17 @@ const SubCard = (props) => {
       id={`desc${i}-${j}`}
       key={`${i}-${j}`}
     >
+                    <Element name={`Slide${i}.${j}`} style={{position: "relative", width:'100%'}}>
       <Card
         ref={refView}
         className={className({ 'card-text': isText })}
-        style={{ backgroundImage: background?.length > 0 ? `url(${background[Math.floor(Math.random() * (background.length))]?.url})` : null, width: '100%', ...auxStyles }}
+        style={{ backgroundImage: background?.length > 0 ? `url(${background[Math.floor(Math.random() * (background.length))]?.url})` : null, ...auxStyles }}
       >
         <Card.Body>
           <div dangerouslySetInnerHTML={setHTML(card)}></div>
         </Card.Body>
       </Card>
+        </Element>
     </div>
   );
 };
