@@ -20,6 +20,7 @@ const Explainerpage = (props) => {
   const { itemJsonFile } = props;
   const [itemJson, setItemJson] = useState([]);
   useEffect(() => {
+    console.log("Test")
     if (!itemJsonFile) {
       fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
         .then((response) => response.json())
@@ -35,6 +36,7 @@ const Explainerpage = (props) => {
     }
   }, [itemJsonFile]);
   useEffect(() => {
+    console.log("ITEMJSON:", itemJson)
     if (itemJson?.fonts) {
       var new_font = new FontFace(itemJson.fonts.families[0], 'url(' + itemJson.fonts.urls[0] + ')');
       new_font

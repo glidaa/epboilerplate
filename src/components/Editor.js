@@ -2,93 +2,88 @@ import React, { useEffect, useState } from 'react';
 import Explainerpage from './Explainerpage';
 import '../assets/styles/components/Editor.css';
 const Editor = () => {
-  const [itemJson, setItemJson] = useState([]);
-  const [item, setItem] = useState({})
-  const [description, setDescription] = useState({})
-  const [attribName, setattribName] = useState("")
+  const [itemJson, setItemJson] = useState({ data: [] });
+  const [item, setItem] = useState([]);
+  const [description, setDescription] = useState({});
+  const [attribName, setattribName] = useState('');
+  // useEffect(() => {
+  //       setItem(itemJson?.length > 0?itemJson[itemJson.length-1]:[])
+  //       console.log("Prueba",itemJson)
+  // }, [itemJson,setItem])
   useEffect(() => {
-        setItem(itemJson?.length > 0?itemJson[itemJson.length-1]:[])
-        console.log("Prueba",itemJson)
-  }, [itemJson,setItem])
-  useEffect(() => {
-      console.log(item)
-  }, [item])
-  useEffect(() => {
-    if(itemJson?.length>0){
-      const auxItemJson = itemJson;
-      let auxItem =auxItemJson[auxItemJson.length-1][0];
-      console.log("Atrib:",attribName)
-      if(attribName && description[attribName] !==auxItem[attribName]){
-        console.log("descripción",description)
-        auxItem = {
-          ...auxItem,
-          ...description};
-          auxItemJson[auxItemJson.length-1][0] = auxItem
+    console.log(item)
+    if (item) AddItem(item);
+  }, [item]);
+  // useEffect(() => {
+  //   console.log(itemJson)
+  //   if(itemJson?.length>0){
+  //     const auxItemJson = itemJson;
+  //     let auxItem =auxItemJson[auxItemJson.length-1][0];
+  //     console.log("Atrib:",attribName)
+  //     if(attribName && description[attribName] !==auxItem[attribName]){
+  //       console.log("descripción",description)
+  //       auxItem = {
+  //         ...auxItem,
+  //         ...description};
+  //         auxItemJson[auxItemJson.length-1][0] = auxItem
 
-        setItemJson([...auxItemJson])
+  //       setItemJson([...auxItemJson])
+  //     }
+  //   }
+  // }, [description,itemJson,attribName])
+  const AddItem = (Item) => {
+    if (Item && Item.length>0) {
+      const data = itemJson.data;
+      const pos = data.findIndex((x) => x[0]?.slide === Item[0].slide);
+      let subPos;
+      console.log('POS:', pos, data, Item);
+      if (pos < 0) data.push([...Item]);
+      else {
+        console.log(Item[pos])
+        console.log('DATA[POS]:', pos, data[pos]);
+        data[pos] = Item
       }
+      console.log('DATA[POS]:', pos, data[pos]);
+      if (
+        !item ||
+        item[0]?.slide !== Item[0]?.slide ||
+        (subPos !== undefined && subPos !== null && item[subPos]?.card !== Item[subPos]?.card)
+      ) {
+        if (pos < 0) {
+          setItem({ ...data[0] });
+        } else setItem({ ...data[pos] });
+      }
+      setItemJson({ ...itemJson, data:data });
     }
-  }, [description,itemJson,attribName])
-  const handleDescriptionbchange = (event)=>{
-    setDescription({
-      ...description,
-      [event.target.name]: event.target.value
-    });
-    setattribName(event.target.name)
-  }
-  const handleVideoAdd = (i) => {
-    setattribName("")
-    setDescription({})
-    const Video = [
-      {
-        slide: i,
-        card: '1',
-        slideType: 'video',
-        description: ""/*'Samurai Salmon Sashimi Salad'*/,
-        descriptionType: '',
-        data: ''/*'https://explainerpage-assets.s3.amazonaws.com/salmonvideos/00topfull.mp4'*/,
-        frames: '',
-        graphChange: '',
-        static: '',
-      },
-    ];
-    setItemJson([...itemJson, Video]);
   };
-  const handleAnimationAdd = (i) => {
-    setattribName("")
-    setDescription({})
-    const Animation = [
-      {
-        slide: i,
-        card: '1',
-        slideType: '2d',
-        description:"",//'The Samurai are one of the most recognised warrior classes in history. Few names conjure such distinct images in the mind. The armour, the sword and bow, the stoic honour and sense of duty, they paint the picture of the pop culture icons and the perfect warriors. But what did these perfect warriors eat? And what can we take away from their diets and apply to our own?',
-        descriptionType: 'card',
-        data: '',//'https://assets7.lottiefiles.com/private_files/lf30_k6oprjex.json',
-        frames: '31',//'451',
-        graphChange: '',
-        static: '',
-      },
-    ];
-    setItemJson([...itemJson, Animation]);
+  const handleDescriptionbchange = (event,i) => {
+    console.log(i)
+    const subItem = item;
+    subItem[i] = {...item[i], 
+      [event.target.name]: event.target.value,
+    }
+    setItem([
+
+      ...subItem,
+    ]
+    );
+    //setattribName(event.target.name);
   };
-  const handleTextAdd = (i) => {
-    setattribName("")
-    setDescription({})
-    const Text = [
-      {
-        slide: i,
-        card: '2',
-        slideType: 'text',
-        description: "",//'Prep Time: 30 min Cook Time: 30 min',
-        descriptionType: 'card',
-        data: '',
-        frames: '',
-        graphChange: '',
-        static: '',
-      },
-    ];
-    setItemJson([...itemJson, Text]);
+  const handleAdd = (i, type) => {
+    setattribName('');
+    setDescription({});
+    const miniItem = {
+      slide: i,
+      card: '1',
+      slideType: type,
+      description: '' /*'Samurai Salmon Sashimi Salad'*/,
+      descriptionType: '',
+      data: '' /*'https://explainerpage-assets.s3.amazonaws.com/salmonvideos/00topfull.mp4'*/,
+      frames: '',
+      graphChange: '',
+      static: '',
+    };
+    if (type === 'video' || type === '2d' || type === 'text') setItem([miniItem]);
   };
   return (
     <div className="Editor">
@@ -96,40 +91,50 @@ const Editor = () => {
         <Explainerpage itemJsonFile={itemJson} />
       </div>
       <div className="graphic">
-          Editor
-          <button onClick={()=>(handleVideoAdd(itemJson.length))}>Add Video</button>
-          <button onClick={()=>(handleAnimationAdd(itemJson.length))}>Add Animation</button>
-          <button onClick={()=>(handleTextAdd(itemJson.length))}>Add Text</button>
-          <div>
-            {itemJson?.length > 0 ? (
-              itemJson.map((left, i) => {
-                return <div key={i}>{left[0].slideType}</div>;
-              })
-            ) : (
-              <div>Vacio</div>
-            )}
-          </div>
+        Editor
+        <button onClick={() => handleAdd(itemJson.data.length, 'video')}>Add Video</button>
+        <button onClick={() => handleAdd(itemJson.data.length, '2d')}>Add Animation</button>
+        <button onClick={() => handleAdd(itemJson.data.length, 'text')}>Add Text</button>
+        <div>
+          {itemJson?.data?.length > 0 ? (
+            itemJson.data.map((left, i) => {
+              return <div key={i}>{left[0].slideType}</div>;
+            })
+          ) : (
+            <div>Vacio</div>
+          )}
         </div>
-        <div className="graphic">
-          Opciones
-          <div>
-            {item && item[0]?
+      </div>
+      <div className="graphic">
+        Opciones
+        <div>
+          {item && item.length>0 ? (
             <div>
               <div>{item[0].slideType}</div>
-              <input placeholder="description" onChange={handleDescriptionbchange} name='description' value={description.description?description.description:""}></input>
-              {item[0].slideType==='video' || item[0].slideType==='2d'?
-              <input placeholder="url" onChange={handleDescriptionbchange} name='data' value={description.data?description.data:""}></input>:null
-            }
-              {
-                item[0].slideType==='2d'?
-              <input placeholder="frames" onChange={handleDescriptionbchange} name='frames' value={description.frames?description.frames:""}></input>:null
-              }
-              </div>
-             : 
-              <div>Vacio</div>
-            }
-          </div>
+              {item[0].slideType === 'video' || item[0].slideType === '2d' ? (
+                <input placeholder="url" onChange={(event)=>handleDescriptionbchange(event,item[0].card-1)} name="data" value={item[0].data ? item[0].data : ''}></input>
+              ) : null}
+              {item[0].slideType === '2d' ? (
+                <input
+                  placeholder="frames"
+                  onChange={(event)=>handleDescriptionbchange(event,item[0].card-1)}
+                  name="frames"
+                  value={item[0].frames ? item[0].frames : ''}
+                ></input>
+              ) : null}
+              <input
+                placeholder="description"
+                onChange={(event)=>handleDescriptionbchange(event,item[0].card-1)}
+                name="description"
+                value={item[0].description ? item[0].description : ''}
+              ></input>
+              <button onClick={() => handleAdd(itemJson.data.length, 'video')}>Add Video</button>
+            </div>
+          ) : (
+            <div>Vacio</div>
+          )}
         </div>
+      </div>
     </div>
   );
 };

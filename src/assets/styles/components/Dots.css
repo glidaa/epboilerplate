@@ -16,7 +16,6 @@
     top: 0;
 }
 .Dots-circle {
-    transition: 0.4s ease-in-out transform color;
     cursor: pointer;
     margin: 5px 0 5px 0;
     width: 12px;
@@ -25,11 +24,11 @@
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background: rgb(233, 233, 233);
+    transition:0.5s ease transform;
 }
 .Dots-circle:hover{
     background: white;
     transform: scale(1.1);
-
 }
 .Dots-Active {
     background: #3584f7;
@@ -43,10 +42,10 @@
 
 .Dots-Sub-Active {
     background: #35e5f7;
-    width: 15px;
-    height: 15px;
+    transform: scale(1.4);
 }
 .Dots-Sub-Active:hover{
+    transform: scale(1.6);
     background: #51eeff;
 }
 .Dots-central{
