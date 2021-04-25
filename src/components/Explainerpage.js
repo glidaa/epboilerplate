@@ -31,7 +31,7 @@ const Explainerpage = (props) => {
           console.log('Error: ', err);
         });
     } else {
-      //console.log('ExplainerPage:', itemJson.dataFile);
+      console.log('ExplainerPage:', itemJson.dataFile);
       setItemJson(itemJsonFile);
     }
   }, [itemJsonFile]);
