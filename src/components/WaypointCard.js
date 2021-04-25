@@ -13,7 +13,6 @@ const WaypointCard = (props) => {
   useEffect(() => {
     const auxarray = Array(...componentNumberstate);
     auxarray[i] = {isView:inView, isSubView:[...subview]};
-    if(auxarray[i].isView)console.log(i,auxarray[i])
     setComponentNumberstate([...auxarray]);
   }, [inView,subview,setComponentNumberstate]);
   // useEffect(()=>{

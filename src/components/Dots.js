@@ -7,7 +7,6 @@ const Dots = (props) => {
   const { componentNumberstate, itemJson, isHeader } = props;
 
   const handleSetActive = (to) => {
-    console.log(to);
   };
   return (
     <div className={className('Dots', { 'Dots-Absolute': isHeader })}>

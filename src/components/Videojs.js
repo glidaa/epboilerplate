@@ -1,13 +1,13 @@
 import 'video.js/dist/video-js.css';
 import '../assets/styles/components/Video.css'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import VideoJs from 'video.js'
 
 const videoJsOptions = {
   // techOrder: ['html5', 'flash'],
   controls: false,
-  autoplay: true,
+  autoplay: false,
   fluid: false,
   loop: true,
   height: '100%',
@@ -16,8 +16,10 @@ const videoJsOptions = {
 
 const VideoPlayer = ({ src, display, width }) => {
   const videoContainer = useRef()
+  const [auxPlayer, setAuxPlayer] = useState()
   //console.log(src)
   //  Setup the player
+  const [load, setLoad] = useState(false)
   useEffect(() => {
     //  Setting content like this because player.dispose() remove also the html contentif
     //console.log(videoContainer)
@@ -25,19 +27,33 @@ const VideoPlayer = ({ src, display, width }) => {
 
         videoContainer.current.innerHTML = `
         <div data-vjs-player>
-        <video class="video-js" />
+        <video class="video-js" width="640" height="360" />
         </div>
         `
-        
-
-        const player = VideoJs(videoContainer.current.querySelector('video'), videoJsOptions, async () => {
-            player.src({ src: src})
+       const player = VideoJs(videoContainer.current.querySelector('video'), videoJsOptions, async () => {
+         console.log("TRUEEE")
+        player.src({ src: src})
+        setAuxPlayer(player)
     })
     
     //  When destruct dispose the player
     return () => player.dispose()
 }
-  }, [display,src])
+  }, [src])
+  useEffect(() => {
+    console.log("REPRODUCTOR:", auxPlayer)
+  }, [auxPlayer])
+
+  useEffect(() => {
+    console.log("Entra",display,auxPlayer)
+    if(display && auxPlayer){
+      console.log("Play")
+      auxPlayer.play()
+    }else if(auxPlayer && !display){
+      auxPlayer.pause()
+      auxPlayer.currentTime(0)
+    }
+  }, [display,auxPlayer])
 
   return (
     <div
@@ -47,7 +63,7 @@ const VideoPlayer = ({ src, display, width }) => {
     }}
   >
     <div className="video__div" style={{width:`${width}px`}}>
-      {display?<div style={{ width: '100%', height: '100%', display:'flex', alignItems:'center'}} ref={videoContainer}/>:null}
+      {<div style={{ width: '100%', height: '100%', display:'flex', alignItems:'center'}} ref={videoContainer}/>}
       </div>
       </div>
   )
