@@ -7,8 +7,10 @@ import className from 'classnames';
 import LottiePlayer from './LottiePlayer';
 import WaypointCard from './WaypointCard';
 import VideoBackground from './VideoBackground';
+import RecordPlayer from './RecordPlayer';
 
 import '../assets/styles/components/Scrollyteller.css';
+import RecordPlayerWr from "./RecordPlayerWr";
 
 const Scrollyteller = () => {
   const [itemJson, setItemJson] = useState([]);
@@ -140,6 +142,10 @@ const Scrollyteller = () => {
           )}
         </div>
       </section>
+
+      <RecordPlayerWr>
+        <RecordPlayer />
+      </RecordPlayerWr>
     </div>
   );
 };
