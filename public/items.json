@@ -32,7 +32,7 @@
                 "slide": "1",
                 "card": "1",
                 "slideType": "video",
-                "description": "<div style='background-color: rgb(27, 54, 99);'><div><img src='https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/backgrounds/Samurai_suchi_salad.png' alt='Samauri Salmon Sushi Salad'></div><div><h1 style='FONT-WEIGHT: 200;font-family: &quot;Gang of Three&quot;;font-size: 50px;color: rgb(214, 110, 64);'>Salmond Salad</h1></div></div>",
+                "description": "<div style='background-color: rgb(255, 255, 255);'><div><img src='https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/backgrounds/Samurai_suchi_salad.png' alt='Samauri Salmon Sushi Salad'></div><div><h1 style='FONT-WEIGHT: 200;font-family: &quot;Gang of Three&quot;;font-size: 50px;color: rgb(214, 110, 64);'>Samurai Salmon Sashimi Salad</h1></div></div>",
                 "descriptionType": "",
                 "data": "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/SalmonSalad/salmonvideos/00topfull/00topfull.m3u8",
                 "frames": "69",
@@ -40,7 +40,7 @@
                 "static": "",
                 "style": {
                     "backgroundImage":"none",
-                    "backgroundColor": "#1b3663",
+                    "backgroundColor": "#fff",
                     "color": "#2c2c2c"
                 }
             },
