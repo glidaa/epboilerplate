@@ -1,19 +1,49 @@
-import React from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import albumImg from '../assets/images/albums/album12.jpg';
+import song from '../assets/mp3/Dream_On_This_Side.mp3';
+import Controls from "./Controls";
 
 const RecordPlayer = () => {
+    const [isPlayed, setIsPlayed] = useState(false);
+    const [isFirstPlay, setIsFirstPlay] = useState(false);
+    const songRef = useRef();
+    const playOrPause = useCallback(() => {
+        if (isPlayed) {
+            songRef.current.pause();
+        } else {
+            songRef.current.play();
+        }
+
+        if (!isFirstPlay) {
+            setTimeout(() => {
+                setIsFirstPlay(!isFirstPlay);
+            }, 2000)
+            setIsPlayed(!isPlayed);
+        } else {
+            setIsPlayed(!isPlayed)
+        }
+    }, [isPlayed]);
+
+    const resetAudio = useCallback(() => {
+        setIsPlayed(false);
+        setIsFirstPlay(false);
+    }, [])
+
     return (
-        <div className="single" id="album-12"
-             data-side1="mp3/Dream_On_This_Side.mp3,mp3/Stolen_Dreams_Backing_Track.mp3,mp3/Old_Man_and_the_Sea_II.mp3"
-             data-side2="mp3/Beyond_Jupiter.mp3,mp3/Dawn's_Battle.mp3,mp3/Beautiful_Paranoia.mp3">
-            <div className="img-wrap img-wrap--single">
-                <img className="img img--single" src={albumImg} alt="Whistlespankers"/>
+        <>
+            <div className="single" id="album-12" >
+                <div className="img-wrap img-wrap--single">
+                    <img className="img img--single" src={albumImg} alt="Whistlespankers"/>
+                </div>
+                <span className="year year--single">1990</span>
+                <div className='artist-name'>
+                    <h2 className="artist artist--single">The Whistlespankers</h2>
+                    <h3 className="title title--single">Nigel &amp; Me</h3>
+                </div>
+                <audio ref={songRef} src={song} autoPlay={false} loop={false} onEnded={resetAudio}/>
             </div>
-            <span className="number">12<span className="number__total">12</span></span>
-            <span className="year year--single">1990</span>
-            <h2 className="artist artist--single">The Whistlespankers</h2>
-            <h3 className="title title--single">Nigel &amp; Me</h3>
-        </div>
+            <Controls isPlayed={isPlayed} playOrPause={playOrPause} isFirstPlay={isFirstPlay}/>
+        </>
     )
 };
 

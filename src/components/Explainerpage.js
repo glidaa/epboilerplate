@@ -8,9 +8,9 @@ import LottiePlayer from './LottiePlayer';
 import WaypointCard from './WaypointCard';
 import VideoBackground from './VideoBackground';
 import RecordPlayer from './RecordPlayer';
+import RecordPlayerWr from "./RecordPlayerWr";
 
 import '../assets/styles/components/Scrollyteller.css';
-import RecordPlayerWr from "./RecordPlayerWr";
 
 const Scrollyteller = () => {
   const [itemJson, setItemJson] = useState([]);
