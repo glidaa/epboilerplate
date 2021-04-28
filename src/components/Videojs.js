@@ -31,7 +31,6 @@ const VideoPlayer = ({ src, display, width }) => {
         </div>
         `
        const player = VideoJs(videoContainer.current.querySelector('video'), videoJsOptions, async () => {
-         console.log("TRUEEE")
         player.src({ src: src})
         setAuxPlayer(player)
     })
@@ -41,13 +40,10 @@ const VideoPlayer = ({ src, display, width }) => {
 }
   }, [src])
   useEffect(() => {
-    console.log("REPRODUCTOR:", auxPlayer)
   }, [auxPlayer])
 
   useEffect(() => {
-    console.log("Entra",display,auxPlayer)
     if(display && auxPlayer){
-      console.log("Play")
       auxPlayer.play()
     }else if(auxPlayer && !display){
       auxPlayer.pause()
