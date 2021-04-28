@@ -4,7 +4,7 @@ import "../assets/styles/components/Video.css";
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import videoJs from "video.js";
 
-const VideoPlayer = ({ src, isVisible, width }) => {
+const VideoPlayer = ({ src, isVisible, width, shouldPreload }) => {
   const videoContainer = useRef();
   const [player, setPlayer] = useState();
 
@@ -24,17 +24,17 @@ const VideoPlayer = ({ src, isVisible, width }) => {
 
   //  Setup the player
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible || shouldPreload) {
       if (!player) {
         setPlayer(videoJs(videoContainer.current, videoJsOptions));
-      } else {
+      } else if (player && isVisible) {
         player.play();
       }
     } else if (!isVisible && player) {
       player.pause();
       player.currentTime(0);
     }
-  }, [isVisible, player, videoJsOptions]);
+  }, [isVisible, player, videoJsOptions, shouldPreload]);
 
   return (
     <div

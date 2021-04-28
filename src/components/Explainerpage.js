@@ -90,6 +90,7 @@ const Explainerpage = (props) => {
                                 : left[0].data
                             }
                             isVisible={componentNumberstate[i]?.isView}
+                            shouldPreload={componentNumberstate[i - 1]?.isView}
                           />
                         );
                       case "text":
