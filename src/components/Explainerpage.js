@@ -1,56 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import { iOS, isSafari } from './iosSupport';
-import className from 'classnames';
-import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
-import { useInView } from 'react-intersection-observer';
-import { Element } from 'react-scroll';
+import React, { useEffect, useState } from "react";
+import { iOS, isSafari } from "./iosSupport";
+import className from "classnames";
+import { useResizeDetector } from "react-resize-detector/build/withPolyfill";
+import { useInView } from "react-intersection-observer";
+import { Element } from "react-scroll";
 
-import LottiePlayer from './LottiePlayer';
-import WaypointCard from './WaypointCard';
+import LottiePlayer from "./LottiePlayer";
+import WaypointCard from "./WaypointCard";
 
-import '../assets/styles/components/Scrollyteller.css';
+import "../assets/styles/components/Scrollyteller.css";
 //import Video from './Video-React-player';
-import Videojs from './Videojs';
-import Dots from './Dots';
-import Header from './Header';
+import Videojs from "./Videojs";
+import Dots from "./Dots";
+import Header from "./Header";
 //import VideoDash from './VideoDash'
 
 const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
   const { itemJsonFile } = props;
-  const [itemJson, setItemJson] = useState([]);
+  const [itemJson, setItemJson] = useState({});
   useEffect(() => {
-    console.log("Test")
+    console.log("Test");
     if (!itemJsonFile) {
-      fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
+      fetch(process.env.PUBLIC_URL + "/items.json?v=" + Date.now())
         .then((response) => response.json())
         .then((data) => {
           setItemJson(data);
         })
         .catch(function (err) {
-          console.log('Error: ', err);
+          console.log("Error: ", err);
         });
     } else {
-      //console.log('ExplainerPage:', itemJson.dataFile);
+      console.log("ExplainerPage:", itemJson.dataFile);
       setItemJson(itemJsonFile);
     }
   }, [itemJsonFile]);
   useEffect(() => {
-    console.log("ITEMJSON:", itemJson)
+    console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {
-      var new_font = new FontFace(itemJson.fonts.families[0], 'url(' + itemJson.fonts.urls[0] + ')');
+      var new_font = new FontFace(
+        itemJson.fonts.families[0],
+        "url(" + itemJson.fonts.urls[0] + ")"
+      );
       new_font
         .load()
         .then(function (loaded_face) {
           // use font here
-          console.log('La fuente cargó');
+          console.log("La fuente cargó");
           document.fonts.add(loaded_face);
         })
         .catch(function (error) {});
     }
   }, [itemJson]);
 
-  const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
+  const isSafarioIos = className(
+    `left-side ${isSafari() || iOS() ? "scrollyTeller-lottie-height" : ""}`
+  );
 
   const [componentNumberstate, setComponentNumberstate] = useState([]);
   const [refView, inView] = useInView();
@@ -61,7 +66,7 @@ const Explainerpage = (props) => {
           <Header header={itemJson?.header} fonts={itemJson?.fonts} />
         </div>
       ) : null}
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: "relative" }}>
         <Dots
           isHeader={inView}
           setComponentNumberstate={setComponentNumberstate}
@@ -74,37 +79,45 @@ const Explainerpage = (props) => {
               {itemJson?.data?.length > 0
                 ? itemJson.data.map((left, i) => {
                     switch (left[0].slideType) {
-                      case 'video':
+                      case "video":
                         return (
                           <Videojs
                             width={width}
                             key={i}
-                            src={componentNumberstate[i]?.isView ? left[0].data : left[0].data}
-                            visible={componentNumberstate[i]?.isView}
-                            display={componentNumberstate[i]?.isView}
+                            src={
+                              componentNumberstate[i]?.isView
+                                ? left[0].data
+                                : left[0].data
+                            }
+                            isVisible={componentNumberstate[i]?.isView}
+                            shouldPreload={componentNumberstate[i - 1]?.isView}
                           />
                         );
-                      case 'text':
+                      case "text":
                         return (
                           <div
                             className="left-side text video"
                             key={i}
                             style={{
-                              display: componentNumberstate[i]?.isView ? 'flex' : 'none',
+                              display: componentNumberstate[i]?.isView
+                                ? "flex"
+                                : "none",
                             }}
                           >
                             <div />
                           </div>
                         );
 
-                      case '2d':
+                      case "2d":
                         return (
                           <div
                             className={isSafarioIos}
                             style={{
-                              display: componentNumberstate[i]?.isView ? 'flex' : 'none',
-                              width: '100%',
-                              transformOrigin: '0px 0px 0px',
+                              display: componentNumberstate[i]?.isView
+                                ? "flex"
+                                : "none",
+                              width: "100%",
+                              transformOrigin: "0px 0px 0px",
                             }}
                             id={`canvascontainer${i}`}
                             key={i}
@@ -131,17 +144,18 @@ const Explainerpage = (props) => {
             <div className="scroller" id="scroller">
               {itemJson?.data?.length > 0 ? (
                 itemJson.data.map((narr, i) => (
-                    <WaypointCard key={i}
-                      setComponentNumberstate={setComponentNumberstate}
-                      componentNumberstate={componentNumberstate}
-                      i={i}
-                      text={narr?.map((card) => card.description)}
-                      styles={narr?.map((card) => card.style)}
-                      isText={narr[0].slideType === 'text'}
-                      isFirst={i === 0}
-                      isLast={i === itemJson.data.length - 1}
-                      background={itemJson.background}
-                    />
+                  <WaypointCard
+                    key={i}
+                    setComponentNumberstate={setComponentNumberstate}
+                    componentNumberstate={componentNumberstate}
+                    i={i}
+                    text={narr?.map((card) => card.description)}
+                    styles={narr?.map((card) => card.style)}
+                    isText={narr[0].slideType === "text"}
+                    isFirst={i === 0}
+                    isLast={i === itemJson.data.length - 1}
+                    background={itemJson.background}
+                  />
                 ))
               ) : (
                 <WaypointCard
@@ -149,7 +163,7 @@ const Explainerpage = (props) => {
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
                   i={0}
-                  text={['Loading']}
+                  text={["Loading"]}
                   isText={false}
                   isFirst={true}
                   isLast={true}

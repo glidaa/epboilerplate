@@ -1,68 +1,69 @@
-import 'video.js/dist/video-js.css';
-import '../assets/styles/components/Video.css'
+import "video.js/dist/video-js.css";
+import "../assets/styles/components/Video.css";
 
-import React, { useEffect, useRef, useState } from 'react'
-import VideoJs from 'video.js'
+import React, { useEffect, useRef, useState, useMemo } from "react";
+import videoJs from "video.js";
 
-const videoJsOptions = {
-  // techOrder: ['html5', 'flash'],
-  controls: false,
-  autoplay: false,
-  fluid: false,
-  loop: true,
-  height: '100%',
-  muted: true
-}
+const VideoPlayer = ({ src, isVisible, width, shouldPreload }) => {
+  const videoContainer = useRef();
+  const [player, setPlayer] = useState();
 
-const VideoPlayer = ({ src, display, width }) => {
-  const videoContainer = useRef()
-  const [auxPlayer, setAuxPlayer] = useState()
-  //console.log(src)
+  const videoJsOptions = useMemo(
+    () => ({
+      // techOrder: ['html5', 'flash'],
+      controls: false,
+      autoplay: false,
+      fluid: false,
+      loop: true,
+      height: "100%",
+      muted: true,
+      sources: [{ src: src }],
+    }),
+    [src]
+  );
+
   //  Setup the player
-  const [load, setLoad] = useState(false)
   useEffect(() => {
-    //  Setting content like this because player.dispose() remove also the html contentif
-    //console.log(videoContainer)
-    if(videoContainer?.current){
-
-        videoContainer.current.innerHTML = `
-        <div data-vjs-player>
-        <video class="video-js" width="640" height="360" />
-        </div>
-        `
-       const player = VideoJs(videoContainer.current.querySelector('video'), videoJsOptions, async () => {
-        player.src({ src: src})
-        setAuxPlayer(player)
-    })
-    
-    //  When destruct dispose the player
-    return () => player.dispose()
-}
-  }, [src])
-  useEffect(() => {
-  }, [auxPlayer])
-
-  useEffect(() => {
-    if(display && auxPlayer){
-      auxPlayer.play()
-    }else if(auxPlayer && !display){
-      auxPlayer.pause()
-      auxPlayer.currentTime(0)
+    if (isVisible || shouldPreload) {
+      if (!player) {
+        setPlayer(videoJs(videoContainer.current, videoJsOptions));
+      } else if (player && isVisible) {
+        player.play();
+      }
+    } else if (!isVisible && player) {
+      player.pause();
+      player.currentTime(0);
     }
-  }, [display,auxPlayer])
+  }, [isVisible, player, videoJsOptions, shouldPreload]);
 
   return (
     <div
-    className="left-side video"
-    style={{
-      display: display /*|| !display & !load */? 'flex' : 'none',
-    }}
-  >
-    <div className="video__div" style={{width:`${width}px`}}>
-      {<div style={{ width: '100%', height: '100%', display:'flex', alignItems:'center'}} ref={videoContainer}/>}
+      className="left-side video"
+      style={{
+        display: isVisible ? "flex" : "none",
+      }}
+    >
+      <div className="video__div" style={{ width: `${width}px` }}>
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <div data-vjs-player>
+            <video
+              ref={videoContainer}
+              className="video-js"
+              width="640"
+              height="360"
+            ></video>
+          </div>
+        </div>
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default VideoPlayer
+export default VideoPlayer;
