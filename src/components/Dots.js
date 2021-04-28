@@ -4,7 +4,7 @@ import className from "classnames";
 import { Link } from "react-scroll";
 
 const Dots = (props) => {
-  const { componentNumberstate, itemJson, isHeader } = props;
+  const { componentNumberstate, itemJson, isHeader, } = props;
 
   const [scrollState, setScrollState] = useState({
     previous: {
@@ -18,13 +18,9 @@ const Dots = (props) => {
   });
 
   useEffect(() => {
-    let currentSlide = componentNumberstate.findIndex(
-      (v, i) => v?.isView === true
-    );
+    let currentSlide = componentNumberstate?.currentScrollState?componentNumberstate.currentScrollState.slide:-1
     if (currentSlide === -1) return null;
-    let currentCard = componentNumberstate[currentSlide].isSubView.findIndex(
-      (v) => v
-    );
+    let currentCard = componentNumberstate?.currentScrollState?componentNumberstate.currentScrollState.card:-1
     if (currentCard === -1) return null;
 
     setScrollState((prevScrollState) => {
@@ -36,7 +32,7 @@ const Dots = (props) => {
       return {
         previous: {
           slide: prevScrollState.current.slide,
-          card: prevScrollState.current.card,
+          card: prevScrollState.current.card
         },
         current: {
           slide: currentSlide,
@@ -44,7 +40,7 @@ const Dots = (props) => {
         },
       };
     });
-  }, [componentNumberstate]);
+  }, [componentNumberstate?.currentScrollState]);
 
   const handleSetActive = (to) => {};
   return (
@@ -65,10 +61,10 @@ const Dots = (props) => {
                     duration={500}
                     onSetActive={handleSetActive}
                     className={className("Dots-circle", {
-                      "Dots-Active": componentNumberstate[i]?.isView,
+                      "Dots-Active": componentNumberstate?.inViewData.isView === i,
                     })}
                   />
-                  {item?.length > 1 && componentNumberstate[i]?.isView
+                  {item?.length > 1 && componentNumberstate?.inViewData.isView === i
                     ? item.map((subitem, j) => {
                         return (
                           <Link
@@ -84,7 +80,7 @@ const Dots = (props) => {
                               "Dots-SubCircle",
                               {
                                 "Dots-Sub-Active":
-                                  componentNumberstate[i]?.isSubView[j],
+                                  componentNumberstate?.inViewData[i]?.isSubView[j],
                               }
                             )}
                           />

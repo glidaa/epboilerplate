@@ -5,13 +5,11 @@ import { useInView } from 'react-intersection-observer';
 import { Element } from 'react-scroll';
 
 const SubCard = (props) => {
-  const { j, length, i, isText, card, setSubview, subview, background, styles } = props;
+  const { j, length, i, isText, card, setSubview, background, styles } = props;
   const [refView, inView] = useInView();
 
   useEffect(() => {
-    const auxarray = Array(...subview);
-    auxarray[j] = inView;
-    setSubview(auxarray);
+    if(inView) setSubview(j);
   }, [inView]);
 
   const setHTML = (data) => {
