@@ -26,345 +26,397 @@
             "url": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/backgrounds/salmonbg05.png"
         }
     ],
-    "data": [
-        [
-            {
-                "slide": "1",
-                "card": "1",
-                "slideType": "video",
-                "description": "<div style='background-color: rgb(255, 255, 255);'><div><img src='https://dv3z5txku61se.cloudfront.net/SalmonSalad/backgrounds/Samurai_suchi_salad.png' alt='Samauri Salmon Sushi Salad'></div><div><h1 style='FONT-WEIGHT: 200;font-family: &quot;Gang of Three&quot;;font-size: 50px;color: rgb(214, 110, 64);'>Officeworks 01</h1></div></div>",
-                "descriptionType": "",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/00topfull/00topfull.m3u8",
-                "frames": "69",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundImage":"none",
-                    "backgroundColor": "#fff",
-                    "color": "#2c2c2c"
+    "slides": [
+        {
+            "id": "0",
+            "pos": 0,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": 0,
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/00topfull/00topfull.m3u8",
+            "cards": [
+                {
+                    "id": "0",
+                    "pos": 0,
+                    "description": "<div style='background-color: rgb(255, 255, 255);'><div><img src='https://dv3z5txku61se.cloudfront.net/SalmonSalad/backgrounds/Samurai_suchi_salad.png' alt='Samauri Salmon Sushi Salad'></div><div><h1 style='FONT-WEIGHT: 200;font-family: &quot;Gang of Three&quot;;font-size: 50px;color: rgb(214, 110, 64);'>Officeworks 01</h1></div></div>",
+                    "style": {
+                        "backgroundImage": "none",
+                        "backgroundColor": "#fff",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId": "0"
+                },
+                {
+                    "id": "1",
+                    "pos": 1,
+                    "description": "Prep Time: 30 min Cook Time: 30 min",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId": "0"
                 }
-            },
-            {
-                "slide": "1",
-                "card": "2",
-                "slideType": "video",
-                "description": "Prep Time: 30 min Cook Time: 30 min",
-                "descriptionType": "card",
-                "data": "",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "1",
+            "pos": 1,
+            "slidePageId": "0",
+            "type": "animation2D",
+            "frames": "451",
+            "data": "https://assets7.lottiefiles.com/private_files/lf30_k6oprjex.json",
+            "cards":[
+                {
+                    "id": "2",
+                    "pos":0,
+                    "description": "The Samurai are one of the most recognised warrior classes in history. Few names conjure such distinct images in the mind. The armour, the sword and bow, the stoic honour and sense of duty, they paint the picture of the pop culture icons and the perfect warriors. But what did these perfect warriors eat? And what can we take away from their diets and apply to our own?",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"1"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "2",
-                "card": "1",
-                "slideType": "2d",
-                "description": "The Samurai are one of the most recognised warrior classes in history. Few names conjure such distinct images in the mind. The armour, the sword and bow, the stoic honour and sense of duty, they paint the picture of the pop culture icons and the perfect warriors. But what did these perfect warriors eat? And what can we take away from their diets and apply to our own?",
-                "descriptionType": "card",
-                "data": "https://assets7.lottiefiles.com/private_files/lf30_k6oprjex.json",
-                "frames": "451",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "2",
+            "pos": 2,
+            "slidePageId": "0",
+            "type": "text",
+            "frames": "",
+            "data": "",
+            "cards":[
+                {
+                    "id": "3",
+                    "pos":0,
+                    "description": "<p>Unsurprisingly, these warriors were some of the most respected people of their age, but contrary to what you might think, this did not translate into a particularly hedonistic diet. Food for the Samurai was simply a matter of fuelling their bodies, not something to be enjoyed. An obvious main staple was rice.</p>\n<p>Rice in Japanese society has long been a valuable commodity. This stems largely from how difficult farming is in Japan, a mountainous country with little agricultural land. A Samurai&rsquo;s wealth was also measured in terms of rice.</p>\n<p>Called Koku, one koku of rice was how much rice it took to feed one man for a year, about 180 kg. Like many peasants, Samurai ate husked rice (brown rice), though this was different from what we today know as brown rice.</p>\n<p>Everything else the Samurai ate depended on the season. They had an incredibly varied diet of greens including cucumbers (which were often pickled), potatoes of many varieties, radishes and fruits, which included sour plums, apricots and oranges.</p>\n<p>They also ate various nuts, tofu and beans. All this combined to create what we today would recognise as a balanced and healthy diet, but you will have noticed the absence of one particular food stuff &mdash; meat. Their religion, Shinto Buddhism, considered the eating of meat to be unclean. The first law was introduced in 675AD, with subsequent imperial decrees in the 8th century making it a criminal offence to consume the meat of any mammal.</p>\n<p>The laws may restrict the consumption of mammals, but they say nothing of seafood. And so, the Samurai, and indeed all of Japan at the time, became what we today would call pescatarians.</p>\n<p>They ate clams, trout, carp and tuna, among the sea&rsquo;s vegetarian offerings like seaweed. These early religious restrictions are where Japan&rsquo;s mastery of seafood comes from today &mdash; they have been masters of the bounty of the seas for at least 1400 years.</p><p>Unsurprisingly, these warriors were some of the most respected people of their age, but contrary to what you might think, this did not translate into a particularly hedonistic diet. Food for the Samurai was simply a matter of fuelling their bodies, not something to be enjoyed. An obvious main staple was rice.</p>\n<p>Rice in Japanese society has long been a valuable commodity. This stems largely from how difficult farming is in Japan, a mountainous country with little agricultural land. A Samurai&rsquo;s wealth was also measured in terms of rice.</p>\n<p>Called Koku, one koku of rice was how much rice it took to feed one man for a year, about 180 kg. Like many peasants, Samurai ate husked rice (brown rice), though this was different from what we today know as brown rice.</p>\n<p>Everything else the Samurai ate depended on the season. They had an incredibly varied diet of greens including cucumbers (which were often pickled), potatoes of many varieties, radishes and fruits, which included sour plums, apricots and oranges.</p>\n<p>They also ate various nuts, tofu and beans. All this combined to create what we today would recognise as a balanced and healthy diet, but you will have noticed the absence of one particular food stuff &mdash; meat. Their religion, Shinto Buddhism, considered the eating of meat to be unclean. The first law was introduced in 675AD, with subsequent imperial decrees in the 8th century making it a criminal offence to consume the meat of any mammal.</p>\n<p>The laws may restrict the consumption of mammals, but they say nothing of seafood. And so, the Samurai, and indeed all of Japan at the time, became what we today would call pescatarians.</p>\n<p>They ate clams, trout, carp and tuna, among the sea&rsquo;s vegetarian offerings like seaweed. These early religious restrictions are where Japan&rsquo;s mastery of seafood comes from today &mdash; they have been masters of the bounty of the seas for at least 1400 years.</p><p>Unsurprisingly, these warriors were some of the most respected people of their age, but contrary to what you might think, this did not translate into a particularly hedonistic diet. Food for the Samurai was simply a matter of fuelling their bodies, not something to be enjoyed. An obvious main staple was rice.</p>\n<p>Rice in Japanese society has long been a valuable commodity. This stems largely from how difficult farming is in Japan, a mountainous country with little agricultural land. A Samurai&rsquo;s wealth was also measured in terms of rice.</p>\n<p>Called Koku, one koku of rice was how much rice it took to feed one man for a year, about 180 kg. Like many peasants, Samurai ate husked rice (brown rice), though this was different from what we today know as brown rice.</p>\n<p>Everything else the Samurai ate depended on the season. They had an incredibly varied diet of greens including cucumbers (which were often pickled), potatoes of many varieties, radishes and fruits, which included sour plums, apricots and oranges.</p>\n<p>They also ate various nuts, tofu and beans. All this combined to create what we today would recognise as a balanced and healthy diet, but you will have noticed the absence of one particular food stuff &mdash; meat. Their religion, Shinto Buddhism, considered the eating of meat to be unclean. The first law was introduced in 675AD, with subsequent imperial decrees in the 8th century making it a criminal offence to consume the meat of any mammal.</p>\n<p>The laws may restrict the consumption of mammals, but they say nothing of seafood. And so, the Samurai, and indeed all of Japan at the time, became what we today would call pescatarians.</p>\n<p>They ate clams, trout, carp and tuna, among the sea&rsquo;s vegetarian offerings like seaweed. These early religious restrictions are where Japan&rsquo;s mastery of seafood comes from today &mdash; they have been masters of the bounty of the seas for at least 1400 years.</p>",
+                    "style": {
+                        "backgroundColor": "#ffffff08",
+                        "color": "white"
+                    },
+                    "cardSlideId":"2"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "3",
-                "card": "1",
-                "slideType": "text",
-                "description": "<p>Unsurprisingly, these warriors were some of the most respected people of their age, but contrary to what you might think, this did not translate into a particularly hedonistic diet. Food for the Samurai was simply a matter of fuelling their bodies, not something to be enjoyed. An obvious main staple was rice.</p>\n<p>Rice in Japanese society has long been a valuable commodity. This stems largely from how difficult farming is in Japan, a mountainous country with little agricultural land. A Samurai&rsquo;s wealth was also measured in terms of rice.</p>\n<p>Called Koku, one koku of rice was how much rice it took to feed one man for a year, about 180 kg. Like many peasants, Samurai ate husked rice (brown rice), though this was different from what we today know as brown rice.</p>\n<p>Everything else the Samurai ate depended on the season. They had an incredibly varied diet of greens including cucumbers (which were often pickled), potatoes of many varieties, radishes and fruits, which included sour plums, apricots and oranges.</p>\n<p>They also ate various nuts, tofu and beans. All this combined to create what we today would recognise as a balanced and healthy diet, but you will have noticed the absence of one particular food stuff &mdash; meat. Their religion, Shinto Buddhism, considered the eating of meat to be unclean. The first law was introduced in 675AD, with subsequent imperial decrees in the 8th century making it a criminal offence to consume the meat of any mammal.</p>\n<p>The laws may restrict the consumption of mammals, but they say nothing of seafood. And so, the Samurai, and indeed all of Japan at the time, became what we today would call pescatarians.</p>\n<p>They ate clams, trout, carp and tuna, among the sea&rsquo;s vegetarian offerings like seaweed. These early religious restrictions are where Japan&rsquo;s mastery of seafood comes from today &mdash; they have been masters of the bounty of the seas for at least 1400 years.</p><p>Unsurprisingly, these warriors were some of the most respected people of their age, but contrary to what you might think, this did not translate into a particularly hedonistic diet. Food for the Samurai was simply a matter of fuelling their bodies, not something to be enjoyed. An obvious main staple was rice.</p>\n<p>Rice in Japanese society has long been a valuable commodity. This stems largely from how difficult farming is in Japan, a mountainous country with little agricultural land. A Samurai&rsquo;s wealth was also measured in terms of rice.</p>\n<p>Called Koku, one koku of rice was how much rice it took to feed one man for a year, about 180 kg. Like many peasants, Samurai ate husked rice (brown rice), though this was different from what we today know as brown rice.</p>\n<p>Everything else the Samurai ate depended on the season. They had an incredibly varied diet of greens including cucumbers (which were often pickled), potatoes of many varieties, radishes and fruits, which included sour plums, apricots and oranges.</p>\n<p>They also ate various nuts, tofu and beans. All this combined to create what we today would recognise as a balanced and healthy diet, but you will have noticed the absence of one particular food stuff &mdash; meat. Their religion, Shinto Buddhism, considered the eating of meat to be unclean. The first law was introduced in 675AD, with subsequent imperial decrees in the 8th century making it a criminal offence to consume the meat of any mammal.</p>\n<p>The laws may restrict the consumption of mammals, but they say nothing of seafood. And so, the Samurai, and indeed all of Japan at the time, became what we today would call pescatarians.</p>\n<p>They ate clams, trout, carp and tuna, among the sea&rsquo;s vegetarian offerings like seaweed. These early religious restrictions are where Japan&rsquo;s mastery of seafood comes from today &mdash; they have been masters of the bounty of the seas for at least 1400 years.</p><p>Unsurprisingly, these warriors were some of the most respected people of their age, but contrary to what you might think, this did not translate into a particularly hedonistic diet. Food for the Samurai was simply a matter of fuelling their bodies, not something to be enjoyed. An obvious main staple was rice.</p>\n<p>Rice in Japanese society has long been a valuable commodity. This stems largely from how difficult farming is in Japan, a mountainous country with little agricultural land. A Samurai&rsquo;s wealth was also measured in terms of rice.</p>\n<p>Called Koku, one koku of rice was how much rice it took to feed one man for a year, about 180 kg. Like many peasants, Samurai ate husked rice (brown rice), though this was different from what we today know as brown rice.</p>\n<p>Everything else the Samurai ate depended on the season. They had an incredibly varied diet of greens including cucumbers (which were often pickled), potatoes of many varieties, radishes and fruits, which included sour plums, apricots and oranges.</p>\n<p>They also ate various nuts, tofu and beans. All this combined to create what we today would recognise as a balanced and healthy diet, but you will have noticed the absence of one particular food stuff &mdash; meat. Their religion, Shinto Buddhism, considered the eating of meat to be unclean. The first law was introduced in 675AD, with subsequent imperial decrees in the 8th century making it a criminal offence to consume the meat of any mammal.</p>\n<p>The laws may restrict the consumption of mammals, but they say nothing of seafood. And so, the Samurai, and indeed all of Japan at the time, became what we today would call pescatarians.</p>\n<p>They ate clams, trout, carp and tuna, among the sea&rsquo;s vegetarian offerings like seaweed. These early religious restrictions are where Japan&rsquo;s mastery of seafood comes from today &mdash; they have been masters of the bounty of the seas for at least 1400 years.</p>",
-                "descriptionType": "card",
-                "data": "",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#ffffff08",
-                    "color": "white"
+            ]
+        },
+        {
+            "id": "3",
+            "pos": 3,
+            "slidePageId": "0",
+            "type": "animation2D",
+            "frames": "",
+            "data": "https://assets3.lottiefiles.com/packages/lf20_3EMUcg.json",
+            "cards":[
+                {
+                    "id": "4",
+                    "pos":0,
+                    "description": "<p><strong>INGREDIENTS</strong></p>\n<p><span style='font-weight: 400;'>1 package thin dried rice noodles (also called rice vermicelli)</span></p>\n<p><span style='font-weight: 400;'>3/4 cup vegetable oil, for frying noodles</span></p>\n<p><span style='font-weight: 400;'>1 cup soy sauce (use tamari for gluten free)</span></p>\n<p><span style='font-weight: 400;'>1/4 cup miso paste</span></p>\n<p><span style='font-weight: 400;'>3 tsp toasted sesame oil</span></p>\n<p><span style='font-weight: 400;'>4 tbsp minced lemon grass (use paste if you prefer)</span></p>\n<p><span style='font-weight: 400;'>8 garlic cloves (peeled)</span></p>\n<p><span style='font-weight: 400;'>2.5-3cm piece of ginger</span></p>\n<p><span style='font-weight: 400;'>2 limes</span></p>\n<p><span style='font-weight: 400;'>4 jalapeno peppers</span></p>\n<p><span style='font-weight: 400;'>1 heaping cup of coriander</span></p>\n<p><span style='font-weight: 400;'>3/4 cup of sour cream</span></p>\n<p><span style='font-weight: 400;'>2 tbsp extra virgin olive oil</span></p>\n<p><span style='font-weight: 400;'>1 bag of rocket and baby spinach</span></p>\n<p>&nbsp;</p>\n<p><span style='font-weight: 400;'>Salmon fillets</span></p>\n<p><span style='font-weight: 400;'>Wasabi paste</span></p>\n<p><span style='font-weight: 400;'>Pickled, sliced ginger</span></p>\n<p><span style='font-weight: 400;'>Sesame oil for frying salmon</span></p>\n<p><span style='font-weight: 400;'>Olive oil and lemon juice for dressing</span></p>\n<p><span style='font-weight: 400;'>Salt and pepper</span></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"3"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "4",
-                "card": "1",
-                "slideType": "2d",
-                "description": "<p><strong>INGREDIENTS</strong></p>\n<p><span style='font-weight: 400;'>1 package thin dried rice noodles (also called rice vermicelli)</span></p>\n<p><span style='font-weight: 400;'>3/4 cup vegetable oil, for frying noodles</span></p>\n<p><span style='font-weight: 400;'>1 cup soy sauce (use tamari for gluten free)</span></p>\n<p><span style='font-weight: 400;'>1/4 cup miso paste</span></p>\n<p><span style='font-weight: 400;'>3 tsp toasted sesame oil</span></p>\n<p><span style='font-weight: 400;'>4 tbsp minced lemon grass (use paste if you prefer)</span></p>\n<p><span style='font-weight: 400;'>8 garlic cloves (peeled)</span></p>\n<p><span style='font-weight: 400;'>2.5-3cm piece of ginger</span></p>\n<p><span style='font-weight: 400;'>2 limes</span></p>\n<p><span style='font-weight: 400;'>4 jalapeno peppers</span></p>\n<p><span style='font-weight: 400;'>1 heaping cup of coriander</span></p>\n<p><span style='font-weight: 400;'>3/4 cup of sour cream</span></p>\n<p><span style='font-weight: 400;'>2 tbsp extra virgin olive oil</span></p>\n<p><span style='font-weight: 400;'>1 bag of rocket and baby spinach</span></p>\n<p>&nbsp;</p>\n<p><span style='font-weight: 400;'>Salmon fillets</span></p>\n<p><span style='font-weight: 400;'>Wasabi paste</span></p>\n<p><span style='font-weight: 400;'>Pickled, sliced ginger</span></p>\n<p><span style='font-weight: 400;'>Sesame oil for frying salmon</span></p>\n<p><span style='font-weight: 400;'>Olive oil and lemon juice for dressing</span></p>\n<p><span style='font-weight: 400;'>Salt and pepper</span></p>",
-                "descriptionType": "card",
-                "data": "https://assets3.lottiefiles.com/packages/lf20_3EMUcg.json",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "4",
+            "pos": 4,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/01salmonwhole/01salmonwhole.m3u8",
+            "cards":[
+                {
+                    "id": "5",
+                    "pos":0,
+                    "description": "<strong>Cripsy Rice Noodles</strong>\n<p><span style='font-weight: 400;'>1 package&nbsp;thin&nbsp;dried rice noodles (also called rice vermicelli)</span></p>\n<p><span style='font-weight: 400;'>3/4&nbsp;cup&nbsp;oil,&nbsp;for frying</span></p>\n<p><strong>Method&nbsp;</strong></p>\n<p><span style='font-weight: 400;'>The key to crispy noodles is having the oil hot enough so they expand immediately&mdash;so make sure to test with a noodle or two first.</span></p>\n<p><span style='font-weight: 400;'>Separate the rice noodles by pulling apart the various sections into manageable amounts. Using scissors, cut the noodles into strips 4 to 5 inches long.</span></p>\n<p><span style='font-weight: 400;'>Place the oil in a wok or small to medium frying pan. The smaller the pan, the less oil you will have to use. Heat the oil over medium-high heat for a minimum of 1 minute.</span></p>\n<p><span style='font-weight: 400;'>Take a few longer noodle pieces in your hand and dunk just the ends into the hot oil. If the oil is hot enough, the submerged parts will bloom within seconds into puffy, crispy noodles. If this doesn't happen, remove the submerged parts and cut them off. Wait a little longer for your oil to heat up, then try again.</span></p>\n<p><span style='font-weight: 400;'>Once the oil is ready, gently drop handfuls of the noodles into the hot oil.</span></p>\n<p><br /><br /></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"4"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "5",
-                "card": "1",
-                "slideType": "video",
-                "description": "<strong>Cripsy Rice Noodles</strong>\n<p><span style='font-weight: 400;'>1 package&nbsp;thin&nbsp;dried rice noodles (also called rice vermicelli)</span></p>\n<p><span style='font-weight: 400;'>3/4&nbsp;cup&nbsp;oil,&nbsp;for frying</span></p>\n<p><strong>Method&nbsp;</strong></p>\n<p><span style='font-weight: 400;'>The key to crispy noodles is having the oil hot enough so they expand immediately&mdash;so make sure to test with a noodle or two first.</span></p>\n<p><span style='font-weight: 400;'>Separate the rice noodles by pulling apart the various sections into manageable amounts. Using scissors, cut the noodles into strips 4 to 5 inches long.</span></p>\n<p><span style='font-weight: 400;'>Place the oil in a wok or small to medium frying pan. The smaller the pan, the less oil you will have to use. Heat the oil over medium-high heat for a minimum of 1 minute.</span></p>\n<p><span style='font-weight: 400;'>Take a few longer noodle pieces in your hand and dunk just the ends into the hot oil. If the oil is hot enough, the submerged parts will bloom within seconds into puffy, crispy noodles. If this doesn't happen, remove the submerged parts and cut them off. Wait a little longer for your oil to heat up, then try again.</span></p>\n<p><span style='font-weight: 400;'>Once the oil is ready, gently drop handfuls of the noodles into the hot oil.</span></p>\n<p><br /><br /></p>",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/01salmonwhole/01salmonwhole.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "5",
+            "pos": 5,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/04miso_sauce/04miso_sauce.m3u8",
+            "cards":[
+                {
+                    "id": "6",
+                    "pos":0,
+                    "description": "\n<strong>Miso Sauce</strong>\n\n<p><span style='font-weight: 400;'>1 cup&nbsp;low sodium soy sauce (use tamari for gluten&nbsp;free)</span></p>\n<p><span style='font-weight: 400;'>1/4 cup&nbsp;miso paste</span></p>\n<p><span style='font-weight: 400;'>3 tsp&nbsp;toasted sesame oil</span></p>\n<p><span style='font-weight: 400;'>4 tbsp&nbsp;minced lemon grass (use paste if you prefer)</span></p>\n<p><span style='font-weight: 400;'>5&nbsp;garlic cloves (peeled)</span></p>\n<p><span style='font-weight: 400;'>1&nbsp;inch piece of ginger</span></p>\n<p><span style='font-weight: 400;'>1/2 cup&nbsp;vegetable oil</span></p>\n<p><span style='font-weight: 400;'>1&nbsp;lime (zested and juiced)</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Combine all the ingredients in a blender or&nbsp;food processor&nbsp;and process until smooth.</span></p>\n<p><span style='font-weight: 400;'>Pour into a refrigerator safe container and seal. You can keep this for 3-4 weeks.</span></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"5"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "6",
-                "card": "1",
-                "slideType": "video",
-                "description": "\n<strong>Miso Sauce</strong>\n\n<p><span style='font-weight: 400;'>1 cup&nbsp;low sodium soy sauce (use tamari for gluten&nbsp;free)</span></p>\n<p><span style='font-weight: 400;'>1/4 cup&nbsp;miso paste</span></p>\n<p><span style='font-weight: 400;'>3 tsp&nbsp;toasted sesame oil</span></p>\n<p><span style='font-weight: 400;'>4 tbsp&nbsp;minced lemon grass (use paste if you prefer)</span></p>\n<p><span style='font-weight: 400;'>5&nbsp;garlic cloves (peeled)</span></p>\n<p><span style='font-weight: 400;'>1&nbsp;inch piece of ginger</span></p>\n<p><span style='font-weight: 400;'>1/2 cup&nbsp;vegetable oil</span></p>\n<p><span style='font-weight: 400;'>1&nbsp;lime (zested and juiced)</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Combine all the ingredients in a blender or&nbsp;food processor&nbsp;and process until smooth.</span></p>\n<p><span style='font-weight: 400;'>Pour into a refrigerator safe container and seal. You can keep this for 3-4 weeks.</span></p>",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/04miso_sauce/04miso_sauce.m3u8",
-                "frames": "450",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "6",
+            "pos": 6,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/03green_sauce/03green_sauce.m3u8",
+            "cards":[
+                {
+                    "id": "7",
+                    "pos":0,
+                    "description": "<p><strong>Peruvian Green Sauce (AJI VERDE)</strong></p>\n<p><span style='font-weight: 400;'>4 jalapeno peppers</span></p>\n<p><span style='font-weight: 400;'>1 heaping cup of coriander</span></p>\n<p><span style='font-weight: 400;'>3 cloves of garlic</span></p>\n<p><span style='font-weight: 400;'>3/4 cup of sour cream</span></p>\n<p><span style='font-weight: 400;'>2 tbsp extra virgin olive oil</span></p>\n<p><span style='font-weight: 400;'>1&nbsp;lime (zested and juiced)</span></p>\n<p><span style='font-weight: 400;'>1 teaspoon of salt to taste</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>In a blender put in all the ingredients and and blend until it reaches your preferred consistency.</span></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"6"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "7",
-                "card": "1",
-                "slideType": "video",
-                "description": "<p><strong>Peruvian Green Sauce (AJI VERDE)</strong></p>\n<p><span style='font-weight: 400;'>4 jalapeno peppers</span></p>\n<p><span style='font-weight: 400;'>1 heaping cup of coriander</span></p>\n<p><span style='font-weight: 400;'>3 cloves of garlic</span></p>\n<p><span style='font-weight: 400;'>3/4 cup of sour cream</span></p>\n<p><span style='font-weight: 400;'>2 tbsp extra virgin olive oil</span></p>\n<p><span style='font-weight: 400;'>1&nbsp;lime (zested and juiced)</span></p>\n<p><span style='font-weight: 400;'>1 teaspoon of salt to taste</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>In a blender put in all the ingredients and and blend until it reaches your preferred consistency.</span></p>",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/03green_sauce/03green_sauce.m3u8",
-                "frames": "510",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "7",
+            "pos": 7,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/leaf/leaf.m3u8",
+            "cards":[
+                {
+                    "id": "8",
+                    "pos":0,
+                    "description": "<ul><strong>Leafy Salad</strong>\n</ul>\n<p><span style='font-weight: 400;'>1 bag of rocket and baby spinach</span></p>\n<p><span style='font-weight: 400;'>Small bag of mesclun</span></p>\n<p><span style='font-weight: 400;'>Olive oil and lemon juice for dressing</span></p>\n<p><span style='font-weight: 400;'>Salt and pepper</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Combine leaves in a bowl.</span></p>\n<p><span style='font-weight: 400;'>Squeeze lemon over bowl.</span></p>\n<p><span style='font-weight: 400;'>Drizzle oil over it.</span></p>\n<p><span style='font-weight: 400;'>Add salt and pepper.</span></p>\n<p><span style='font-weight: 400;'>Toss.</span></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"7"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "8",
-                "card": "1",
-                "slideType": "video",
-                "description": "<ul><strong>Leafy Salad</strong>\n</ul>\n<p><span style='font-weight: 400;'>1 bag of rocket and baby spinach</span></p>\n<p><span style='font-weight: 400;'>Small bag of mesclun</span></p>\n<p><span style='font-weight: 400;'>Olive oil and lemon juice for dressing</span></p>\n<p><span style='font-weight: 400;'>Salt and pepper</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Combine leaves in a bowl.</span></p>\n<p><span style='font-weight: 400;'>Squeeze lemon over bowl.</span></p>\n<p><span style='font-weight: 400;'>Drizzle oil over it.</span></p>\n<p><span style='font-weight: 400;'>Add salt and pepper.</span></p>\n<p><span style='font-weight: 400;'>Toss.</span></p>",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/leaf/leaf.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "8",
+            "pos": 8,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
+            "cards":[
+                {
+                    "id": "9",
+                    "pos":0,
+                    "description": "<p><strong>Salmon</strong></p>\n<p><span style='font-weight: 400;'>Salmon fillets 1 per person</span></p>\n<p><span style='font-weight: 400;'>Sesame oil</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Pat dry the salmon fillets.</span></p>\n<p><span style='font-weight: 400;'>Place the salmon on a plate and gently smoke the fillets with the smoking tube</span></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"8"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "9",
-                "card": "1",
-                "slideType": "video",
-                "description": "<p><strong>Salmon</strong></p>\n<p><span style='font-weight: 400;'>Salmon fillets 1 per person</span></p>\n<p><span style='font-weight: 400;'>Sesame oil</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Pat dry the salmon fillets.</span></p>\n<p><span style='font-weight: 400;'>Place the salmon on a plate and gently smoke the fillets with the smoking tube</span></p>",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "9",
+            "pos": 9,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/05plate/05plate.m3u8",
+            "cards":[
+                {
+                    "id": "10",
+                    "pos":0,
+                    "description": "<p><strong>Salmon</strong></p>\n<p><span style='font-weight: 400;'>Salmon fillets 1 per person</span></p>\n<p><span style='font-weight: 400;'>Sesame oil</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Pat dry the salmon fillets.</span></p>\n<p><span style='font-weight: 400;'>Place the salmon on a plate and gently smoke the fillets with the smoking tube</span></p>",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"9"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "10",
-                "card": "1",
-                "slideType": "video",
-                "description": "<p><strong>Salmon</strong></p>\n<p><span style='font-weight: 400;'>Salmon fillets 1 per person</span></p>\n<p><span style='font-weight: 400;'>Sesame oil</span></p>\n<p><strong>Method</strong></p>\n<p><span style='font-weight: 400;'>Pat dry the salmon fillets.</span></p>\n<p><span style='font-weight: 400;'>Place the salmon on a plate and gently smoke the fillets with the smoking tube</span></p>",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/05plate/05plate.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "10",
+            "pos": 10,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
+            "cards":[
+                {
+                    "id": "11",
+                    "pos":0,
+                    "description": "Salmon\nSalmon fillets 1 per person\nSesame oil\nMethod\nPat dry the salmon fillets.\nPlace the salmon on a plate and gently smoke the fillets with the smoking tube\nAllow the salmon to sit in smoke for 10 minutes or until all the smoke has dissipated.\nLightly drizzle a conservative amount of sesame seed oil over the surface. Rub in the Sesame seed oil with your fingers, coating the salmon in its entirety. Turn the filet over and repeat for all four sides only.\n",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"10"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "11",
-                "card": "1",
-                "slideType": "video",
-                "description": "Salmon\nSalmon fillets 1 per person\nSesame oil\nMethod\nPat dry the salmon fillets.\nPlace the salmon on a plate and gently smoke the fillets with the smoking tube\nAllow the salmon to sit in smoke for 10 minutes or until all the smoke has dissipated.\nLightly drizzle a conservative amount of sesame seed oil over the surface. Rub in the Sesame seed oil with your fingers, coating the salmon in its entirety. Turn the filet over and repeat for all four sides only.\n",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "11",
+            "pos": 11,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/06sear_salmon/06sear_salmon.m3u8",
+            "cards":[
+                {
+                    "id": "12",
+                    "pos":0,
+                    "description": "Use blow torch to sear all sides of the salmon fillets.\nAvoid overcooking the filet at any point, as this will cause the fish to disintegrate upon handling. \nTransfer salmon to the chopping board using a spatula.\n",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"11"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "12",
-                "card": "1",
-                "slideType": "video",
-                "description": "Use blow torch to sear all sides of the salmon fillets.\nAvoid overcooking the filet at any point, as this will cause the fish to disintegrate upon handling. \nTransfer salmon to the chopping board using a spatula.\n",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/06sear_salmon/06sear_salmon.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "12",
+            "pos": 12,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/07salmon_cut/07salmon_cut.m3u8",
+            "cards":[
+                {
+                    "id": "13",
+                    "pos":0,
+                    "description": "Position the filet horizontally on your chopping board. Apply firm pressure with your fingers to hold the filet in place, and with your knife, make a hira-zukuri (rectangular) cut approximately 0.5-1 cm in from the end. Simply align the heel of the knife with the top of the filet, and allow it to glide through the flesh to the tip. Repeat this cut for the remaining filet portion.\nSlide the blade of your knife underneath the salmon slices, and supporting them with your fingers, transfer over to the plate.",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"12"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "13",
-                "card": "1",
-                "slideType": "video",
-                "description": "Position the filet horizontally on your chopping board. Apply firm pressure with your fingers to hold the filet in place, and with your knife, make a hira-zukuri (rectangular) cut approximately 0.5-1 cm in from the end. Simply align the heel of the knife with the top of the filet, and allow it to glide through the flesh to the tip. Repeat this cut for the remaining filet portion.\nSlide the blade of your knife underneath the salmon slices, and supporting them with your fingers, transfer over to the plate.",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/07salmon_cut/07salmon_cut.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "13",
+            "pos": 13,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/08turn_plate/08turn_plate.m3u8",
+            "cards":[
+                {
+                    "id": "14",
+                    "pos":0,
+                    "description": "Place the salmon on the Peruvian Green Sauce. Leave half of each slice open and half covered",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"13"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "14",
-                "card": "1",
-                "slideType": "video",
-                "description": "Place the salmon on the Peruvian Green Sauce. Leave half of each slice open and half covered",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/08turn_plate/08turn_plate.m3u8",
-                "frames": "748",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "14",
+            "pos": 14,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/09picklesandgreen/09picklesandgreen.m3u8",
+            "cards":[
+                {
+                    "id": "15",
+                    "pos":0,
+                    "description": "Use fresh wasabi and fresh ginger for the best aroma. Wasabi is a Japanese plant from the same family as horseradish, mustard, and cabbage. Its stem (commonly mis-referred to as its root) grows underground and is the part we eat. The stem is either finely grated into a powder or made into a paste, as we typically see it in Japanese restaurants. Wasabi stimulates the nasal passages, providing a hot and cleansing sensation when eaten. Ginger is a plant that originated in southern China. Its root is used in medicine and as a spice. It is often used to treat nausea, which is why you may have been advised to drink ginger ale when you aren’t feeling well. It is also thought to help aid digestion as well.            ",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"14"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "15",
-                "card": "1",
-                "slideType": "video",
-                "description": "Use fresh wasabi and fresh ginger for the best aroma. Wasabi is a Japanese plant from the same family as horseradish, mustard, and cabbage. Its stem (commonly mis-referred to as its root) grows underground and is the part we eat. The stem is either finely grated into a powder or made into a paste, as we typically see it in Japanese restaurants. Wasabi stimulates the nasal passages, providing a hot and cleansing sensation when eaten. Ginger is a plant that originated in southern China. Its root is used in medicine and as a spice. It is often used to treat nausea, which is why you may have been advised to drink ginger ale when you aren’t feeling well. It is also thought to help aid digestion as well.            ",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/09picklesandgreen/09picklesandgreen.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "15",
+            "pos": 15,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/10raddish/10raddish.m3u8",
+            "cards":[
+                {
+                    "id": "16",
+                    "pos":0,
+                    "description": "Buddle the noodles in a section.",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"15"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "16",
-                "card": "1",
-                "slideType": "video",
-                "description": "Buddle the noodles in a section.",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/10raddish/10raddish.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "16",
+            "pos": 16,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/11salad/11salad.m3u8",
+            "cards":[
+                {
+                    "id": "16",
+                    "pos":0,
+                    "description": "Roset the lettuce in a bunch and put on the side of the plate, try to emulate a flower in your arrangement of leaves.",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"17"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "17",
-                "card": "1",
-                "slideType": "video",
-                "description": "Roset the lettuce in a bunch and put on the side of the plate, try to emulate a flower in your arrangement of leaves.",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/11salad/11salad.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "17",
+            "pos": 17,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/12herbs/12herbs.m3u8",
+            "cards":[
+                {
+                    "id": "17",
+                    "pos":0,
+                    "description": "Find a herb that is brings the smell of country to cut the acidic sent of the ginger",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"18"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "18",
-                "card": "1",
-                "slideType": "video",
-                "description": "Find a herb that is brings the smell of country to cut the acidic sent of the ginger",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/12herbs/12herbs.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
+            ]
+        },
+        {
+            "id": "18",
+            "pos": 18,
+            "slidePageId": "0",
+            "type": "video",
+            "frames": "",
+            "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/13end_2/13end_2.m3u8",
+            "cards":[
+                {
+                    "id": "18",
+                    "pos":0,
+                    "description": "Ensure the food is consumed with approriate music like On the Love Beach by Nagisa Ni Te\n",
+                    "style": {
+                        "backgroundColor": "#e5e5e5",
+                        "color": "#2c2c2c"
+                    },
+                    "cardSlideId":"19"
                 }
-            }
-        ],
-        [
-            {
-                "slide": "19",
-                "card": "1",
-                "slideType": "video",
-                "description": "Ensure the food is consumed with approriate music like On the Love Beach by Nagisa Ni Te\n",
-                "descriptionType": "card",
-                "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/13end_2/13end_2.m3u8",
-                "frames": "",
-                "graphChange": "",
-                "static": "",
-                "style": {
-                    "backgroundColor": "#e5e5e5",
-                    "color": "#2c2c2c"
-                }
-            }
-        ]
+            ]
+        }
     ]
 }
