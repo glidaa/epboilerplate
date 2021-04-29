@@ -4,7 +4,7 @@ import className from "classnames";
 import { Link } from "react-scroll";
 
 const Dots = (props) => {
-  const { componentNumberstate, itemJson, isHeader, } = props;
+  const { componentNumberstate, slides, isHeader, } = props;
 
   const [scrollState, setScrollState] = useState({
     previous: {
@@ -46,11 +46,11 @@ const Dots = (props) => {
   return (
     <div className={className("Dots", { "Dots-Absolute": isHeader })}>
       <div className="Dots-central">
-        {itemJson?.length > 0 && (
-          <Worm scrollState={scrollState} items={itemJson} />
+        {slides?.length > 0 && (
+          <Worm scrollState={scrollState} items={slides} />
         )}
-        {itemJson?.length > 0
-          ? itemJson?.map((item, i) => {
+        {slides?.length > 0
+          ? slides?.map((item, i) => {
               return (
                 <div key={i} className="Dots-central">
                   <Link
@@ -64,8 +64,8 @@ const Dots = (props) => {
                       "Dots-Active": componentNumberstate?.inViewData.isView === i,
                     })}
                   />
-                  {item?.length > 1 && componentNumberstate?.inViewData.isView === i
-                    ? item.map((subitem, j) => {
+                  {item.cards?.length > 1 && componentNumberstate?.inViewData.isView === i
+                    ? item.cards.map((subitem, j) => {
                         return (
                           <Link
                             key={j}
@@ -112,7 +112,7 @@ const Worm = ({ scrollState, items }) => {
   const getDotOffset = (index) =>
     document.querySelectorAll(".Dots-circle")[index]?.offsetTop -
     document.querySelector(".Dots-central")?.offsetTop;
-  const isMulticard = () => items[scrollState.current.slide].length > 1;
+  const isMulticard = () => items[scrollState.current.slide].cards.length > 1;
   const isScrollingDown = ({ current, previous }) => {
     if (current.slide === previous.slide && current.card > previous.card)
       return true;
@@ -156,7 +156,7 @@ const Worm = ({ scrollState, items }) => {
         top: getDotOffset(
           current.slide +
             current.card +
-            (items[scrollState.current.slide].length - 1)
+            (items[scrollState.current.slide].cards.length - 1)
         ),
       });
 
@@ -167,7 +167,7 @@ const Worm = ({ scrollState, items }) => {
           top: getDotOffset(
             current.slide +
               current.card +
-              (items[scrollState.current.slide].length - 1)
+              (items[scrollState.current.slide].cards.length - 1)
           ),
         });
       }, speed);

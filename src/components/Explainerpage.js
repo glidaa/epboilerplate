@@ -26,6 +26,7 @@ const Explainerpage = (props) => {
         .then((response) => response.json())
         .then((data) => {
           setItemJson(data);
+          console.log("ITEMJSON",data)
         })
         .catch(function (err) {
           console.log('Error: ', err);
@@ -66,20 +67,20 @@ const Explainerpage = (props) => {
           isHeader={inView}
           setComponentNumberstate={setComponentNumberstate}
           componentNumberstate={componentNumberstate}
-          itemJson={itemJson.data}
+          slides={itemJson.slides}
         />
         <div ref={ref} className="Scrollyteller">
           <section className="Scrollyteller__section">
             <div className="graphic">
-              {itemJson?.data?.length > 0
-                ? itemJson.data.map((left, i) => {
-                    switch (left[0].slideType) {
+              {itemJson?.slides?.length > 0
+                ? itemJson.slides.map((left, i) => {
+                    switch (left.type) {
                       case 'video':
                         return (
                           <Videojs
                             width={width}
                             key={i}
-                            src={componentNumberstate.inViewData?.isView === i ? left[0].data : left[0].data}
+                            src={componentNumberstate.inViewData?.isView === i ? left.data : left.data}
                             isVisible={componentNumberstate.inViewData?.isView === i}
                             shouldPreload={componentNumberstate.inViewData?.isView === i-1}
                           />
@@ -113,10 +114,10 @@ const Explainerpage = (props) => {
                                 className="left-side"
                                 id={`lottie${i}`}
                                 mode="seek"
-                                src={left[0].data}
+                                src={left.data}
                                 key={i}
                                 renderer="canvas"
-                                frames={left[0].frames}
+                                frames={left.frames}
                               />
                             }
                           </div>
@@ -128,18 +129,18 @@ const Explainerpage = (props) => {
                 : null}
             </div>
             <div className="scroller" id="scroller">
-              {itemJson?.data?.length > 0 ? (
-                itemJson.data.map((narr, i) => (
+              {itemJson?.slides?.length > 0 ? (
+                itemJson.slides.map((narr, i) => (
                   <WaypointCard
                     key={i}
                     setComponentNumberstate={setComponentNumberstate}
                     componentNumberstate={componentNumberstate}
                     i={i}
-                    text={narr?.map((card) => card.description)}
-                    styles={narr?.map((card) => card.style)}
-                    isText={narr[0].slideType === 'text'}
+                    text={narr?.cards?.map((card) => card.description)}
+                    styles={narr?.cards?.map((card) => card.style)}
+                    isText={narr.type === 'text'}
                     isFirst={i === 0}
-                    isLast={i === itemJson.data.length - 1}
+                    isLast={i === itemJson.slides.length - 1}
                     background={itemJson.background}
                   />
                 ))
