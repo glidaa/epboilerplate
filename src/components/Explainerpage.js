@@ -1,147 +1,169 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
-import { iOS, isSafari } from './iosSupport';
-import { create } from '@lottiefiles/lottie-interactivity';
-import className from 'classnames';
+import React, { useEffect, useState } from "react";
+import { iOS, isSafari } from "./iosSupport";
+import className from "classnames";
+import { useResizeDetector } from "react-resize-detector/build/withPolyfill";
+import { useInView } from "react-intersection-observer";
+import { Element } from "react-scroll";
 
-import LottiePlayer from './LottiePlayer';
-import WaypointCard from './WaypointCard';
-import VideoBackground from './VideoBackground';
+import LottiePlayer from "./LottiePlayer";
+import WaypointCard from "./WaypointCard";
 
-import '../assets/styles/components/Scrollyteller.css';
+import "../assets/styles/components/Scrollyteller.css";
+//import Video from './Video-React-player';
+import Videojs from "./Videojs";
+import Dots from "./Dots";
+import Header from "./Header";
+//import VideoDash from './VideoDash'
 
-const Scrollyteller = () => {
-  const [itemJson, setItemJson] = useState([]);
+const Explainerpage = (props) => {
+  const { width, ref } = useResizeDetector();
+  const { itemJsonFile } = props;
+  const [itemJson, setItemJson] = useState({});
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
-      .then((response) => response.json())
-      .then((data) => {
-        setItemJson(data);
-      })
-      .catch(function (err) {
-        console.log('Error: ', err);
-      });
-  }, []);
-  const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
-
-  const [componentNumberstate, setComponentNumberstate] = useState([]);
-
-  useEffect(() => {
-    const lotties = itemJson ? [...itemJson].filter((e) => e[0].frames !== '') : null;
-
-    document.querySelectorAll('lottie-player').forEach((lottie, i) => {
-      lottie.addEventListener('load', function (e) {
-        create({
-          mode: 'scroll',
-          autoplay: false,
-          player: `#lottie${lottie.id.split('lottie')[1]}`,
-          container: `#step${Math.trunc(lottie.id.split('lottie')[1])}`,
-          actions: [
-            {
-              visibility: [0, 0.8],
-              type: 'seek',
-              frames: [0, lotties[i][0].frames],
-            },
-          ],
+    console.log("Test");
+    if (!itemJsonFile) {
+      fetch(process.env.PUBLIC_URL + "/items.json?v=" + Date.now())
+        .then((response) => response.json())
+        .then((data) => {
+          setItemJson(data);
+        })
+        .catch(function (err) {
+          console.log("Error: ", err);
         });
-      });
-      lottie.addEventListener('frame', function (e) {
-        const canvasdiv = lottie.shadowRoot.querySelectorAll('.main > .animation');
-        if (canvasdiv && canvasdiv.length > 0) {
-          const canvasdivNodes = canvasdiv[0].childNodes;
-          if (canvasdivNodes) {
-            const canvas = canvasdivNodes[2];
-            if (canvas) {
-              lottie.resize();
-            }
-          }
-        }
-      });
-    });
+    } else {
+      console.log("ExplainerPage:", itemJson.dataFile);
+      setItemJson(itemJsonFile);
+    }
+  }, [itemJsonFile]);
+  useEffect(() => {
+    console.log("ITEMJSON:", itemJson);
+    if (itemJson?.fonts) {
+      var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
+      new_font
+        .load()
+        .then(function (loaded_face) {
+          // use font here
+          console.log("La fuente cargó");
+          document.fonts.add(loaded_face);
+        })
+        .catch(function (error) {});
+    }
   }, [itemJson]);
 
+  const isSafarioIos = className(`left-side ${isSafari() || iOS() ? "scrollyTeller-lottie-height" : ""}`);
+
+  const [componentNumberstate, setComponentNumberstate] = useState({
+    inViewData: [],
+    currentScrollState: { slide: -1, card: -1 },
+  });
+  const [refView, inView] = useInView();
   return (
-    <div className="Scrollyteller">
-      <section className="main Scrollyteller__section">
-        <div className="graphic">
-          {itemJson && itemJson.length > 0
-            ? itemJson.map((left, i) => {
-                switch (left[0].slideType) {
-                  case 'video':
-                    return (
-                      <div
-                        className="left-side video"
-                        key={i}
-                        style={{
-                          display: componentNumberstate[i] ? 'flex' : 'none',
-                        }}
-                      >
-                        <VideoBackground src={left[0].data} />
-                      </div>
-                    );
-                  case '2d':
-                    return (
-                      <div
-                        className={isSafarioIos}
-                        style={{
-                          display: componentNumberstate[i] ? 'flex' : 'none',
-                          width: '100%',
-                          transformOrigin: '0px 0px 0px',
-                        }}
-                        id={`canvascontainer${i}`}
-                        key={i}
-                      >
-                        <LottiePlayer className="left-side" id={`lottie${i}`} mode="seek" src={left[0].data} key={i} renderer="canvas" />
-                      </div>
-                    );
-                  default:
-                    return null;
-                }
-              })
-            : null}
+    <>
+      {itemJson?.header ? (
+        <div ref={refView}>
+          <Header header={itemJson?.header} fonts={itemJson?.fonts} />
         </div>
-        <div className="scroller" id="scroller">
-          {itemJson?.length > 0 ? (
-            itemJson.map((narr, i) => (
-              <div
-                className={className(
-                  'w-card-maindiv',
-                  { 'w-card-maindiv-first': i === 0 },
-                  { 'w-card-maindiv-last': i === itemJson.length - 1 }
-                )}
-                id={`step${i}`}
-                key={i}
-              >
+      ) : null}
+      <div style={{ position: "relative" }}>
+        <Dots
+          isHeader={inView}
+          setComponentNumberstate={setComponentNumberstate}
+          componentNumberstate={componentNumberstate}
+          itemJson={itemJson.data}
+        />
+        <div ref={ref} className="Scrollyteller">
+          <section className="Scrollyteller__section">
+            <div className="graphic">
+              {itemJson?.data?.length > 0
+                ? itemJson.data.map((left, i) => {
+                    switch (left[0].slideType) {
+                      case "video":
+                        return (
+                          <Videojs
+                            width={width}
+                            key={i}
+                            src={componentNumberstate.inViewData?.isView === i ? left[0].data : left[0].data}
+                            placeholder={left[0].placeholder}
+                            isVisible={componentNumberstate.inViewData?.isView === i}
+                            shouldPreload={componentNumberstate.inViewData?.isView === i - 1}
+                          />
+                        );
+                      case "text":
+                        return (
+                          <div
+                            className="left-side text video"
+                            key={i}
+                            style={{
+                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                            }}
+                          ></div>
+                        );
+
+                      case "2d":
+                        return (
+                          <div
+                            className={isSafarioIos}
+                            style={{
+                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                              width: "100%",
+                              transformOrigin: "0px 0px 0px",
+                            }}
+                            id={`canvascontainer${i}`}
+                            key={i}
+                          >
+                            {
+                              <LottiePlayer
+                                className="left-side"
+                                id={`lottie${i}`}
+                                mode="seek"
+                                src={left[0].data}
+                                key={i}
+                                renderer="canvas"
+                                frames={left[0].frames}
+                              />
+                            }
+                          </div>
+                        );
+                      default:
+                        return null;
+                    }
+                  })
+                : null}
+            </div>
+            <div className="scroller" id="scroller">
+              {itemJson?.data?.length > 0 ? (
+                itemJson.data.map((narr, i) => (
+                  <WaypointCard
+                    key={i}
+                    setComponentNumberstate={setComponentNumberstate}
+                    componentNumberstate={componentNumberstate}
+                    i={i}
+                    text={narr?.map((card) => card.description)}
+                    styles={narr?.map((card) => card.style)}
+                    isText={narr[0].slideType === "text"}
+                    isFirst={i === 0}
+                    isLast={i === itemJson.data.length - 1}
+                    background={itemJson.background}
+                  />
+                ))
+              ) : (
                 <WaypointCard
-                  setComponentNumberstate={setComponentNumberstate}
-                  componentNumberstate={componentNumberstate}
-                  i={i}
-                  text={narr?.map((card) => card.description)}
-                />
-              </div>
-            ))
-          ) : (
-            <div
-                className={className(
-                  'w-card-maindiv',
-                  { 'w-card-maindiv-first': true },
-                  { 'w-card-maindiv-last': true }
-                )}
-                id={`step0`}
-                key={0}
-              >
-                <WaypointCard
+                  key={0}
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
                   i={0}
-                  text={["Loading.."]}
+                  text={["Loading"]}
+                  isText={false}
+                  isFirst={true}
+                  isLast={true}
                 />
-              </div>
-          )}
+              )}
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 };
 
-export default Scrollyteller;
+export default Explainerpage;
