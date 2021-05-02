@@ -3,7 +3,6 @@ import { iOS, isSafari } from './iosSupport';
 import className from 'classnames';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import { useInView } from 'react-intersection-observer';
-import { Element } from 'react-scroll';
 
 import LottiePlayer from './LottiePlayer';
 import WaypointCard from './WaypointCard';
@@ -19,20 +18,57 @@ const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
   const { itemJsonFile } = props;
   const [itemJson, setItemJson] = useState({});
+  //DON'T DELETE
+  // useEffect(() => {
+  //   console.log('Test');
+  //   if (!itemJsonFile) {
+  //     fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setItemJson(data);
+  //         console.log("ITEMJSON",data)
+  //       })
+  //       .catch(function (err) {
+  //         console.log('Error: ', err);
+  //       });
+  //   } else {
+  //     // console.log('ExplainerPage:', itemJson.dataFile);
+  //     setItemJson(itemJsonFile);
+  //   }
+  // }, [itemJsonFile]);
   useEffect(() => {
     console.log('Test');
+    const url = 'https://6lkh03vsyg.execute-api.us-east-1.amazonaws.com/Test/page/';
     if (!itemJsonFile) {
-      fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
+      fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
         .then((response) => response.json())
-        .then((data) => {
-          setItemJson(data);
-          console.log("ITEMJSON",data)
+        .then((page) => {
+          fetch(url + page.id + '?v=' + Date.now())
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('DATA:', data.data.data.getPage);
+              const page = data.data.data.getPage;
+              page.slides = page?.slides?.items?.sort((a, b) => {
+                return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+              });
+              page.slides.forEach((slide, i) => {
+                slide.cards = slide?.cards?.items?.sort((a, b) => {
+                  return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+                });
+                slide.cards.forEach((card) => {
+                  card.style = card.style ? JSON.parse(card.style) : [];
+                });
+              });
+
+              console.log('TESTITEMJSON', page);
+              setItemJson(page);
+            });
         })
         .catch(function (err) {
           console.log('Error: ', err);
         });
     } else {
-      console.log('ExplainerPage:', itemJson.dataFile);
+      // console.log('ExplainerPage:', itemJson.dataFile);
       setItemJson(itemJsonFile);
     }
   }, [itemJsonFile]);
@@ -82,7 +118,7 @@ const Explainerpage = (props) => {
                             key={i}
                             src={componentNumberstate.inViewData?.isView === i ? left.data : left.data}
                             isVisible={componentNumberstate.inViewData?.isView === i}
-                            shouldPreload={componentNumberstate.inViewData?.isView === i-1}
+                            shouldPreload={componentNumberstate.inViewData?.isView === i - 1}
                           />
                         );
                       case 'text':
@@ -93,11 +129,10 @@ const Explainerpage = (props) => {
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? 'flex' : 'none',
                             }}
-                          >
-                          </div>
+                          ></div>
                         );
 
-                      case '2d':
+                      case 'animation2D':
                         return (
                           <div
                             className={isSafarioIos}
