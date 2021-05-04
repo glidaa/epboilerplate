@@ -16,7 +16,6 @@ const LottiePlayer = React.memo((props) => {
     }
     if (ref.current) {
       const lottie = ref.current;
-      console.log('Lottie', lottie);
       lottie.addEventListener('load', function (e) {
         create({
           mode: 'scroll',
