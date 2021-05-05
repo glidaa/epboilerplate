@@ -7,8 +7,9 @@ export default function Fake3dContainer({ imageUrl, imageDepthMapUrl, width, hei
   useEffect(() => {
     if (ref.current) {
       let containerElement = ref.current;
-      containerElement.style.width = `${width}px`;
-      containerElement.style.height = `${height}px`;
+      const widthAUX = window.screen.width - 20;
+      containerElement.style.width = `${widthAUX}px`;
+      containerElement.style.height = `${window.screen.height}px`;
 
       let containerWidth = containerElement.offsetWidth;
       let containerHeight = containerElement.offsetHeight;

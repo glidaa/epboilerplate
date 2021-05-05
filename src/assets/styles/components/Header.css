@@ -2,12 +2,12 @@
   display: flex;
   background-repeat: no-repeat;
   /* width: 100%; */
-  padding: 5%;
-  height: 120vh;
+  height: 100vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   position: relative;
+  margin-top: -20px;
   justify-content: center;
   z-index: 10;
 }
