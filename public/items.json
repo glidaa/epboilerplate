@@ -34,6 +34,7 @@
             "type": "video",
             "frames": 0,
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/00topfull/00topfull.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/00topfull/00topfull_Poster-720.0000000.jpg",
             "cards": [
                 {
                     "id": "0",
@@ -125,6 +126,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/01salmonwhole/01salmonwhole.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/01salmonwhole/01salmonwhole_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "5",
@@ -145,6 +147,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/04miso_sauce/04miso_sauce.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/04miso_sauce/04miso_sauce_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "6",
@@ -165,6 +168,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/03green_sauce/03green_sauce.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/03green_sauce/03green_sauce_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "7",
@@ -185,6 +189,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/leaf/leaf.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/leaf/leaf_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "8",
@@ -205,6 +210,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "9",
@@ -225,6 +231,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/05plate/05plate.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/05plate/05plate_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "10",
@@ -245,6 +252,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/02smoke/02smoke_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "11",
@@ -265,6 +273,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/06sear_salmon/06sear_salmon.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/06sear_salmon/06sear_salmon_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "12",
@@ -285,6 +294,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/07salmon_cut/07salmon_cut.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/07salmon_cut/07salmon_cut_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "13",
@@ -305,6 +315,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/08turn_plate/08turn_plate.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/08turn_plate/08turn_plate_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "14",
@@ -325,6 +336,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/09picklesandgreen/09picklesandgreen.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/09picklesandgreen/09picklesandgreen_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "15",
@@ -345,6 +357,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/10raddish/10raddish.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/10raddish/10raddish_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "16",
@@ -365,6 +378,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/11salad/11salad.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/11salad/11salad_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "16",
@@ -385,6 +399,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/12herbs/12herbs.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/12herbs/12herbs_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "17",
@@ -405,6 +420,7 @@
             "type": "video",
             "frames": "",
             "data": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/13end_2/13end_2.m3u8",
+            "placeholder": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/salmonvideos/13end_2/13end_2_Poster-720.0000000.jpg",
             "cards":[
                 {
                     "id": "18",

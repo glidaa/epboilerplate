@@ -4,14 +4,14 @@ import className from 'classnames';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import { useInView } from 'react-intersection-observer';
 
-import LottiePlayer from './LottiePlayer';
-import WaypointCard from './WaypointCard';
+import LottiePlayer from "./LottiePlayer";
+import WaypointCard from "./WaypointCard";
 
-import '../assets/styles/components/Scrollyteller.css';
+import "../assets/styles/components/Scrollyteller.css";
 //import Video from './Video-React-player';
-import Videojs from './Videojs';
-import Dots from './Dots';
-import Header from './Header';
+import Videojs from "./Videojs";
+import Dots from "./Dots";
+import Header from "./Header";
 //import VideoDash from './VideoDash'
 
 const Explainerpage = (props) => {
@@ -66,7 +66,7 @@ const Explainerpage = (props) => {
             });
         })
         .catch(function (err) {
-          console.log('Error: ', err);
+          console.log("Error: ", err);
         });
     } else {
       // console.log('ExplainerPage:', itemJson.dataFile);
@@ -74,23 +74,26 @@ const Explainerpage = (props) => {
     }
   }, [itemJsonFile]);
   useEffect(() => {
-    console.log('ITEMJSON:', itemJson);
+    console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {
-      var new_font = new FontFace(itemJson.fonts.families[0], 'url(' + itemJson.fonts.urls[0] + ')');
+      var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
       new_font
         .load()
         .then(function (loaded_face) {
           // use font here
-          console.log('La fuente cargó');
+          console.log("La fuente cargó");
           document.fonts.add(loaded_face);
         })
         .catch(function (error) {});
     }
   }, [itemJson]);
 
-  const isSafarioIos = className(`left-side ${isSafari() || iOS() ? 'scrollyTeller-lottie-height' : ''}`);
+  const isSafarioIos = className(`left-side ${isSafari() || iOS() ? "scrollyTeller-lottie-height" : ""}`);
 
-  const [componentNumberstate, setComponentNumberstate] = useState({ inViewData: [], currentScrollState: { slide: -1, card: -1 } });
+  const [componentNumberstate, setComponentNumberstate] = useState({
+    inViewData: [],
+    currentScrollState: { slide: -1, card: -1 },
+  });
   const [refView, inView] = useInView();
   return (
     <>
@@ -99,7 +102,7 @@ const Explainerpage = (props) => {
           <Header header={itemJson?.header} fonts={itemJson?.fonts} />
         </div>
       ) : null}
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: "relative" }}>
         <Dots
           isHeader={inView}
           setComponentNumberstate={setComponentNumberstate}
@@ -118,17 +121,18 @@ const Explainerpage = (props) => {
                             width={width}
                             key={i}
                             src={componentNumberstate.inViewData?.isView === i ? left.data : left.data}
+                            placeholder={left.placeholder}
                             isVisible={componentNumberstate.inViewData?.isView === i}
                             shouldPreload={componentNumberstate.inViewData?.isView === i - 1}
                           />
                         );
-                      case 'text':
+                      case "text":
                         return (
                           <div
                             className="left-side text video"
                             key={i}
                             style={{
-                              display: componentNumberstate.inViewData?.isView === i ? 'flex' : 'none',
+                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
                             }}
                           ></div>
                         );
@@ -138,9 +142,9 @@ const Explainerpage = (props) => {
                           <div
                             className={isSafarioIos}
                             style={{
-                              display: componentNumberstate.inViewData?.isView === i ? 'flex' : 'none',
-                              width: '100%',
-                              transformOrigin: '0px 0px 0px',
+                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                              width: "100%",
+                              transformOrigin: "0px 0px 0px",
                             }}
                             id={`canvascontainer${i}`}
                             key={i}
@@ -186,7 +190,7 @@ const Explainerpage = (props) => {
                   setComponentNumberstate={setComponentNumberstate}
                   componentNumberstate={componentNumberstate}
                   i={0}
-                  text={['Loading']}
+                  text={["Loading"]}
                   isText={false}
                   isFirst={true}
                   isLast={true}

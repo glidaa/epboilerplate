@@ -16,7 +16,9 @@ const Dots = (props) => {
       card: 1,
     },
   });
-
+  useEffect(() => {
+    console.log("scrollState",scrollState)
+  }, [scrollState])
   useEffect(() => {
     let currentSlide = componentNumberstate?.currentScrollState ? componentNumberstate.currentScrollState.slide : -1;
     if (currentSlide !== -1) {
@@ -87,6 +89,7 @@ const Dots = (props) => {
 };
 
 const Worm = ({ scrollState, items }) => {
+  console.log("ITEMS", items)
   const speed = 225;
   const diff = 22;
   const diffSmall = 17;
@@ -103,13 +106,15 @@ const Worm = ({ scrollState, items }) => {
     document.querySelectorAll('.Dots-circle')[index]?.offsetTop - document.querySelector('.Dots-central')?.offsetTop;
   const isMulticard = () => items[scrollState.current.slide].cards.length > 1;
   const isScrollingDown = ({ current, previous }) => {
-    if (current.slide === previous.slide && current.card > previous.card) return true;
+    if (current.slide === previous.slide){
+      return current.card > previous.card
+    } 
     else return current.slide > previous.slide;
   };
-
+  
   useEffect(() => {
     let { current, previous } = scrollState;
-
+    
     if (isScrollingDown(scrollState)) {
       // Scrolling down
       let top = 0;
@@ -120,7 +125,7 @@ const Worm = ({ scrollState, items }) => {
         afterTop = getDotOffset(current.slide + current.card + 1);
       } else {
         top = getDotOffset(previous.slide);
-        afterTop = getDotOffset(current.slide);
+        afterTop = getDotOffset(isMulticard()?current.slide+1:current.slide);
       }
 
       setState({
@@ -128,7 +133,7 @@ const Worm = ({ scrollState, items }) => {
         width: isMulticard() ? sizeSmall : sizeNormal,
         top: top,
       });
-
+      
       setTimeout(() => {
         setState({
           height: isMulticard() ? sizeSmall : sizeNormal,
@@ -138,17 +143,18 @@ const Worm = ({ scrollState, items }) => {
       }, speed);
     } else {
       // Scrolling up
+      
       setState({
         height: isMulticard() ? sizeSmall + diffSmall : sizeNormal + diff,
         width: isMulticard() ? sizeSmall : sizeNormal,
-        top: getDotOffset(current.slide + current.card + (items[scrollState.current.slide].cards.length - 1)),
+        top: getDotOffset(!isMulticard()?current.slide + current.card:current.slide + current.card+1),
       });
-
+      
       setTimeout(() => {
         setState({
           height: isMulticard() ? sizeSmall : sizeNormal,
           width: isMulticard() ? sizeSmall : sizeNormal,
-          top: getDotOffset(current.slide + current.card + (items[scrollState.current.slide].cards.length - 1)),
+          top: getDotOffset(!isMulticard()?current.slide + current.card:current.slide + current.card+1),
         });
       }, speed);
     }

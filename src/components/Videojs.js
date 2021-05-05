@@ -4,7 +4,7 @@ import "../assets/styles/components/Video.css";
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import videoJs from "video.js";
 
-const VideoPlayer = ({ src, isVisible, width, shouldPreload }) => {
+const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
   const videoContainer = useRef();
   const [player, setPlayer] = useState();
 
@@ -52,13 +52,16 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload }) => {
             alignItems: "center",
           }}
         >
-          <div data-vjs-player>
-            <video
-              ref={videoContainer}
-              className="video-js"
-              width="640"
-              height="360"
-            ></video>
+          <div
+            data-vjs-player
+            style={{
+              backgroundImage: `url(${placeholder})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+            }}
+          >
+            <video ref={videoContainer} className="video-js" width="640" height="360"></video>
           </div>
         </div>
       </div>
