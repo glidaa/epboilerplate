@@ -14,6 +14,7 @@ import Dots from "./Dots";
 import Image from './Image'
 
 import Header from "./Header";
+import classNames from 'classnames';
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
 
@@ -62,18 +63,20 @@ const Explainerpage = (props) => {
                 slide.cards.forEach((card) => {
                   card.style = card.style ? JSON.parse(card.style) : [];
                 });
+                
               });
-              page.fonts = {
-                  "color": "#d66e40",
-                  "fontSize": "80px",
-                  "google":{
-                    "families": [
-                      "Open Sans"
-                    ],
-                    "urls": [
-                      "http://fonts.googleapis.com/css?family=Open+Sans"
-                    ]
-                  }
+              if(page.fonts){
+                try{
+                  page.fonts = JSON.parse(page.fonts)
+                }catch(e){
+                  page.fonts = []
+                }
+              }
+              page.header = {
+                imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
+                imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
+                description: '',
+                page: page.id
               }
               console.log('TESTITEMJSON', page);
               setItemJson(page);
@@ -126,11 +129,20 @@ const Explainerpage = (props) => {
     currentScrollState: { slide: -1, card: -1 },
   });
   const [refView, inView] = useInView();
+  useEffect(() => {
+    if(inView){
+      setComponentNumberstate(
+        {
+          inViewData: [],
+    currentScrollState: { slide: -1, card: -1 },
+        }
+      )
+    }
+    
+  }, [inView])
   return (
     <>
-        <div ref={refView}>
-          <Header header={itemJson?.header} fonts={itemJson?.fonts} />
-        </div>
+          <Header reff={refView} header={itemJson?.header} fonts={itemJson?.fonts} isView={inView} />
 
       <div style={{ position: "relative" }}>
         <Dots
@@ -218,7 +230,7 @@ const Explainerpage = (props) => {
                 })
                 : null}
             </div>
-            <div className="scroller" id="scroller">
+            <div className={classNames('scroller', {'scrollerWithHeader':itemJson?.header})} id="scroller">
               {itemJson?.slides?.length > 0 ? (
                 itemJson.slides.map((narr, i) => (
                   <WaypointCard

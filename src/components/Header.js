@@ -3,21 +3,19 @@ import '../assets/styles/components/Header.css';
 
 import Fake3dContainer from "./Fake3dContainer";
 
-import imageUrlTopQantas from "../assets/images/topqantas.jpg";
-import imageDepthMapUrlTopQantas from "../assets/images/topqantas-depthmap.png";
-
 const Header = (props) => {
-  const { header='fdsfdkop',fonts } = props;
+  const { header,fonts, reff, isView } = props;
   console.log('props',props);
   return (
     <>
-      {header ? (
-        <div className="Header" style={{ backgroundColor: header?.backgroundColor ? header.backgroundColor : 'black' }}>
+      {header && header.imageUrlTop && header.imageDepthMapUrlTop ? (
+        <div className="Header" style={{ backgroundColor: header?.backgroundColor ? header.backgroundColor : 'black'}}>
+          <div style={{height:"70vh"}} ref={reff}>
             <div className="Header-Img">
           <img src={header?.background ? header.background : null} alt={header?.alt}></img>
           <Fake3dContainer
-            imageUrl={imageUrlTopQantas}
-            imageDepthMapUrl={imageDepthMapUrlTopQantas}
+            imageUrl={header.imageUrlTop}
+            imageDepthMapUrl={header.imageDepthMapUrlTop}
             width={500} 
             height={500}
           />
@@ -28,6 +26,7 @@ const Header = (props) => {
             </h1>*/}
           </div>
         </div>
+      </div>
       ) : null}
     </>
   );
