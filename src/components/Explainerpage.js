@@ -13,6 +13,7 @@ import Videojs from "./Videojs";
 import Dots from "./Dots";
 import Header from "./Header";
 //import VideoDash from './VideoDash'
+var  WebFont  =  require('webfontloader');
 
 const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
@@ -60,7 +61,18 @@ const Explainerpage = (props) => {
                   card.style = card.style ? JSON.parse(card.style) : [];
                 });
               });
-
+              page.fonts = {
+                  "color": "#d66e40",
+                  "fontSize": "80px",
+                  "google":{
+                    "families": [
+                      "Open Sans"
+                    ],
+                    "urls": [
+                      "http://fonts.googleapis.com/css?family=Open+Sans"
+                    ]
+                  }
+              }
               console.log('TESTITEMJSON', page);
               setItemJson(page);
             });
@@ -74,17 +86,34 @@ const Explainerpage = (props) => {
     }
   }, [itemJsonFile]);
   useEffect(() => {
+
+       
     console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {
-      var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
-      new_font
-        .load()
-        .then(function (loaded_face) {
-          // use font here
-          console.log("La fuente cargó");
-          document.fonts.add(loaded_face);
-        })
-        .catch(function (error) {});
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = itemJson.fonts.google.urls[0];
+        wf.async = true;
+        wf.type="text/css";
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+      WebFont.load ( { 
+        google : { 
+          families: itemJson.fonts.google.families
+        } 
+      } ) ;
+      
+      // console.log(WebFontConfig)
+      console.log("FONT")
+      // var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
+      // new_font
+      //   .load()
+      //   .then(function (loaded_face) {
+      //     // use font here
+      //     console.log("La fuente cargó");
+      //     document.fonts.add(loaded_face);
+      //   })
+      //   .catch(function (error) {});
     }
   }, [itemJson]);
 
