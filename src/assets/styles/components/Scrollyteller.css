@@ -236,3 +236,6 @@ lottie-player {
   display: flex;
   flex-direction: column;
 }
+.scrollerWithHeader{
+  padding: 60vh 0;
+}
