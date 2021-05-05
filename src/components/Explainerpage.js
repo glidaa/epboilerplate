@@ -13,6 +13,7 @@ import Videojs from "./Videojs";
 import Dots from "./Dots";
 import Image from './Image'
 
+import Header from "./Header";
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
 
@@ -127,7 +128,10 @@ const Explainerpage = (props) => {
   const [refView, inView] = useInView();
   return (
     <>
-      
+        <div ref={refView}>
+          <Header header={itemJson?.header} fonts={itemJson?.fonts} />
+        </div>
+
       <div style={{ position: "relative" }}>
         <Dots
           isHeader={inView}
@@ -183,35 +187,35 @@ const Explainerpage = (props) => {
                           ></div>
                         );
 
-                      case 'animation2D':
-                        return (
-                          <div
-                            className={isSafarioIos}
-                            style={{
-                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
-                              width: "100%",
-                              transformOrigin: "0px 0px 0px",
-                            }}
-                            id={`canvascontainer${i}`}
-                            key={i}
-                          >
-                            {
-                              <LottiePlayer
-                                className="left-side"
-                                id={`lottie${i}`}
-                                mode="seek"
-                                src={left.data}
-                                key={i}
-                                renderer="canvas"
-                                frames={left.frames}
-                              />
-                            }
-                          </div>
-                        );
-                      default:
-                        return null;
-                    }
-                  })
+                    case 'animation2D':
+                      return (
+                        <div
+                          className={isSafarioIos}
+                          style={{
+                            display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                            width: "100%",
+                            transformOrigin: "0px 0px 0px",
+                          }}
+                          id={`canvascontainer${i}`}
+                          key={i}
+                        >
+                          {
+                            <LottiePlayer
+                              className="left-side"
+                              id={`lottie${i}`}
+                              mode="seek"
+                              src={left.data}
+                              key={i}
+                              renderer="canvas"
+                              frames={left.frames}
+                            />
+                          }
+                        </div>
+                      );
+                    default:
+                      return null;
+                  }
+                })
                 : null}
             </div>
             <div className="scroller" id="scroller">

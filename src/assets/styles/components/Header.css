@@ -9,6 +9,7 @@
   background-attachment: fixed;
   position: relative;
   justify-content: center;
+  z-index: 10;
 }
 .Header-Img{
     position: relative;
