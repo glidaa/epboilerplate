@@ -144,7 +144,6 @@ const Scrollyteller = () => {
           )}
         </div>
       </section>
-
       <RecordPlayer />
     </div>
   );
