@@ -2,8 +2,8 @@
     transition: 0 ease-in-out all;
     transform: scale(1);
     box-shadow: 10px 15px 25px 0 rgba(0,0,0,.2);
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    height: fit-content;
 }
 .Image-Hide{
     transform: scale(2);
