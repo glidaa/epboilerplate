@@ -12,7 +12,7 @@ const Header = (props) => {
   return (
     <>
       {header ? (
-        <div className="Header" style={{ backgroundColor: header?.backgroundColor ? header.backgroundColor : 'white' }}>
+        <div className="Header" style={{ backgroundColor: header?.backgroundColor ? header.backgroundColor : 'black' }}>
             <div className="Header-Img">
           <img src={header?.background ? header.background : null} alt={header?.alt}></img>
           <Fake3dContainer
