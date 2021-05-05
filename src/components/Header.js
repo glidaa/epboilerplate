@@ -4,7 +4,7 @@ import '../assets/styles/components/Header.css';
 import Fake3dContainer from "./Fake3dContainer";
 
 const Header = (props) => {
-  const { header,fonts, reff, isView } = props;
+  const { header,fonts, reff, isView, width } = props;
   console.log('props',props);
   return (
     <>
@@ -16,8 +16,8 @@ const Header = (props) => {
           <Fake3dContainer
             imageUrl={header.imageUrlTop}
             imageDepthMapUrl={header.imageDepthMapUrlTop}
-            width={500} 
-            height={500}
+            width={width} 
+            height={width}
           />
             </div>
           <div className="header_Title">

@@ -38,7 +38,11 @@ const LottiePlayer = React.memo((props) => {
           if (canvasdivNodes) {
             const canvas = canvasdivNodes[2];
             if (canvas) {
-              lottie.resize();
+              try{
+                if(lottie) lottie.resize();
+              }catch(e){
+                console.log(e)
+              }
             }
           }
         }
