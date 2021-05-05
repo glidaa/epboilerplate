@@ -11,6 +11,7 @@ import "../assets/styles/components/Scrollyteller.css";
 //import Video from './Video-React-player';
 import Videojs from "./Videojs";
 import Dots from "./Dots";
+import Image from './Image'
 
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
@@ -140,6 +141,26 @@ const Explainerpage = (props) => {
               {itemJson?.slides?.length > 0
                 ? itemJson.slides.map((left, i) => {
                     switch (left.type) {
+                      case 'image':
+                        return (
+                          <div
+                            className={isSafarioIos}
+                            style={{
+                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                              width: "100%",
+                              transformOrigin: "0px 0px 0px",
+                            }}
+                            id={`canvascontainer${i}`}
+                            key={i}
+                          >
+                          <Image
+                            width={width}
+                            key={i}
+                            src={left.data}
+                            isVisible={componentNumberstate.inViewData?.isView === i}
+                          />
+                          </div>
+                        );
                       case 'video':
                         return (
                           <Videojs
