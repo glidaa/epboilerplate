@@ -7,7 +7,7 @@ import imageUrlTopQantas from "../assets/images/topqantas.jpg";
 import imageDepthMapUrlTopQantas from "../assets/images/topqantas-depthmap.png";
 
 const Header = (props) => {
-  const { header,fonts } = props;
+  const { header='fdsfdkop',fonts } = props;
   console.log('props',props);
   return (
     <>
