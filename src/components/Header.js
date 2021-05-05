@@ -12,14 +12,14 @@ const Header = (props) => {
   return (
     <>
       {header ? (
-        <div className="Header" style={{ backgroundColor: header?.backgroundColor ? header.backgroundColor : 'black' }}>
+        <div className="Header" style={{ backgroundColor: header?.backgroundColor ? header.backgroundColor : 'white' }}>
             <div className="Header-Img">
           <img src={header?.background ? header.background : null} alt={header?.alt}></img>
           <Fake3dContainer
             imageUrl={imageUrlTopQantas}
             imageDepthMapUrl={imageDepthMapUrlTopQantas}
-            width={600} 
-            height={400}
+            width={500} 
+            height={500}
           />
             </div>
           <div className="header_Title">
