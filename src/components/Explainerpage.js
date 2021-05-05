@@ -29,6 +29,12 @@ const Explainerpage = (props) => {
   //     fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
   //       .then((response) => response.json())
   //       .then((data) => {
+  //         data.header = {
+  //           imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
+  //           imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
+  //           description: '',
+  //           page: data.id
+  //         }
   //         setItemJson(data);
   //         console.log("ITEMJSON",data)
   //       })
@@ -142,7 +148,7 @@ const Explainerpage = (props) => {
   }, [inView])
   return (
     <>
-          <Header reff={refView} header={itemJson?.header} fonts={itemJson?.fonts} isView={inView} />
+          <Header reff={refView} header={itemJson?.header} fonts={itemJson?.fonts} isView={inView} width={width} />
 
       <div style={{ position: "relative" }}>
         <Dots
