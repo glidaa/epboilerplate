@@ -8,9 +8,8 @@ export default function Fake3dContainer({ imageUrl, imageDepthMapUrl, width, hei
   useEffect(() => {
 
     let containerElement = document.querySelector(`.${containerClassName}`)
-    containerElement.style.width = `${width}px`
+    containerElement.style.width = `${window.screen.width}px`
     containerElement.style.height = `${height}px`
-
 
     let containerWidth = containerElement.offsetWidth
     let containerHeight = containerElement.offsetHeight
@@ -20,6 +19,7 @@ export default function Fake3dContainer({ imageUrl, imageDepthMapUrl, width, hei
       width: containerWidth,
       height: containerHeight,
     });
+    
     containerElement.appendChild(app.view);
 
     let img = new PIXI.Sprite.from(imageUrl);

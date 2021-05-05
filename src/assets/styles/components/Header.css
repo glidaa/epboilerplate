@@ -1,12 +1,6 @@
 .Header {
   display: flex;
   background-repeat: no-repeat;
-  /* width: 100%; */
-  padding: 5%;
-  height: 60vh;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
   position: relative;
   justify-content: center;
   z-index: 10;
@@ -14,7 +8,7 @@
 .Header-Img{
     position: relative;
    height: 0px;
-   padding-bottom: 75%;
+   padding-bottom: 50%;
    top: 0px;
    left: 0px;
    right: 0px;

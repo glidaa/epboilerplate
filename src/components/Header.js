@@ -6,6 +6,9 @@ import Fake3dContainer from "./Fake3dContainer";
 import imageUrlTopQantas from "../assets/images/topqantas.jpg";
 import imageDepthMapUrlTopQantas from "../assets/images/topqantas-depthmap.png";
 
+import imageUrlTwoPeople from "../assets/images/two-people.png";
+import imageDepthMapUrlTwoPeople from "../assets/images/two-people-depthmap.png";
+
 const Header = (props) => {
   const { header='fdsfdkop',fonts } = props;
   console.log('props',props);
@@ -18,6 +21,12 @@ const Header = (props) => {
           <Fake3dContainer
             imageUrl={imageUrlTopQantas}
             imageDepthMapUrl={imageDepthMapUrlTopQantas}
+            width={500} 
+            height={500}
+          />
+          <Fake3dContainer
+            imageUrl={imageUrlTwoPeople}
+            imageDepthMapUrl={imageDepthMapUrlTwoPeople}
             width={500} 
             height={500}
           />
