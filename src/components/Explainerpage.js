@@ -11,7 +11,7 @@ import "../assets/styles/components/Scrollyteller.css";
 //import Video from './Video-React-player';
 import Videojs from "./Videojs";
 import Dots from "./Dots";
-import Header from "./Header";
+
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
 
@@ -126,11 +126,7 @@ const Explainerpage = (props) => {
   const [refView, inView] = useInView();
   return (
     <>
-      {itemJson?.header ? (
-        <div ref={refView}>
-          <Header header={itemJson?.header} fonts={itemJson?.fonts} />
-        </div>
-      ) : null}
+      
       <div style={{ position: "relative" }}>
         <Dots
           isHeader={inView}
