@@ -237,7 +237,7 @@ const Explainerpage = (props) => {
                             className="left-side"
                             key={i}
                             style={{
-                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                              display: componentNumberstate.inViewData?.isView === i ? "block" : "none",
                             }}
                           >
                             <RecordPlayer />

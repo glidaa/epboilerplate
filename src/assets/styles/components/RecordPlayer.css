@@ -31,3 +31,36 @@
   color: white;
   opacity: 1;
 }
+
+.record-player-wr .single {
+  width: 730px;
+}
+
+@media only screen and (max-width: 768px) {
+  .record-player-wr {
+    height: 85vh;
+    align-items: center;
+  }
+
+  .slick-prev {
+    left: 8vw;
+  }
+
+  .slick-next {
+    right: 13vw;
+  }
+
+  .slick-dots {
+    bottom: 25vh;
+  }
+
+  .slick-dots li {
+    width: 12px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .record-player-wr .single {
+    width: 54vw;
+  }
+}
