@@ -1,0 +1,146 @@
+[
+    {
+        "index": 0,
+        "year": "1990",
+        "artist": "The Whistlespankers",
+        "title": "Nigel & Me",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Dream_On_This_Side.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Stolen_Dreams_Backing_Track.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Old_Man_and_the_Sea_II.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album12.jpg"
+    },
+    {
+        "index": 1,
+        "year": "1985",
+        "artist": "The Green Lords",
+        "title": "Bacteria Invasion",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beyond_Jupiter.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/To_Free_Me.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Caves_of_Steel.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album11.jpg"
+    },
+    {
+        "index": 2,
+        "year": "2010",
+        "artist": "Insane Children",
+        "title": "Playground",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Luna's_Little_Friend.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Stolen_Dreams_Backing_Track.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Old_Man_and_the_Sea_II.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album10.jpg"
+    },
+    {
+        "index": 3,
+        "year": "2005",
+        "artist": "Skyrunners",
+        "title": "No problem, Housten",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Caves_of_Steel.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Luna's_Little_Friend.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Dream_On_This_Side.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album9.jpg"
+    },
+    {
+        "index": 4,
+        "year": "1979",
+        "artist": "Fanfare",
+        "title": "Isolde",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beyond_Jupiter.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beautiful_Paranoia.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/To_Free_Me.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album8.jpg"
+    },
+    {
+        "index": 5,
+        "year": "1992",
+        "artist": "Nostralus",
+        "title": "Extreme Water",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Dawn's_Battle.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beyond_Jupiter.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Caves_of_Steel.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album7.jpg"
+    },
+    {
+        "index": 6,
+        "year": "1987",
+        "artist": "The Matadoors",
+        "title": "Oilspill",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Rock_On.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Dawn's_Battle.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/To_Free_Me.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album6.jpg"
+    },
+    {
+        "index": 7,
+        "year": "1992",
+        "artist": "Digital Love",
+        "title": "Follow the blink",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Old_Man_and_the_Sea_II.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Dawn's_Battle.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beyond_Jupiter.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album5.jpg"
+    },
+    {
+        "index": 8,
+        "year": "2006",
+        "artist": "Dynasty",
+        "title": "Sacred",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/To_Free_Me.mp3,mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Caves_of_Steel.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Luna's_Little_Friend.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album4.jpg"
+    },
+    {
+        "index": 9,
+        "year": "1989",
+        "artist": "Bright",
+        "title": "Gone Again",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beautiful_Paranoia.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Rock_On.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Old_Man_and_the_Sea_II.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album3.jpg"
+    },
+    {
+        "index": 10,
+        "year": "1984",
+        "artist": "Peekaboo",
+        "title": "Clear Nonsense",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beyond_Jupiter.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/To_Free_Me.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Caves_of_Steel.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album2.jpg"
+    },
+    {
+        "index": 11,
+        "year": "1999",
+        "artist": "Lena Glass",
+        "title": "Blue Moments",
+        "data": [
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Stolen_Dreams_Backing_Track.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Dream_On_This_Side.mp3",
+            "https://dv3z5txku61se.cloudfront.net/SalmonSalad/songs/Beautiful_Paranoia.mp3"
+        ],
+        "img": "https://dv3z5txku61se.cloudfront.net/SalmonSalad/albums/album1.jpg"
+    }
+]

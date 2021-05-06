@@ -433,6 +433,15 @@
                     "cardSlideId":"19"
                 }
             ]
+        },
+        {
+            "id": "19",
+            "pos": 19,
+            "slidePageId": "0",
+            "type": "recordPlayer",
+            "frames": "",
+            "data": "",
+            "cards":[]
         }
     ]
 }

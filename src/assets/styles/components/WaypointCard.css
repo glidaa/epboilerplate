@@ -1,5 +1,4 @@
 .w-card-maindiv {
-  
   margin: 53vh 0;
   display: flex;
   justify-content: center;
@@ -10,10 +9,9 @@
   align-self: flex-end;
   height: max-content;
 }
-.w-card-text{
+.w-card-text {
   position: absolute;
   left: 0;
-
 }
 .w-card-div {
   display: flex;
@@ -67,9 +65,9 @@
   padding: 0%;
 }
 
-@media screen  and (max-width: 940px){
-.w-card-maindiv {
-  width: 100%;
-  align-self: auto;
-}
+@media screen and (max-width: 940px) {
+  .w-card-maindiv {
+    width: 100%;
+    align-self: auto;
+  }
 }
