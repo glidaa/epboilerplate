@@ -58,7 +58,7 @@ const MouseLeave = (event) => {
         onMouseLeave={MouseLeave}
         onScroll={console.log()}
         style={{
-          margin: '10% 40%',
+          margin: '0% 40%',
           transform: `scale(${TransForm.scale}) translate(${TransForm.translate.x}px, ${TransForm.translate.y}px) rotate(${TransForm.rotate}deg)`,
           transition: `${TransForm.speed}s ease-in-out all`
         }}
