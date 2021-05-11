@@ -78,12 +78,6 @@ const Explainerpage = (props) => {
                   page.fonts = []
                 }
               }
-              page.header = {
-                imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
-                imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
-                description: '',
-                page: page.id
-              }
               console.log('TESTITEMJSON', page);
               setItemJson(page);
             });
