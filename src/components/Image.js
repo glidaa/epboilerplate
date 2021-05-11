@@ -48,19 +48,22 @@ const MouseLeave = (event) => {
     setTransForm({ ...AuxTransform });
   };
   return (
-    <img
-      srcSet={src}
-      alt=""
-      className={className('Image', { 'Image-Hide': !visible })}
-      onMouseMove={MoveImage}
-      onMouseEnter={MouseEnter}
-      onMouseLeave={MouseLeave}
-      onScroll={console.log()}
-      style={{
-        transform: `scale(${TransForm.scale}) translate(${TransForm.translate.x}px, ${TransForm.translate.y}px) rotate(${TransForm.rotate}deg)`,
-        transition: `${TransForm.speed}s ease-in-out all`
-      }}
-    />
+    <div>
+      <img
+        srcSet={src}
+        alt=""
+        className={className('Image', { 'Image-Hide': !visible })}
+        onMouseMove={MoveImage}
+        onMouseEnter={MouseEnter}
+        onMouseLeave={MouseLeave}
+        onScroll={console.log()}
+        style={{
+          margin: '0% 40%',
+          transform: `scale(${TransForm.scale}) translate(${TransForm.translate.x}px, ${TransForm.translate.y}px) rotate(${TransForm.rotate}deg)`,
+          transition: `${TransForm.speed}s ease-in-out all`
+        }}
+      />
+    </div>
   );
 };
 
