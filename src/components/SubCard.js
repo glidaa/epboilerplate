@@ -23,7 +23,7 @@ const SubCard = (props) => {
       id={`desc${i}-${j}`}
       key={`${i}-${j}`}
     >
-                    <Element name={`Slide${i}.${j}`} style={{position: "relative", width:'100%'}}>
+                    <Element name={`Slide${i}.${j}`} style={{position: "relative", width:'100%', visibility:card?'visible':'hidden'}}>
       <Card
         ref={refView}
         className={className({ 'card-text': isText })}
