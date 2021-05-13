@@ -160,10 +160,14 @@ const Explainerpage = (props) => {
                       case 'image':
                         return (
                           <div
-                            className={isSafarioIos}
+                          className={className(
+                              'left-side',
+                              { SlideLeft: left.position === 'left' },
+                              { SlideMedium: left.position === 'medium' },
+                              { SlideRight: left.position === 'right' }
+                            )}
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
-                              transformOrigin: "0px 0px 0px",
                             }}
                             id={`canvascontainer${i}`}
                             key={i}
@@ -190,7 +194,10 @@ const Explainerpage = (props) => {
                       case "text":
                         return (
                           <div
-                            className="left-side text video"
+                          className={className(
+                              'left-side',
+                              'text', 'video',
+                              )}
                             key={i}
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
@@ -201,10 +208,16 @@ const Explainerpage = (props) => {
                     case 'animation2D':
                       return (
                         <div
-                          className={isSafarioIos}
+                          className={className(
+                          'left-side',
+                          {'scrollyTeller-lottie-height':isSafari() || iOS() },
+                          { SlideLeft: left.position === 'left' || !left.position },
+                          { SlideMedium: left.position === 'medium' },
+                          { SlideRight: left.position === 'right' },
+                          { Fullscreen: left.position === 'fullscreen' },
+                          )}
                           style={{
                             display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
-                            width: "100%",
                             transformOrigin: "0px 0px 0px",
                           }}
                           id={`canvascontainer${i}`}
