@@ -89,7 +89,6 @@ const Dots = (props) => {
 };
 
 const Worm = ({ scrollState, items }) => {
-  console.log("ITEMS", items)
   const speed = 225;
   const diff = 22;
   const diffSmall = 17;
