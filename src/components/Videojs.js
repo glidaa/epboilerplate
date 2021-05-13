@@ -16,7 +16,7 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
       fluid: false,
       loop: true,
       height: "100%",
-      muted: true,
+      muted: false,
       sources: [{ src: src }],
     }),
     [src]
