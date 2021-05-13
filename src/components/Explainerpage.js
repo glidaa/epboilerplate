@@ -152,7 +152,7 @@ const Explainerpage = (props) => {
           componentNumberstate={componentNumberstate}
           slides={itemJson.slides}
         />
-        <div ref={ref} className="Scrollyteller">
+        <div ref={ref} className="Scrollyteller" style={itemJson?.styles?{...itemJson?.styles}:{}}>
           <section className="Scrollyteller__section">
             <div className="graphic">
               {itemJson?.slides?.length > 0
@@ -163,9 +163,9 @@ const Explainerpage = (props) => {
                           <div
                           className={className(
                               'left-side',
-                              { SlideLeft: left.position === 'left' },
-                              { SlideMedium: left.position === 'medium' },
-                              { SlideRight: left.position === 'right' }
+                              { SlideLeft: left.Position === 'left' },
+                              { SlideMedium: left.Position === 'medium' },
+                              { SlideRight: left.Position === 'right' }
                             )}
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
@@ -212,10 +212,10 @@ const Explainerpage = (props) => {
                           className={className(
                           'left-side',
                           {'scrollyTeller-lottie-height':isSafari() || iOS() },
-                          { SlideLeft: left.position === 'left' || !left.position },
-                          { SlideMedium: left.position === 'medium' },
-                          { SlideRight: left.position === 'right' },
-                          { Fullscreen: left.position === 'fullscreen' },
+                          { SlideLeft: left.Position === 'left' || !left.Position },
+                          { SlideMedium: left.Position === 'medium' },
+                          { SlideRight: left.Position === 'right' },
+                          { Fullscreen: left.Position === 'fullscreen' },
                           )}
                           style={{
                             display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
