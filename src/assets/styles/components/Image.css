@@ -2,15 +2,18 @@
     transition: 0 ease-in-out all;
     transform: scale(1);
     box-shadow: 10px 15px 25px 0 rgba(0,0,0,.2);
-    max-width: 100%;
-    height: fit-content;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    vertical-align:middle
 }
+
 .Image-Hide{
     transform: scale(2);
 }
-.Image:hover{
+/* .Image:hover{
     transform: scale(1.2) translate(5%, 0) rotate(5deg) 
-}
+} */
 
 .photo:hover .glow{
     transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);

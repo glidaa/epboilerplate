@@ -169,9 +169,6 @@ const Explainerpage = (props) => {
                             className={isSafarioIos}
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
-                              width: "100%",
-                              justifyContent: 'end',
-                              alignItems: 'center',
                               transformOrigin: "0px 0px 0px",
                             }}
                             id={`canvascontainer${i}`}
