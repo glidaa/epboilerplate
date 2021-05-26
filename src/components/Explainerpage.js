@@ -152,7 +152,7 @@ const Explainerpage = (props) => {
   }, [inView])
   return (
     <>
-          <Header reff={refView} header={itemJson?.header} fonts={itemJson?.fonts} isView={inView} width={width} />
+         
 
       <div style={{ position: "relative" }}>
         <Dots
