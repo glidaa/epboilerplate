@@ -88,6 +88,8 @@ img {
   height: 100vh;
   width: 100%;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 .data {
   font-size: 5rem;
@@ -235,4 +237,31 @@ lottie-player {
   padding: 40vh 0;
   display: flex;
   flex-direction: column;
+}
+.scrollerWithHeader{
+  padding: 60vh 0;
+}
+.SlideLeft,
+.SlideMedium,
+.SlideRight{
+  width: 50%;
+}
+.Fullscreen{
+  width: 100%;
+}
+.SlideLeft{
+  align-self: flex-start
+}
+.SlideMedium{
+  align-self: center
+}
+.SlideRight{
+  align-self: flex-end
+}
+@media screen and (max-width: 940px) {
+  .SlideLeft,
+.SlideMedium,
+.SlideRight{
+  width: 100%;
+}
 }

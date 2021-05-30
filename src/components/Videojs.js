@@ -11,8 +11,8 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
   const videoJsOptions = useMemo(
     () => ({
       // techOrder: ['html5', 'flash'],
-      controls: false,
-      autoplay: false,
+      controls: true,
+      autoplay: true,
       fluid: false,
       loop: true,
       height: "100%",
@@ -26,13 +26,17 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
   useEffect(() => {
     if (isVisible || shouldPreload) {
       if (!player) {
-        setPlayer(videoJs(videoContainer.current, videoJsOptions));
+        setPlayer(videoJs(videoContainer.current, videoJsOptions,function onPlayerReady() {
+        }));
       } else if (player && isVisible) {
         player.play();
       }
     } else if (!isVisible && player) {
-      player.pause();
-      player.currentTime(0);
+      try{
+        player.pause();
+        player.currentTime(0);
+      }catch(e){
+      }
     }
   }, [isVisible, player, videoJsOptions, shouldPreload]);
 

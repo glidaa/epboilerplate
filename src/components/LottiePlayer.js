@@ -16,7 +16,6 @@ const LottiePlayer = React.memo((props) => {
     }
     if (ref.current) {
       const lottie = ref.current;
-      console.log('Lottie', lottie);
       lottie.addEventListener('load', function (e) {
         create({
           mode: 'scroll',
@@ -39,7 +38,11 @@ const LottiePlayer = React.memo((props) => {
           if (canvasdivNodes) {
             const canvas = canvasdivNodes[2];
             if (canvas) {
-              lottie.resize();
+              try{
+                if(lottie) lottie.resize();
+              }catch(e){
+                console.log(e)
+              }
             }
           }
         }

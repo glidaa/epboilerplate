@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { iOS, isSafari } from "./iosSupport";
-import className from "classnames";
-import { useResizeDetector } from "react-resize-detector/build/withPolyfill";
-import { useInView } from "react-intersection-observer";
-import { Element } from "react-scroll";
+import React, { useEffect, useState } from 'react';
+import { iOS, isSafari } from './iosSupport';
+import className from 'classnames';
+import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
+import { useInView } from 'react-intersection-observer';
 
 import LottiePlayer from "./LottiePlayer";
 import WaypointCard from "./WaypointCard";
@@ -11,45 +10,145 @@ import WaypointCard from "./WaypointCard";
 import "../assets/styles/components/Scrollyteller.css";
 //import Video from './Video-React-player';
 import Videojs from "./Videojs";
+import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
+import Image from './Image'
+
 import Header from "./Header";
+import classNames from 'classnames';
 //import VideoDash from './VideoDash'
+var  WebFont  =  require('webfontloader');
 
 const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
   const { itemJsonFile } = props;
-  const [itemJson, setItemJson] = useState({});
+  const [itemJson, setItemJson] = useState({ slides: [] });
+  //DON'T DELETE
+  // useEffect(() => {
+  //   console.log('Test');
+  //   if (!itemJsonFile) {
+  //     fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         data.header = {
+  //           imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
+  //           imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
+  //           description: '',
+  //           page: data.id
+  //         }
+  //         setItemJson(data);
+  //         console.log("ITEMJSON",data)
+  //       })
+  //       .catch(function (err) {
+  //         console.log('Error: ', err);
+  //       });
+  //   } else {
+  //     // console.log('ExplainerPage:', itemJson.dataFile);
+  //     setItemJson(itemJsonFile);
+  //   }
+  // }, [itemJsonFile]);
   useEffect(() => {
-    console.log("Test");
+    console.log('Test');
+    const url = 'https://6lkh03vsyg.execute-api.us-east-1.amazonaws.com/Test/page/';
     if (!itemJsonFile) {
-      fetch(process.env.PUBLIC_URL + "/items.json?v=" + Date.now())
+      fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
         .then((response) => response.json())
-        .then((data) => {
-          setItemJson(data);
+        .then((page) => {
+          fetch(url + page.id + '?v=' + Date.now())
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('DATA:', data.data.data.getPage);
+              let page = data.data.data.getPage;
+              document.title = page.title
+              page = page
+            ? { ...page, slides: [...page?.slides?.items] }
+            : { ...itemJson };
+              page.slides = page?.slides?.sort((a, b) => {
+                return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+              });
+              if (page.slides) {
+              page.slides.forEach((slide, i) => {
+                if (slide?.cards?.items) slide.cards = [...slide?.cards?.items];
+                else if (slide.cards) slide.cards = [...slide?.cards];
+                else slide.cards = [];
+                slide.cards = slide?.cards?.sort((a, b) => {
+                    return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+                });
+                slide.pageStyles = convertStringToJson(slide.pageStyles);
+                if (slide.cards) {
+                    slide.cards.map((card) => {
+                      card.style = convertStringToJson(card.style)
+                    });
+                }
+              });
+            }
+              if(page.fonts){
+                page.fonts = convertStringToJson(page.fonts)
+              }
+              if(page.styles){
+                page.styles = convertStringToJson(page.styles)
+              }
+              console.log('TESTITEMJSON', page);
+              setItemJson(page);
+            });
         })
         .catch(function (err) {
           console.log("Error: ", err);
         });
     } else {
-      console.log("ExplainerPage:", itemJson.dataFile);
+      // console.log('ExplainerPage:', itemJson.dataFile);
       setItemJson(itemJsonFile);
     }
   }, [itemJsonFile]);
   useEffect(() => {
+
+       
     console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {
-      var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
-      new_font
-        .load()
-        .then(function (loaded_face) {
-          // use font here
-          console.log("La fuente cargó");
-          document.fonts.add(loaded_face);
-        })
-        .catch(function (error) {});
+      // (function(d) {
+      //   var wf = d.createElement('script'), s = d.scripts[0];
+      //   wf.src = itemJson.fonts.google.urls[0];
+      //   wf.async = true;
+      //   wf.type="text/css";
+      //   s.parentNode.insertBefore(wf, s);
+      // })(document);
+      try {
+        
+        WebFont.load ( { 
+          google : {
+            families: itemJson.fonts.google.families
+          } 
+      } ) ;
+        } catch (error) {
+          
+        }
+      
+      // console.log(WebFontConfig)
+      console.log("FONT")
+      // var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
+      // new_font
+      //   .load()
+      //   .then(function (loaded_face) {
+      //     // use font here
+      //     console.log("La fuente cargó");
+      //     document.fonts.add(loaded_face);
+      //   })
+      //   .catch(function (error) {});
     }
   }, [itemJson]);
-
+  const convertStringToJson = (input)=>{
+    var convert = {}
+    try {
+      convert = input?(typeof input==='object'?input:JSON.parse(input)):{}
+      Object.keys(convert).map(value=>{
+        if(convert[value] === undefined) delete convert[value] 
+      })
+      console.log("convertStringToJson:",convert)
+    } catch (error) {
+      return convert      
+    }
+    return convert
+  }
   const isSafarioIos = className(`left-side ${isSafari() || iOS() ? "scrollyTeller-lottie-height" : ""}`);
 
   const [componentNumberstate, setComponentNumberstate] = useState({
@@ -57,41 +156,90 @@ const Explainerpage = (props) => {
     currentScrollState: { slide: -1, card: -1 },
   });
   const [refView, inView] = useInView();
+  useEffect(() => {
+    if(inView){
+      setComponentNumberstate(
+        {
+          inViewData: {isView:-1},
+    currentScrollState: { slide: -1, card: -1 },
+        }
+      )
+    }
+    
+  }, [inView])
   return (
     <>
-      {itemJson?.header ? (
-        <div ref={refView}>
-          <Header header={itemJson?.header} fonts={itemJson?.fonts} />
-        </div>
-      ) : null}
-      <div style={{ position: "relative" }}>
+          <Header reff={refView} header={itemJson?.header} fonts={itemJson?.fonts} isView={inView} width={width} />
+
+      <div style={{ position: "relative" }} ref={ref}>
         <Dots
           isHeader={inView}
           setComponentNumberstate={setComponentNumberstate}
           componentNumberstate={componentNumberstate}
-          itemJson={itemJson.data}
+          slides={itemJson.slides}
         />
-        <div ref={ref} className="Scrollyteller">
+        <div
+          className="Scrollyteller"
+          style={{
+            ...itemJson?.styles
+                ? itemJson?.styles 
+                : {},
+            ...(componentNumberstate.inViewData?.isView >= 0 &&
+            itemJson?.slides[
+                componentNumberstate.inViewData?.isView
+            ]?.pageStyles
+                ? itemJson.slides[
+                      componentNumberstate.inViewData.isView
+                  ].pageStyles
+                : null)
+          }}
+      >
           <section className="Scrollyteller__section">
-            <div className="graphic">
-              {itemJson?.data?.length > 0
-                ? itemJson.data.map((left, i) => {
-                    switch (left[0].slideType) {
-                      case "video":
+            <div className="graphic" style={{ width: `${width}px` }}>
+              {itemJson?.slides?.length > 0
+                ? itemJson.slides.map((left, i) => {
+                    switch (left.type) {
+                      case 'video':
                         return (
                           <Videojs
                             width={width}
                             key={i}
-                            src={componentNumberstate.inViewData?.isView === i ? left[0].data : left[0].data}
-                            placeholder={left[0].placeholder}
+                            src={componentNumberstate.inViewData?.isView === i ? left.data : left.data}
+                            placeholder={left.placeholder}
                             isVisible={componentNumberstate.inViewData?.isView === i}
                             shouldPreload={componentNumberstate.inViewData?.isView === i - 1}
                           />
                         );
+                      case 'image':
+                        return (
+                          <div
+                          className={className(
+                              'left-side',
+                              { SlideLeft: left.Position === 'left' },
+                              { SlideMedium: left.Position === 'medium' },
+                              { SlideRight: left.Position === 'right' }
+                            )}
+                            style={{
+                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                            }}
+                            id={`canvascontainer${i}`}
+                            key={i}
+                          >
+                          <Image
+                            width={width}
+                            key={i}
+                            src={left.data}
+                            isVisible={componentNumberstate.inViewData?.isView === i}
+                          />
+                          </div>
+                        );
                       case "text":
                         return (
                           <div
-                            className="left-side text video"
+                          className={className(
+                              'left-side',
+                              'text', 'video',
+                              )}
                             key={i}
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
@@ -99,50 +247,81 @@ const Explainerpage = (props) => {
                           ></div>
                         );
 
-                      case "2d":
+                    case 'animation2D':
+                      return (
+                        <div
+                          className={className(
+                          'left-side',
+                          {'scrollyTeller-lottie-height':isSafari() || iOS() },
+                          { SlideLeft: left.Position === 'left' || !left.Position },
+                          { SlideMedium: left.Position === 'medium' },
+                          { SlideRight: left.Position === 'right' },
+                          { Fullscreen: left.Position === 'fullscreen' },
+                          )}
+                          style={{
+                            display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
+                            transformOrigin: "0px 0px 0px",
+                          }}
+                          id={`canvascontainer${i}`}
+                          key={i}
+                        >
+                          {
+                            <LottiePlayer
+                              className="left-side"
+                              id={`lottie${i}`}
+                              mode="seek"
+                              src={left.data}
+                              key={i}
+                              renderer="canvas"
+                              frames={left.frames}
+                            />
+                          }
+                        </div>
+                      );
+                      case "animation3D":
                         return (
-                          <div
-                            className={isSafarioIos}
-                            style={{
-                              display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
-                              width: "100%",
-                              transformOrigin: "0px 0px 0px",
-                            }}
-                            id={`canvascontainer${i}`}
-                            key={i}
-                          >
-                            {
-                              <LottiePlayer
-                                className="left-side"
-                                id={`lottie${i}`}
-                                mode="seek"
-                                src={left[0].data}
+                            <div
+                                className={isSafarioIos}
+                                style={{
+                                    display:
+                                        componentNumberstate
+                                            .inViewData
+                                            ?.isView === i
+                                            ? "flex"
+                                            : "none",
+                                    width: "100%",
+                                    transformOrigin:
+                                        "0px 0px 0px"
+                                }}
                                 key={i}
-                                renderer="canvas"
-                                frames={left[0].frames}
-                              />
-                            }
-                          </div>
+                            >
+                                {<Viewer3D 
+                                  Ref = {ref}
+                                  url={left.data}
+                                  width={width}
+                                  visible={componentNumberstate.inViewData?.isView === i}
+                              ></Viewer3D>}
+                            </div>
                         );
-                      default:
-                        return null;
-                    }
-                  })
+                    default:
+                      return null;
+                  }
+                })
                 : null}
             </div>
-            <div className="scroller" id="scroller">
-              {itemJson?.data?.length > 0 ? (
-                itemJson.data.map((narr, i) => (
+            <div className={classNames('scroller', {'scrollerWithHeader':itemJson?.header})} id="scroller">
+              {itemJson?.slides?.length > 0 ? (
+                itemJson.slides.map((narr, i) => (
                   <WaypointCard
                     key={i}
                     setComponentNumberstate={setComponentNumberstate}
                     componentNumberstate={componentNumberstate}
                     i={i}
-                    text={narr?.map((card) => card.description)}
-                    styles={narr?.map((card) => card.style)}
-                    isText={narr[0].slideType === "text"}
+                    text={narr?.cards?.map((card) => card.description)}
+                    styles={narr?.cards?.map((card) => card.style)}
+                    isText={narr.type === 'text'}
                     isFirst={i === 0}
-                    isLast={i === itemJson.data.length - 1}
+                    isLast={i === itemJson.slides.length - 1}
                     background={itemJson.background}
                   />
                 ))
