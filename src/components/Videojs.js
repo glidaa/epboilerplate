@@ -11,12 +11,12 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
   const videoJsOptions = useMemo(
     () => ({
       // techOrder: ['html5', 'flash'],
-      controls: false,
-      autoplay: false,
+      controls: true,
+      autoplay: true,
       fluid: false,
       loop: true,
       height: "100%",
-      muted: false,
+      muted: true,
       sources: [{ src: src }],
     }),
     [src]
