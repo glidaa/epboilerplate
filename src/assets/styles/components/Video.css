@@ -1144,7 +1144,7 @@ body.vjs-full-window {
 }
 .video-js .vjs-play-control {
   cursor: pointer;
-  display: none;
+  visibility: hidden;
 }
 .video-js .vjs-play-control .vjs-icon-placeholder {
   flex: none;
