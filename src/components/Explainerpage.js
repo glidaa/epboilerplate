@@ -76,19 +76,15 @@ const Explainerpage = (props) => {
                 });
                 slide.pageStyles = convertStringToJson(slide.pageStyles);
                 if (slide.cards) {
-                    slide.cards.map((card) => {
+                    slide.cards.forEach((card) => {
                       card.style = convertStringToJson(card.style)
                     });
                 }
               });
             }
-              if(page.fonts){
                 page.fonts = convertStringToJson(page.fonts)
-              }
-              if(page.styles){
                 page.styles = convertStringToJson(page.styles)
-              }
-              console.log('TESTITEMJSON', page);
+                page.cardStyles = convertStringToJson(page.cardStyles)
               setItemJson(page);
             });
         })
@@ -101,8 +97,6 @@ const Explainerpage = (props) => {
     }
   }, [itemJsonFile]);
   useEffect(() => {
-
-       
     console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {
       // (function(d) {
@@ -118,7 +112,7 @@ const Explainerpage = (props) => {
           google : {
             families: itemJson.fonts.google.families
           } 
-      } ) ;
+      } );
         } catch (error) {
           
         }
@@ -137,15 +131,15 @@ const Explainerpage = (props) => {
     }
   }, [itemJson]);
   const convertStringToJson = (input)=>{
-    var convert = {}
+    var convert = null
     try {
-      convert = input?(typeof input==='object'?input:JSON.parse(input)):{}
-      Object.keys(convert).map(value=>{
+      convert = input?(typeof input==='object'?input:JSON.parse(input)):null
+      if(convert)
+      Object.keys(convert).forEach(value=>{
         if(convert[value] === undefined) delete convert[value] 
       })
       console.log("convertStringToJson:",convert)
     } catch (error) {
-      return convert      
     }
     return convert
   }
@@ -180,19 +174,16 @@ const Explainerpage = (props) => {
         />
         <div
           className="Scrollyteller"
-          style={{
-            ...itemJson?.styles
-                ? itemJson?.styles 
-                : {},
-            ...(componentNumberstate.inViewData?.isView >= 0 &&
-            itemJson?.slides[
-                componentNumberstate.inViewData?.isView
-            ]?.pageStyles
-                ? itemJson.slides[
-                      componentNumberstate.inViewData.isView
-                  ].pageStyles
-                : null)
-          }}
+          style={
+            Object.assign(
+                {},
+                itemJson?.styles,
+                componentNumberstate.inViewData?.isView >= 0 &&
+                itemJson?.slides[
+                    componentNumberstate.inViewData?.isView
+                ]?.pageStyles,
+            )
+        }
       >
           <section className="Scrollyteller__section">
             <div className="graphic" style={{ width: `${width}px` }}>
@@ -295,12 +286,7 @@ const Explainerpage = (props) => {
                                 }}
                                 key={i}
                             >
-                                {<Viewer3D 
-                                  Ref = {ref}
-                                  url={left.data}
-                                  width={width}
-                                  visible={componentNumberstate.inViewData?.isView === i}
-                              ></Viewer3D>}
+                              {<Viewer3D data={left.data} background={left.placeholder}></Viewer3D>}
                             </div>
                         );
                     default:
@@ -318,7 +304,11 @@ const Explainerpage = (props) => {
                     componentNumberstate={componentNumberstate}
                     i={i}
                     text={narr?.cards?.map((card) => card.description)}
-                    styles={narr?.cards?.map((card) => card.style)}
+                    styles={narr?.cards?.map(card => Object.assign(
+                      {},
+                      itemJson.cardStyles,
+                      card.style,
+                  ))}
                     isText={narr.type === 'text'}
                     isFirst={i === 0}
                     isLast={i === itemJson.slides.length - 1}

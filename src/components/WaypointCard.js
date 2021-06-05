@@ -9,7 +9,7 @@ const WaypointCard = (props) => {
   const { i, setComponentNumberstate, componentNumberstate, text, isText, isFirst, isLast, background, styles } = props;
   const [refView, inView] = useInView();
   const { height, ref } = useResizeDetector();
-  const [subview, setSubview] = useState(0);
+  const [subview, setSubview] = useState([]);
   useEffect(() => {
     const auxarray = componentNumberstate;
     if (inView) {
