@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import className from 'classnames';
-import { Card } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import { Element } from 'react-scroll';
+import '../assets/styles/components/SubCard.css'
 
 const SubCard = (props) => {
   const { j, length, i, isText, card, setSubview, background, styles } = props;
@@ -23,16 +23,20 @@ const SubCard = (props) => {
       id={`desc${i}-${j}`}
       key={`${i}-${j}`}
     >
-                    <Element name={`Slide${i}.${j}`} style={{position: "relative", width:'100%', visibility:card?'visible':'hidden'}}>
-      <Card
-        ref={refView}
-        className={className({ 'card-text': isText })}
-        style={{ backgroundImage: background?.length > 0 ? `url(${background[Math.floor(Math.random() * (background.length))]?.url})` : null, ...auxStyles }}
-      >
-        <Card.Body>
-          <div dangerouslySetInnerHTML={setHTML(card)}></div>
-        </Card.Body>
-      </Card>
+      <Element name={`Slide${i}.${j}`} style={{position: "relative", width:'100%'}}>
+      <div 
+                  className={className({ 'Scard-text': isText },'SubCard-Text')}
+                  ref={refView}
+                  style={{
+                    backgroundImage: background?.length > 0 ? `url(${background[Math.floor(Math.random() * background.length)]?.url})` : null,
+                    ...auxStyles,
+                  }}
+                >
+                  <div className="card-body">
+                    <div dangerouslySetInnerHTML={setHTML(card)}></div>
+
+                  </div>
+                  </div>
         </Element>
     </div>
   );
