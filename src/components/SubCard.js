@@ -22,7 +22,7 @@ const SubCard = (props) => {
       className={className('w-card', { 'w-card-first': j === 0 }, { 'w-card-last': j === length - 1 })}
       id={`desc${i}-${j}`}
       key={`${i}-${j}`}
-    >
+      >
       <Element name={`Slide${i}.${j}`} style={{position: "relative", width:'100%'}}>
       <div 
                   className={className({ 'Scard-text': isText },'SubCard-Text')}
@@ -32,7 +32,9 @@ const SubCard = (props) => {
                     ...auxStyles,
                   }}
                 >
-                  <div className="card-body">
+                  <div className="card-body"
+                    id={`descc${i}-${j}`}
+                  >
                     <div dangerouslySetInnerHTML={setHTML(card)}></div>
 
                   </div>

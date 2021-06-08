@@ -58,6 +58,7 @@ const Explainerpage = (props) => {
             .then((response) => response.json())
             .then((data) => {
               console.log('DATA:', data.data.data.getPage);
+              if(!data.data.data.getPage) return
               let page = data.data.data.getPage;
               document.title = page.title
               page = page
@@ -213,7 +214,7 @@ const Explainerpage = (props) => {
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
                             }}
-                            id={`canvascontainer${i}`}
+                            id={`image${i}`}
                             key={i}
                           >
                           <Image
@@ -262,6 +263,7 @@ const Explainerpage = (props) => {
                               id={`lottie${i}`}
                               mode="seek"
                               src={left.data}
+                              i={i}
                               key={i}
                               renderer="canvas"
                               frames={left.frames}
