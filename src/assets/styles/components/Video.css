@@ -6,7 +6,7 @@
   width: 98.8vw;
 }
 .video-js{
-  position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;
+  position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; min-width: 100%; min-height: 100%;
 }
 .video-js .vjs-big-play-button .vjs-icon-placeholder:before,
 .video-js .vjs-modal-dialog,

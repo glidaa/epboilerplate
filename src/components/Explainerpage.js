@@ -108,16 +108,16 @@ const Explainerpage = (props) => {
       //   s.parentNode.insertBefore(wf, s);
       // })(document);
       try {
-        
-        WebFont.load ( { 
+
+        WebFont.load ( {
           google : {
             families: itemJson.fonts.google.families
-          } 
+          }
       } );
         } catch (error) {
-          
+
         }
-      
+
       // console.log(WebFontConfig)
       console.log("FONT")
       // var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
@@ -137,7 +137,7 @@ const Explainerpage = (props) => {
       convert = input?(typeof input==='object'?input:JSON.parse(input)):null
       if(convert)
       Object.keys(convert).forEach(value=>{
-        if(convert[value] === undefined) delete convert[value] 
+        if(convert[value] === undefined) delete convert[value]
       })
       console.log("convertStringToJson:",convert)
     } catch (error) {
@@ -160,7 +160,7 @@ const Explainerpage = (props) => {
         }
       )
     }
-    
+
   }, [inView])
   return (
     <>
@@ -287,7 +287,7 @@ const Explainerpage = (props) => {
                                 }}
                                 key={i}
                             >
-                              {<Viewer3D data={left.data} background={left.placeholder}></Viewer3D>}
+                                <Viewer3D data={left.data} background={left.placeholder}></Viewer3D>
                             </div>
                         );
                     default:
