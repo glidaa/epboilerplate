@@ -257,7 +257,6 @@ const Explainerpage = (props) => {
                           id={`canvascontainer${i}`}
                           key={i}
                         >
-                          {
                             <LottiePlayer
                               className="left-side"
                               id={`lottie${i}`}
@@ -267,8 +266,8 @@ const Explainerpage = (props) => {
                               key={i}
                               renderer="canvas"
                               frames={left.frames}
+                              Display = {componentNumberstate.inViewData?.isView === i}
                             />
-                          }
                         </div>
                       );
                       case "animation3D":
