@@ -14,7 +14,7 @@ const LottiePlayer = React.memo((props) => {
   const First = useRef(true)
   Disp.current = Display
   useEffect(() => {
-    if(Display){ console.log("changed",i)
+    if(Display){ //console.log("changed",i)
     First.current = true;
     }
   }, [Display])
@@ -30,10 +30,11 @@ const LottiePlayer = React.memo((props) => {
   }
   const rep = (value) =>{
       if (animation.current && animLoaded && First.current) {
-        console.log("Console",First.current)
+        // console.log("Console",First.current)
         const fr = Math.ceil(value * Frames);
         if(animation.current.currentFrame !== fr){
           animation.current.goToAndStop(fr, true);
+          // console.log(Frames,value+'%',fr)
             enterF()
         }
       }
@@ -48,12 +49,11 @@ const LottiePlayer = React.memo((props) => {
       containerRef.current = document.querySelector(`#step${i}`);
       if(Frames===null || Frames > animation.current.totalFrames) setFrames(animation.current.totalFrames)
       setRef(containerRef);
-      console.log('loaded', animation.current.totalFrames);
+      // console.log('loaded', animation.current.totalFrames);
       setAnimLoaded(true);
     }
 
-    console.log("Wtest")
-    console.log('Change', change);
+    // console.log('Change', change);
     if (change) {
       setChange(!change);
     }

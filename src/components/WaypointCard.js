@@ -35,8 +35,8 @@ const WaypointCard = (props) => {
       key={i}
       style={{ height: isText ? `${height}px` : 'auto' }}
     >
-      <div ref={refView} className={className('w-card-div', { 'w-card-text': isText })}>
-        <div id={`step${i}`} ref={ref} style={{ width: '100%' }}>
+      <div id={`step${i}`} ref={refView} className={className('w-card-div', { 'w-card-text': isText })}>
+        <div ref={ref} className={className({'w-card-translateY':isFirst && i === 0})} style={{ width: '100%' }}>
           {text ? (
             text.map((card, j) => (
               <SubCard

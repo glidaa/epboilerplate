@@ -66,6 +66,10 @@
   padding: 0%;
 }
 
+.w-card-translateY{
+  transform: translateY(-50vh);
+}
+
 @media screen  and (max-width: 940px){
 .w-card-maindiv {
   width: 100%;

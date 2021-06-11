@@ -234,7 +234,7 @@ lottie-player {
 }
 .scroller {
   z-index: 2;
-  padding: 40vh 0;
+  padding: 100vh 0;
   display: flex;
   flex-direction: column;
 }
