@@ -85,7 +85,7 @@ const LottiePlayer = React.memo((props) => {
 
     };
   }, [src, ref.current, id, change]);
-  return <><div style={{position:"absolute"}}>{percent}</div>{src && !change ? <div ref={ref} id={'lottie_' + i} style={{ width: '100%' }}></div> : null}</>;
+  return <>{src && !change ? <div ref={ref} id={'lottie_' + i} style={{ width: '100%' }}></div> : null}</>;
 });
 
 export default LottiePlayer;
