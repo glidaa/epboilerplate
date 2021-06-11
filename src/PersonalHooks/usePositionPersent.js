@@ -38,7 +38,7 @@ const usePositionPercent = (initialState,rep) => {
       const y3 = y2 + height;
       const yn = top + height;
       var auxPercent = (1 - ((yn / y3))).toFixed(2);
-      console.log(y1,y2,y3,yn,auxPercent,top,height )
+      // console.log(y1,y2,y3,yn,auxPercent,top,height )
       if (auxPercent < 0) auxPercent = 0;
       if (auxPercent > 1) auxPercent = 1;
       if(auxPercent !== percent){
