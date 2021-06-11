@@ -17,6 +17,7 @@ const SubCard = (props) => {
     return { __html: data };
   };
   const auxStyles = styles?styles:{}
+  const visible = card?{}:{border: 'none', 'boxShadow': 'none', 'backgroundColor': 'transparent'}
   return (
     <div
       className={className('w-card', { 'w-card-first': j === 0 }, { 'w-card-last': j === length - 1 })}
@@ -30,6 +31,7 @@ const SubCard = (props) => {
                   style={{
                     backgroundImage: background?.length > 0 ? `url(${background[Math.floor(Math.random() * background.length)]?.url})` : null,
                     ...auxStyles,
+                    ...visible
                   }}
                 >
                   <div className="card-body"
