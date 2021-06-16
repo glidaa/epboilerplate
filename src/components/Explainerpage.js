@@ -49,7 +49,7 @@ const Explainerpage = (props) => {
   // }, [itemJsonFile]);
   useEffect(() => {
     console.log('Test');
-    const url = 'https://6lkh03vsyg.execute-api.us-east-1.amazonaws.com/Test/page/';
+    const url = 'https://j37hd76xt1.execute-api.us-east-1.amazonaws.com/devthree/Test/page/';
     if (!itemJsonFile) {
       fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
         .then((response) => response.json())
