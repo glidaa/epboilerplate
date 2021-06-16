@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import className from 'classnames';
 import { useInView } from 'react-intersection-observer';
-import '../assets/styles/components/WaypointCard.css';
+import './WaypointCard.css';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import SubCard from './SubCard';
 
