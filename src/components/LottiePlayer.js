@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import usePositionPercent from '../PersonalHooks/usePositionPersent';
+import usePositionPercent from '../PersonalHooks/usePositionPercentage';
 import bodymovin from 'lottie-web';
 
 const LottiePlayer = React.memo((props) => {
