@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import className from 'classnames';
-import '../assets/styles/components/Image.css';
+import './Image.css';
 
 const Image = (props) => {
   const { src, isVisible } = props;

@@ -7,14 +7,13 @@ import { useInView } from 'react-intersection-observer';
 import LottiePlayer from "./LottiePlayer";
 import WaypointCard from "./WaypointCard";
 
-import "../assets/styles/components/Scrollyteller.css";
+import "./Explainerpage.css";
 //import Video from './Video-React-player';
 import Videojs from "./Videojs";
 import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
 import Image from './Image'
 
-import Header from "./Header";
 import classNames from 'classnames';
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
@@ -115,15 +114,6 @@ const Explainerpage = (props) => {
 
       // console.log(WebFontConfig)
       console.log("FONT")
-      // var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
-      // new_font
-      //   .load()
-      //   .then(function (loaded_face) {
-      //     // use font here
-      //     console.log("La fuente cargó");
-      //     document.fonts.add(loaded_face);
-      //   })
-      //   .catch(function (error) {});
     }
   }, [itemJson]);
   const convertStringToJson = (input)=>{
@@ -159,8 +149,7 @@ const Explainerpage = (props) => {
   }, [inView])
   return (
     <>
-          <Header reff={refView} header={itemJson?.header} fonts={itemJson?.fonts} isView={inView} width={width} />
-
+         
       <div style={{ position: "relative" }} ref={ref}>
         <Dots
           isHeader={inView}

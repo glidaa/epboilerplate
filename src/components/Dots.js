@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/styles/components/Dots.css';
+import './Dots.css';
 import className from 'classnames';
 import { Link } from 'react-scroll';
 

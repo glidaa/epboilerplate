@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import className from 'classnames';
 import { useInView } from 'react-intersection-observer';
 import { Element } from 'react-scroll';
-import '../assets/styles/components/SubCard.css'
+import './SubCard.css'
 
 const SubCard = (props) => {
   const { j, length, i, isText, card, setSubview, background, styles } = props;
