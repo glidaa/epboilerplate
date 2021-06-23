@@ -8,12 +8,11 @@ import LottiePlayer from "./LottiePlayer";
 import WaypointCard from "./WaypointCard";
 
 import "./Explainerpage.css";
-//import Video from './Video-React-player';
 import Videojs from "./Videojs";
 import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
 import Image from './Image'
-
+import ItemJson from '../pageItemLoader.json'
 import classNames from 'classnames';
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
@@ -89,45 +88,56 @@ const Explainerpage = (props) => {
   //   }
   // }, [itemJsonFile]);
   useEffect(() => {
-    if (!itemJsonFile) {
-          fetch(url + pageurl+'?v='+ Date.now())
-            .then((response) => response.json())
-            .then((data) => {
-              console.log('DATA:', data);
-              if(!data) return
-              let page = data;
-              document.title = page.title
-              page.slides = [];
-              page.fonts = convertStringToJson(page.fonts)
-              page.styles = convertStringToJson(page.styles)
-              page.cardStyles = convertStringToJson(page.cardStyles)
-              setItemJson(page);
-              setIsSlides(true)
-            });
-
-            /**
-            page.slides = page?.slides?.sort((a, b) => {
-                return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
-              });
-              if (page.slides) {
-              page.slides.forEach((slide, i) => {
-                slide.cards = slide?.cards?.sort((a, b) => {
-                    return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
-                });
-                slide.pageStyles = convertStringToJson(slide.pageStyles);
-                if (slide.cards) {
-                    slide.cards.forEach((card) => {
-                      card.style = convertStringToJson(card.style)
-                    });
-                }
-              });
-            }
-             */
-    } else {
-      // console.log('ExplainerPage:', itemJson.dataFile);
-      setItemJson(itemJsonFile);
-    }
-  }, [itemJsonFile]);
+    setItemJson(ItemJson)
+    // console.log('Test');
+    // const url = 'https://vorc7ohl9f.execute-api.us-east-1.amazonaws.com/newmain/page/';
+    // if (!itemJsonFile) {
+    //   fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
+    //     .then((response) => response.json())
+    //     .then((page) => {
+    //       fetch(url + page.id + '?v=' + Date.now())
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //           console.log('DATA:', data.data.data.getPage);
+    //           if(!data.data.data.getPage) return
+    //           let page = data.data.data.getPage;
+    //           document.title = page.title
+    //           page = page
+    //         ? { ...page, slides: [...page?.slides?.items] }
+    //         : { ...itemJson };
+    //           page.slides = page?.slides?.sort((a, b) => {
+    //             return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+    //           });
+    //           if (page.slides) {
+    //           page.slides.forEach((slide, i) => {
+    //             if (slide?.cards?.items) slide.cards = [...slide?.cards?.items];
+    //             else if (slide.cards) slide.cards = [...slide?.cards];
+    //             else slide.cards = [];
+    //             slide.cards = slide?.cards?.sort((a, b) => {
+    //                 return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+    //             });
+    //             slide.pageStyles = convertStringToJson(slide.pageStyles);
+    //             if (slide.cards) {
+    //                 slide.cards.forEach((card) => {
+    //                   card.style = convertStringToJson(card.style)
+    //                 });
+    //             }
+    //           });
+    //         }
+    //             page.fonts = convertStringToJson(page.fonts)
+    //             page.styles = convertStringToJson(page.styles)
+    //             page.cardStyles = convertStringToJson(page.cardStyles)
+    //           setItemJson(page);
+    //         });
+    //     })
+    //     .catch(function (err) {
+    //       console.log("Error: ", err);
+    //     });
+    // } else {
+    //   // console.log('ExplainerPage:', itemJson.dataFile);
+    //   setItemJson(itemJsonFile);
+    // }
+  }, []);
   useEffect(() => {
     console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {

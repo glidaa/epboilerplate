@@ -1,0 +1,661 @@
+{
+    "id": "e257c946-10c1-430f-b266-8273058b937b",
+    "cardStyles": {
+        "backgroundColor": "#0e7cffff"
+    },
+    "owner": "explainerpage3",
+    "title": "Kash02",
+    "fonts": {
+        "google": {
+            "families": [
+                "Poppins",
+                "Open Sans"
+            ],
+            "urls": [
+                "http://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrFJDUc1NECPY.ttf",
+                "http://fonts.gstatic.com/s/opensans/v20/mem8YaGs126MiZpBA-U1UpcaXcl0Aw.ttf"
+            ]
+        }
+    },
+    "styles": {
+        "backgroundColor": "#fcfcfcff",
+        "color": "#ffffffff"
+    },
+    "createdAt": "2021-05-31T21:50:47.038Z",
+    "updatedAt": "2021-06-21T20:36:00.402Z",
+    "slides": [
+        {
+            "id": "3ed63d67-4a7a-47a7-a593-d1233dbac4b0",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "https://explainerpage-videos.s3.amazonaws.com/us-east-1-3dd88586-155c-4859-b7dd-66f933375882/731bbc66-0989-4897-aa31-4448958a6908/04miso_sauce/04miso_sauce-still-image.0000001.jpg",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 9,
+            "createdAt": "2021-06-16T02:39:49.549Z",
+            "updatedAt": "2021-06-21T20:36:20.410Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "36dd3ba1-62af-470e-b6ce-8a68dc12ba3c",
+                    "description": "FEE TABLE",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:39:50.624Z",
+                    "updatedAt": "2021-06-21T20:36:19.941Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "709fcabd-2a82-495f-a6d0-77abe8d98747",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 14,
+            "createdAt": "2021-06-16T02:43:56.549Z",
+            "updatedAt": "2021-06-21T20:36:27.100Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "dccedcb6-3cef-49a8-9bd3-806d5647e04c",
+                    "description": "In any company, the people behind a company are as important as the company itself. Meet our Board of Directors who ensure the smooth running of this operation and guarantee that we provide you with the best services.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:43:57.466Z",
+                    "updatedAt": "2021-06-21T20:36:26.694Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "a13aac0d-dcc8-4703-b456-585c3fa5569c",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 6,
+            "createdAt": "2021-06-16T02:35:25.616Z",
+            "updatedAt": "2021-06-21T20:36:17.339Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "6bdcc933-0dfd-4312-a7e7-e18b3e3da546",
+                    "description": "Improved access to global investment opportunities.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:35:26.363Z",
+                    "updatedAt": "2021-06-21T20:36:15.490Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "95e78107-d52c-4cd0-ace7-456cbdfd1bc7",
+                    "description": "Invest in US shares directly from your account.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:35:36.345Z",
+                    "updatedAt": "2021-06-21T20:36:16.539Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "49187983-73f1-4bd7-8457-0625c99f4da5",
+                    "description": "By signing up, you get to understand your savings and investment goals, projects and predict your savings and returns.",
+                    "style": {},
+                    "pos": 1,
+                    "createdAt": "2021-06-16T02:35:40.688Z",
+                    "updatedAt": "2021-06-21T20:36:16.993Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "7861d2c1-b297-4f29-a164-d4c124a54aad",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 15,
+            "createdAt": "2021-06-16T02:43:59.729Z",
+            "updatedAt": "2021-06-21T20:36:28.326Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "fc8596bc-8639-43d0-b211-3e98b1fdd2f2",
+                    "description": "Our mission is simple, to give financial freedom to people and make their lives more secure with better savings, payments and other banking solutions.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:44:00.484Z",
+                    "updatedAt": "2021-06-21T20:36:27.529Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "e5e54471-ff28-47fe-aa95-4494e6bf6c7d",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 13,
+            "createdAt": "2021-06-16T02:43:49.464Z",
+            "updatedAt": "2021-06-21T20:36:26.272Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "d33aa82c-492c-4bba-8837-ae0574a60644",
+                    "description": "We offer teams and many different people across the globe. This makes it easy for us to provide our customers with real-time solutions in different languages. We are a relaxed community and we ensure our customers are engaged in an effortless environment.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:43:50.641Z",
+                    "updatedAt": "2021-06-21T20:36:25.446Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "d10d3493-9b48-4392-bb84-158195492f6c",
+            "type": "animation2D",
+            "Position": null,
+            "frames": 241,
+            "data": "https://assets6.lottiefiles.com/private_files/lf30_mr0vg9vd.json",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 2,
+            "createdAt": "2021-06-16T02:21:40.092Z",
+            "updatedAt": "2021-06-21T20:36:08.457Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "a56c8fcf-6145-4464-8ee5-235c29a90b5c",
+                    "description": "No monthly or setup fees.",
+                    "style": {},
+                    "pos": 1,
+                    "createdAt": "2021-06-16T02:21:57.416Z",
+                    "updatedAt": "2021-06-21T20:36:06.378Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "11926cbe-68df-49da-9d1b-97bb5df4e138",
+                    "description": "Simple, smarter, and secure savings account with up to 15% returns in USD or EUROs.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:21:41.061Z",
+                    "updatedAt": "2021-06-21T20:36:05.376Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "16c6b72b-2493-4817-b529-10d063185edf",
+                    "description": "Built on Terra with 2 million people and $2Billion in assets. Learn about how we get the rates.",
+                    "style": {},
+                    "pos": 2,
+                    "createdAt": "2021-06-16T02:22:04.674Z",
+                    "updatedAt": "2021-06-21T20:36:07.503Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "ceecf54a-25df-4c8e-b4d5-affdcaad2fd4",
+            "type": "text",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 19,
+            "createdAt": "2021-06-16T02:46:40.512Z",
+            "updatedAt": "2021-06-21T20:36:33.069Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "7c921cf3-c568-4ad1-91f5-0a0fb54ca8a6",
+                    "description": "CONTACT US <br> Name:<br>Email Address:<br>Message:",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:46:41.503Z",
+                    "updatedAt": "2021-06-21T20:36:31.083Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "98264137-8ed8-4738-8094-716f943b1f04",
+                    "description": "TERMS & CONDITIONS <BR>Kash is software and tools developed by Kash Software, Inc. Kash Software, Inc. is not a bank and does not offer any federal or state banking or depositary services to its customers. Kash Software, Inc. offers a seamless connection between users and smart contracts on Anchor protocol, which is a decentralized blockchain protocol powered by Terraform Labs Pte. Ltd. Kash Software, Inc. does not generate yield (or any form of return) for its members. Yields are generated by the Anchor Protocol.\n\nThe currently displayed interest rate may be lower or higher than currently stated. Historical interest rates on supplying digital assets to the Anchor Protocol is not an indicator that these rates will be available in the future. Funds supplied to Anchor Protocol through Kash software and tools are not insured by the Federal Deposit Insurance Corporation (FDIC) or any other federal, state, or local regulatory agency.\n\nCertain Kash product features listed are currently in development and are not available.\n\nDigital assets are NOT bank deposits, are NOT legal tender, are NOT backed by the government, and accounts and value balances are NOT subject to Federal Deposit Insurance Corporation or Securities Investor Protection Corporation or any other governmental or government-backed protections. Legislative and regulatory changes or actions at the State, Federal, or international level may adversely affect the use, transfer, exchange, and value of digital assets.\n\n* Based on Anchor protocol yield.\n\nKash Software, Inc. does not exchange any digital currencies on behalf of its customers. Exchange services are provided by a third party provider.\n\nThere are risks involved with supplying funds or digital assets to the Anchor Protocol via Kash. Customers may lose all funds. For more information about information and risk relating to the Anchor Protocol, please refer to: https://docs.anchorprotocol.com<br>\nKash logo\n",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:47:36.626Z",
+                    "updatedAt": "2021-06-21T20:36:32.084Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "37aa12dd-9d48-42f0-abdf-cde00de153a0",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 11,
+            "createdAt": "2021-06-16T02:41:47.309Z",
+            "updatedAt": "2021-06-21T20:36:23.403Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "1b0f7d07-bc08-4366-8940-e398cfcdc0c2",
+                    "description": "We can offer high returns from interest rates as the system is overcollateralized to protect depositors. ",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:41:48.298Z",
+                    "updatedAt": "2021-06-21T20:36:22.924Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "fde0dca5-1adc-424a-a7ba-2865fd32294b",
+            "type": "animation2D",
+            "Position": null,
+            "frames": 241,
+            "data": "https://assets10.lottiefiles.com/private_files/lf30_bahuqyz8.json",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 5,
+            "createdAt": "2021-06-16T02:33:23.520Z",
+            "updatedAt": "2021-06-21T20:36:15.063Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "c0f9dcef-ce13-4857-8b09-6ffafe9859e0",
+                    "description": "Remarkably low fees on local and international transfers.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:33:24.480Z",
+                    "updatedAt": "2021-06-21T20:36:13.807Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "80e47991-9503-4da5-ac58-8274ff2c72b5",
+                    "description": "It only costs less than $1 to send $100 in seconds, compared to Western Union ($15) and PayPal (5% or max $5.99) and transferwise $",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:33:41.875Z",
+                    "updatedAt": "2021-06-21T20:36:14.292Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "0ceea71b-1562-424a-9eba-53d61ccc9448",
+                    "description": "You can also use your account details to receive money and manage your earnings.",
+                    "style": {},
+                    "pos": 1,
+                    "createdAt": "2021-06-16T02:34:01.154Z",
+                    "updatedAt": "2021-06-21T20:36:14.682Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "481f67e3-647f-4f22-8fcf-271d11b30b38",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 4,
+            "createdAt": "2021-06-16T02:32:54.666Z",
+            "updatedAt": "2021-06-21T20:36:12.841Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "0e973a33-7243-40b8-8e1a-15a0a4a613fe",
+                    "description": "CALCULATOR 02",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:32:55.727Z",
+                    "updatedAt": "2021-06-21T20:36:11.799Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "0f390c52-5287-4974-afdf-96bcf6aca65e",
+            "type": "text",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 20,
+            "createdAt": "2021-06-17T22:25:46.140Z",
+            "updatedAt": "2021-06-21T20:36:38.998Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "00f4eaa1-a677-4097-bccd-fe403f629050",
+                    "description": "",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-17T22:25:47.012Z",
+                    "updatedAt": "2021-06-21T20:36:34.064Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "11766308-e952-4d3e-91a6-715e54725621",
+                    "description": "",
+                    "style": {},
+                    "pos": null,
+                    "createdAt": "2021-06-18T01:48:38.131Z",
+                    "updatedAt": "2021-06-21T20:36:38.293Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "f179ed9e-4d60-498a-8596-ef22ee4be387",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 17,
+            "createdAt": "2021-06-16T02:44:05.913Z",
+            "updatedAt": "2021-06-21T20:36:29.918Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "36a10e9d-5c1d-48c0-b44d-ea2c6329f721",
+                    "description": "We have a large growing community that reaches every corner of the globe. It is our goal to bring this excellent initiative to everyone’s doorstep. We would love you to be a part of this incredible community.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:44:06.384Z",
+                    "updatedAt": "2021-06-21T20:36:29.508Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "4f3386bd-6aa4-4916-b841-d418fce979ea",
+            "type": "animation3D",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 1,
+            "createdAt": "2021-06-16T02:21:14.939Z",
+            "updatedAt": "2021-06-21T20:36:04.385Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "330c3bce-9245-470f-a388-2173662295ab",
+                    "description": "",
+                    "style": {},
+                    "pos": -1,
+                    "createdAt": "2021-06-19T01:16:45.494Z",
+                    "updatedAt": "2021-06-21T20:36:03.426Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "9a677778-2b0c-48ce-9a9c-0fe790f60724",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 16,
+            "createdAt": "2021-06-16T02:44:02.787Z",
+            "updatedAt": "2021-06-21T20:36:29.022Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "d56e398e-ce7f-4393-b8c1-125ceaa214a7",
+                    "description": "Our ethics are simple and straightforward. We protect and serve our customers. We believe the disciplined management of risk and integrity form the foundation of our business. We are aware that our decisions and actions affect people’s lives daily. We are transparent, and responsible in how we operate our business, acting first to protect our customers. We value our staff and hire locally in markets to ensure we are culturally aware of the sensitivities and beliefs of our customers. Our staff community reflects the diversity of our customers. We act as a responsible corporate citizen We take a duty of care to protect, proof of stake is the base of our transfer which is environmentally friendly compared to other ways of banking.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:44:03.835Z",
+                    "updatedAt": "2021-06-21T20:36:28.693Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "08e8791f-dfcb-4820-877f-8909de8d17d7",
+            "type": "animation3D",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 7,
+            "createdAt": "2021-06-16T02:36:21.385Z",
+            "updatedAt": "2021-06-21T20:36:17.805Z",
+            "owner": "explainerpage3",
+            "cards": []
+        },
+        {
+            "id": "1875ece0-6727-4ec6-8ad6-18bc6162e4dd",
+            "type": "animation2D",
+            "Position": "fullscreen",
+            "frames": 601,
+            "data": "https://assets4.lottiefiles.com/private_files/lf30_ofxjj9hm.json",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 0,
+            "createdAt": "2021-06-16T02:20:02.488Z",
+            "updatedAt": "2021-06-21T20:36:02.444Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "739b0ea8-ccde-41de-968b-7ae673666c49",
+                    "description": "",
+                    "style": {},
+                    "pos": -1,
+                    "createdAt": "2021-06-19T01:16:39.094Z",
+                    "updatedAt": "2021-06-21T20:36:01.406Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "bf9f4a6e-5e64-4c72-8a5b-80f120d596b0",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 18,
+            "createdAt": "2021-06-16T02:44:08.577Z",
+            "updatedAt": "2021-06-21T20:36:30.706Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "f89ac177-7ace-4d19-8b4f-b19cb060ff68",
+                    "description": "To our valued community, Our mission is to help you save with high interest rates. The reason we can provide you high interest rates is that we earn from lending to facilitate liquidity. Our mandate is to protect depositors by ensuring a 200% collateralization. Kash started from my conviction that our world deserves a safer and cost-free way to save and invest. I believe we all deserve a certain level of security, and even more, we all deserve financial freedom. I stand behind our local customer service teams, who are available 24/7 to help you with any questions. We are built for the community and by the community, this means we listen. Please feel free to share any feedback you have – we take your opinion very seriously and will do our best to take care of you and your money. Regards,",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:44:09.626Z",
+                    "updatedAt": "2021-06-21T20:36:30.280Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "b2fc81ae-a6c7-43f6-83d6-d82edcc18db5",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 12,
+            "createdAt": "2021-06-16T02:43:46.955Z",
+            "updatedAt": "2021-06-21T20:36:24.625Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "c1ec941d-31d7-4637-a89a-a020c7ae28d4",
+                    "description": "We are a new banking company dedicated to bringing affordable, easy financial solutions powered by decentralized technology. By leveraging protocols that support stable programmable payments and open financial infrastructure development we can lower the cost and improve the security of your savings accounts.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:43:47.676Z",
+                    "updatedAt": "2021-06-21T20:36:23.784Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "d7f58537-3d28-4182-bb50-788a463198aa",
+            "type": "image",
+            "Position": null,
+            "frames": 0,
+            "data": "",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 3,
+            "createdAt": "2021-06-16T02:22:49.450Z",
+            "updatedAt": "2021-06-21T20:36:10.781Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "b488f68c-f36e-43d4-955f-d7766d71d6c9",
+                    "description": "",
+                    "style": {},
+                    "pos": null,
+                    "createdAt": "2021-06-17T07:42:05.957Z",
+                    "updatedAt": "2021-06-21T20:36:09.421Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "3cf73906-078c-44bd-8574-30207455e33a",
+                    "description": "CALCULATOR 01",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:22:50.259Z",
+                    "updatedAt": "2021-06-21T20:36:09.819Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "360da35c-fce7-427c-8c59-5e04a128594a",
+            "type": "animation2D",
+            "Position": null,
+            "frames": 241,
+            "data": "https://assets3.lottiefiles.com/private_files/lf30_dnajcpch.json",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 8,
+            "createdAt": "2021-06-16T02:37:11.678Z",
+            "updatedAt": "2021-06-21T20:36:19.524Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "bb678931-b4a1-4e32-a2f5-540c6e82db03",
+                    "description": "Withdraw cash at any ATM globally.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:37:12.647Z",
+                    "updatedAt": "2021-06-21T20:36:18.760Z",
+                    "owner": "explainerpage3"
+                },
+                {
+                    "id": "152edf00-4302-4ef3-8927-d00094982b6a",
+                    "description": "Buy online safely with our advanced fraud protection.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:37:24.556Z",
+                    "updatedAt": "2021-06-21T20:36:19.148Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "d68ec2fd-be1b-42c6-be10-ffd0e062551c",
+            "type": "animation2D",
+            "Position": null,
+            "frames": 237,
+            "data": "https://assets1.lottiefiles.com/private_files/lf30_lhzwairx.json",
+            "pageStyles": {},
+            "placeholder": "",
+            "pos": 10,
+            "createdAt": "2021-06-16T02:40:55.467Z",
+            "updatedAt": "2021-06-21T20:36:21.897Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "id": "e46237de-69b3-49e9-b9b4-c934554570f6",
+                    "description": "Stored in a secure decentralized wallet that you control with your social media account and powered by Torus using OAuth 2.0 Token Authentication.",
+                    "style": {},
+                    "pos": 0,
+                    "createdAt": "2021-06-16T02:40:56.461Z",
+                    "updatedAt": "2021-06-21T20:36:21.401Z",
+                    "owner": "explainerpage3"
+                }
+            ]
+        },
+        {
+            "id": "3f27491c-c194-4888-be73-8a82e9ab8c8a",
+            "type": "code",
+            "Position": null,
+            "frames": 0,
+            "data": "let Scene = new THREE.Scene();let element = document.getElementById('code-viewer')const Renderer = new THREE.WebGLRenderer();Scene.background = new THREE.Color('rgb(92, 92, 92)')let Camera = new THREE.PerspectiveCamera( 75, element.offsetWidth/element.offsetHeight, 0.1, 1000 );Camera.position.y = 0.5;Camera.position.z = 5;const Grid = new THREE.GridHelper(10,20)Scene.add(Grid)Renderer.setSize( element.offsetWidth, element.offsetHeight);element.appendChild( Renderer.domElement )function render() {window.requestAnimationFrame( render );Renderer.render( Scene, Camera );}let Orbit = new OrbitControls(Camera, Renderer.domElement)Orbit.minDistance = 3;Orbit.maxDistance = 10;render()",
+            "pageStyles": null,
+            "placeholder": "",
+            "pos": 11,
+            "createdAt": "2021-06-16T02:40:55.467Z",
+            "updatedAt": "2021-06-21T20:36:21.897Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "createdAt": "2021-06-21T23:55:15.202Z",
+                    "description": "TEST",
+                    "id": "296a4b3d-fa5f-4eba-8ac8-fbb8222df50a",
+                    "owner": "explainerpage3",
+                    "pos": 0,
+                    "style": null,
+                    "updatedAt": "2021-06-21T23:55:15.202Z"
+                }
+            ]
+        },
+        {
+            "id": "3f27491c-c194-4899-be73-8a82e9ab8c8a",
+            "type": "video",
+            "Position": null,
+            "frames": 0,
+            "data": "https://explainerpage-videos.s3.amazonaws.com/us-east-1-3dd88586-155c-4859-b7dd-66f933375882/731bbc66-0989-4897-aa31-4448958a6908/04miso_sauce/04miso_sauce.m3u8",
+            "pageStyles": null,
+            "placeholder": "https://explainerpage-videos.s3.amazonaws.com/us-east-1-3dd88586-155c-4859-b7dd-66f933375882/731bbc66-0989-4897-aa31-4448958a6908/04miso_sauce/04miso_sauce-still-image.0000001.jpg",
+            "pos": 12,
+            "createdAt": "2021-06-16T02:40:55.467Z",
+            "updatedAt": "2021-06-21T20:36:21.897Z",
+            "owner": "explainerpage3",
+            "cards": [
+                {
+                    "createdAt": "2021-06-21T23:55:15.202Z",
+                    "description": "VIDEO TEST",
+                    "id": "296a4b3d-fa5f-4ebc-8ac8-fbb8222df50a",
+                    "owner": "explainerpage3",
+                    "pos": 0,
+                    "style": null,
+                    "updatedAt": "2021-06-21T23:55:15.202Z"
+                }
+            ]
+        }
+    ],
+    "header": null
+}
