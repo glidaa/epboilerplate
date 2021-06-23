@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Dots.css';
 import className from 'classnames';
-import { Link } from 'react-scroll';
+import Link from 'react-scroll/modules/components/Link';
 
 const Dots = (props) => {
   const { componentNumberstate, slides, isHeader } = props;
