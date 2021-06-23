@@ -22,6 +22,53 @@ const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
   const { itemJsonFile } = props;
   const [itemJson, setItemJson] = useState({ slides: [] });
+  const [isSlides, setIsSlides] = useState(false)
+  const [isCards, setIsCards] = useState(false)
+  const url = 'https://s3.amazonaws.com/item.json-loader/';
+  const pageurl = 'page.json'
+  const slidesUrl = 'slides.json'
+  const cardsUrl = 'cards.json'
+  useEffect(() => {
+    if(isSlides){
+      fetch(url + slidesUrl+'?v='+ Date.now())
+      .then((response) => response.json())
+      .then((data) => {
+        if(!data) return
+        console.log(data)
+        let slides = data.slides;
+        slides = slides?.sort((a, b) => {
+          return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+        });
+        setItemJson({...itemJson,slides});
+        setIsCards(true)
+      });
+    }
+  }, [isSlides])
+  useEffect(() => {
+    const getCards = async()=>{
+      var i = 0
+      var auxJson = {...itemJson};
+      for (const key in itemJson.slides) {
+        i = parseInt(key,10)+1
+          var n = i<10?'0'+ i:i;
+          console.log(i,n)
+          var response = await fetch(url + 'cards/card-'+n +'.json?v='+ Date.now()) 
+          response = await response.json()
+        
+        var slidepos = auxJson.slides?.findIndex(s=>s.id = response.id)
+        if(slidepos>=0) auxJson.slides[key].cards = response.data
+        // cards = cards?.sort((a, b) => {
+        //   return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+        // });
+        console.log(slidepos)
+        setItemJson({...auxJson});
+          console.log(response)
+      }
+    }
+    if(isCards){
+      getCards();
+    }
+  }, [isCards])
   //DON'T DELETE
   // useEffect(() => {
   //   console.log('Test');
@@ -42,30 +89,28 @@ const Explainerpage = (props) => {
   //   }
   // }, [itemJsonFile]);
   useEffect(() => {
-    console.log('Test');
-    const url = 'https://vorc7ohl9f.execute-api.us-east-1.amazonaws.com/newmain/page/';
     if (!itemJsonFile) {
-      fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
-        .then((response) => response.json())
-        .then((page) => {
-          fetch(url + page.id + '?v=' + Date.now())
+          fetch(url + pageurl+'?v='+ Date.now())
             .then((response) => response.json())
             .then((data) => {
-              console.log('DATA:', data.data.data.getPage);
-              if(!data.data.data.getPage) return
-              let page = data.data.data.getPage;
+              console.log('DATA:', data);
+              if(!data) return
+              let page = data;
               document.title = page.title
-              page = page
-            ? { ...page, slides: [...page?.slides?.items] }
-            : { ...itemJson };
-              page.slides = page?.slides?.sort((a, b) => {
+              page.slides = [];
+              page.fonts = convertStringToJson(page.fonts)
+              page.styles = convertStringToJson(page.styles)
+              page.cardStyles = convertStringToJson(page.cardStyles)
+              setItemJson(page);
+              setIsSlides(true)
+            });
+
+            /**
+            page.slides = page?.slides?.sort((a, b) => {
                 return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
               });
               if (page.slides) {
               page.slides.forEach((slide, i) => {
-                if (slide?.cards?.items) slide.cards = [...slide?.cards?.items];
-                else if (slide.cards) slide.cards = [...slide?.cards];
-                else slide.cards = [];
                 slide.cards = slide?.cards?.sort((a, b) => {
                     return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
                 });
@@ -77,15 +122,7 @@ const Explainerpage = (props) => {
                 }
               });
             }
-                page.fonts = convertStringToJson(page.fonts)
-                page.styles = convertStringToJson(page.styles)
-                page.cardStyles = convertStringToJson(page.cardStyles)
-              setItemJson(page);
-            });
-        })
-        .catch(function (err) {
-          console.log("Error: ", err);
-        });
+             */
     } else {
       // console.log('ExplainerPage:', itemJson.dataFile);
       setItemJson(itemJsonFile);
