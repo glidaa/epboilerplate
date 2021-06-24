@@ -13,6 +13,7 @@ import Videojs from "./Videojs";
 import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
 import Image from './Image'
+import Code from './Code'
 
 import classNames from 'classnames';
 //import VideoDash from './VideoDash'
@@ -149,7 +150,7 @@ const Explainerpage = (props) => {
   }, [inView])
   return (
     <>
-         
+
       <div style={{ position: "relative" }} ref={ref}>
         <Dots
           isHeader={inView}
@@ -274,6 +275,26 @@ const Explainerpage = (props) => {
                                 <Viewer3D data={left.data} background={left.placeholder}></Viewer3D>
                             </div>
                         );
+                      case "code":
+                        return (
+                          <div
+                              className={isSafarioIos}
+                              style={{
+                                  display:
+                                      componentNumberstate
+                                          .inViewData
+                                          ?.isView === i
+                                          ? "flex"
+                                          : "none",
+                                  width: "100%",
+                                  transformOrigin:
+                                      "0px 0px 0px"
+                              }}
+                              key={i}
+                          >
+                              <Code codeUrl={left.data} placeholder={left.placeholder}/>
+                          </div>
+                        )
                     default:
                       return null;
                   }

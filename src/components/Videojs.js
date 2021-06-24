@@ -42,7 +42,6 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
         player.on("waiting", function() {
             setWaiting(true)
             let interval = setInterval(() => {
-              console.log("interval")
               if(!videoContainer.current.parentElement.classList.contains("vjs-waiting")){
                 setWaiting(false)
                 window.clearInterval(interval)
