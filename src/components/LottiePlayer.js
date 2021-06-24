@@ -1,74 +1,91 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '@lottiefiles/lottie-player';
-import { create } from '@lottiefiles/lottie-interactivity';
+import usePositionPercent from '../PersonalHooks/usePositionPercentage';
+import bodymovin from 'lottie-web';
 
 const LottiePlayer = React.memo((props) => {
-  const { frames, src, mode, renderer,id } = props;
-  const [change, setChange] = useState(false)
+  const { src, mode, renderer, id, i,Display,frames} = props;
+  const [change, setChange] = useState(false);
   const ref = useRef();
+  const animation = useRef(null);
+  const containerRef = useRef();
+  const [animLoaded, setAnimLoaded] = useState(false);
+  const [Frames, setFrames] = useState(parseInt(frames,10)>0?parseInt(frames,10):null);
+  const Disp = useRef()
+  const First = useRef(true)
+  Disp.current = Display
   useEffect(() => {
-    setChange(true)
-  }, [src,frames])
+    if(Display){ //console.log("changed",i)
+    First.current = true;
+    }
+  }, [Display])
+  const enterF = (e) =>{
+    const canvas = animation.current?.container;
+    if (canvas && Disp.current) {
+        try {
+          animation.current.resize();
+        } catch (e) {
+          console.log(e);
+        }
+      }
+  }
+  const rep = (value) =>{
+      if (animation.current && animLoaded && First.current) {
+        // console.log("Console",First.current)
+        const fr = Math.ceil(value * Frames);
+        if(animation.current.currentFrame !== fr){
+          animation.current.goToAndStop(fr, true);
+          // console.log(Frames,value+'%',fr)
+            enterF()
+        }
+      }
+  }
+  const [percent, setRef] = usePositionPercent(containerRef.current,rep);
   useEffect(() => {
-    console.log("Change",change)
-    if(change){
-      setChange(!change)
+    setChange(true);
+  }, [src]);
+  useEffect(() => {
+
+    const DomL = (e) => {
+      containerRef.current = document.querySelector(`#step${i}`);
+      if(Frames===null || Frames > animation.current.totalFrames) setFrames(animation.current.totalFrames)
+      setRef(containerRef);
+      // console.log('loaded', animation.current.totalFrames);
+      setAnimLoaded(true);
+    }
+
+    // console.log('Change', change);
+    if (change) {
+      setChange(!change);
     }
     if (ref.current) {
       const lottie = ref.current;
-      lottie.addEventListener('load', function (e) {
-        create({
-          mode: 'scroll',
-          autoplay: false,
-          player: lottie,
-          container: `#step${Math.trunc(id.split('lottie')[1])}`,
-          actions: [
-            {
-              visibility: [0, 0.8],
-              type: 'seek',
-              frames: [0, frames],
-            },
-          ],
-        });
-      });
-      lottie.addEventListener('frame', function (e) {
-        const canvasdiv = lottie.shadowRoot.querySelectorAll('.main > .animation');
-        if (canvasdiv && canvasdiv.length > 0) {
-          const canvasdivNodes = canvasdiv[0].childNodes;
-          if (canvasdivNodes) {
-            const canvas = canvasdivNodes[2];
-            if (canvas) {
-              try{
-                if(lottie) lottie.resize();
-              }catch(e){
-                console.log(e)
-              }
-            }
-          }
-        }
-      });
-    }
-  }, [src, frames, ref.current,id,change]);
-
-
-  return (
-    <>
-    {
-      frames && src && !change?
-      <lottie-player
-      ref={ref}
-      frames={frames}
-      src={src}
-        mode={mode}
-        renderer={renderer}
-        rendererSettings={{
+      console.log(src);
+      animation.current = bodymovin.loadAnimation({
+        wrapper: lottie,
+        renderer: 'canvas',
+        autoplay: false,
+        loop: true,
+        path: src,
+        rendererSettings: {
+          scaleMode: 'noScale',
           clearCanvas: true,
-          resizeMode: 'center',
-        }}
-        ></lottie-player>:null
+        },
+      });
+      animation.current.addEventListener('DOMLoaded', DomL);
+      // animation.current.addEventListener('enterFrame', enterF);
+    }
+    console.log("Status")
+    return () => {
+      setAnimLoaded(false);
+      if(animation.current){
+        animation.current.stop();
+        animation.current.destroy();
+        // animation.current.removeEventListener('DOMLoaded', DomL);
       }
-    </>
-  );
+
+    };
+  }, [src, ref.current, id, change]);
+  return <>{src && !change ? <div ref={ref} id={'lottie_' + i} style={{ width: '100%' }}></div> : null}</>;
 });
 
 export default LottiePlayer;

@@ -7,13 +7,12 @@ import { useInView } from 'react-intersection-observer';
 import LottiePlayer from "./LottiePlayer";
 import WaypointCard from "./WaypointCard";
 
-import "../assets/styles/components/Scrollyteller.css";
-//import Video from './Video-React-player';
+import "./Explainerpage.css";
 import Videojs from "./Videojs";
+import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
 import Image from './Image'
-
-import Header from "./Header";
+import ItemJson from '../pageItemLoader.json'
 import classNames from 'classnames';
 //import VideoDash from './VideoDash'
 var  WebFont  =  require('webfontloader');
@@ -21,7 +20,54 @@ var  WebFont  =  require('webfontloader');
 const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
   const { itemJsonFile } = props;
-  const [itemJson, setItemJson] = useState({});
+  const [itemJson, setItemJson] = useState({ slides: [] });
+  const [isSlides, setIsSlides] = useState(false)
+  const [isCards, setIsCards] = useState(false)
+  const url = 'https://s3.amazonaws.com/item.json-loader/';
+  const pageurl = 'page.json'
+  const slidesUrl = 'slides.json'
+  const cardsUrl = 'cards.json'
+  useEffect(() => {
+    if(isSlides){
+      fetch(url + slidesUrl+'?v='+ Date.now())
+      .then((response) => response.json())
+      .then((data) => {
+        if(!data) return
+        console.log(data)
+        let slides = data.slides;
+        slides = slides?.sort((a, b) => {
+          return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+        });
+        setItemJson({...itemJson,slides});
+        setIsCards(true)
+      });
+    }
+  }, [isSlides])
+  useEffect(() => {
+    const getCards = async()=>{
+      var i = 0
+      var auxJson = {...itemJson};
+      for (const key in itemJson.slides) {
+        i = parseInt(key,10)+1
+          var n = i<10?'0'+ i:i;
+          console.log(i,n)
+          var response = await fetch(url + 'cards/card-'+n +'.json?v='+ Date.now()) 
+          response = await response.json()
+        
+        var slidepos = auxJson.slides?.findIndex(s=>s.id = response.id)
+        if(slidepos>=0) auxJson.slides[key].cards = response.data
+        // cards = cards?.sort((a, b) => {
+        //   return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+        // });
+        console.log(slidepos)
+        setItemJson({...auxJson});
+          console.log(response)
+      }
+    }
+    if(isCards){
+      getCards();
+    }
+  }, [isCards])
   //DON'T DELETE
   // useEffect(() => {
   //   console.log('Test');
@@ -29,12 +75,7 @@ const Explainerpage = (props) => {
   //     fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
   //       .then((response) => response.json())
   //       .then((data) => {
-  //         data.header = {
-  //           imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
-  //           imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
-  //           description: '',
-  //           page: data.id
-  //         }
+  //         Test
   //         setItemJson(data);
   //         console.log("ITEMJSON",data)
   //       })
@@ -47,91 +88,94 @@ const Explainerpage = (props) => {
   //   }
   // }, [itemJsonFile]);
   useEffect(() => {
-    console.log('Test');
-    const url = 'https://6lkh03vsyg.execute-api.us-east-1.amazonaws.com/Test/page/';
-    if (!itemJsonFile) {
-      fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
-        .then((response) => response.json())
-        .then((page) => {
-          fetch(url + page.id + '?v=' + Date.now())
-            .then((response) => response.json())
-            .then((data) => {
-              console.log('DATA:', data.data.data.getPage);
-              const page = data.data.data.getPage;
-              document.title = page.title
-              page.slides = page?.slides?.items?.sort((a, b) => {
-                return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
-              });
-              page.slides.forEach((slide, i) => {
-                slide.cards = slide?.cards?.items?.sort((a, b) => {
-                  return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
-                });
-                slide.cards.forEach((card) => {
-                  card.style = card.style ? JSON.parse(card.style) : [];
-                });
-                
-              });
-              if(page.fonts){
-                try{
-                  page.fonts = JSON.parse(page.fonts)
-                }catch(e){
-                  page.fonts = []
-                }
-              }
-              if(page.styles){
-                if(typeof page.styles === 'string')
-                page.styles = JSON.parse(page.styles)
-              }
-              page.header = {
-                imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
-                imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
-                description: '',
-                page: page.id
-              }
-              console.log('TESTITEMJSON', page);
-              setItemJson(page);
-            });
-        })
-        .catch(function (err) {
-          console.log("Error: ", err);
-        });
-    } else {
-      // console.log('ExplainerPage:', itemJson.dataFile);
-      setItemJson(itemJsonFile);
-    }
-  }, [itemJsonFile]);
+    setItemJson(ItemJson)
+    // console.log('Test');
+    // const url = 'https://vorc7ohl9f.execute-api.us-east-1.amazonaws.com/newmain/page/';
+    // if (!itemJsonFile) {
+    //   fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
+    //     .then((response) => response.json())
+    //     .then((page) => {
+    //       fetch(url + page.id + '?v=' + Date.now())
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //           console.log('DATA:', data.data.data.getPage);
+    //           if(!data.data.data.getPage) return
+    //           let page = data.data.data.getPage;
+    //           document.title = page.title
+    //           page = page
+    //         ? { ...page, slides: [...page?.slides?.items] }
+    //         : { ...itemJson };
+    //           page.slides = page?.slides?.sort((a, b) => {
+    //             return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+    //           });
+    //           if (page.slides) {
+    //           page.slides.forEach((slide, i) => {
+    //             if (slide?.cards?.items) slide.cards = [...slide?.cards?.items];
+    //             else if (slide.cards) slide.cards = [...slide?.cards];
+    //             else slide.cards = [];
+    //             slide.cards = slide?.cards?.sort((a, b) => {
+    //                 return a.pos > b.pos ? 1 : a.pos < b.pos ? -1 : 0;
+    //             });
+    //             slide.pageStyles = convertStringToJson(slide.pageStyles);
+    //             if (slide.cards) {
+    //                 slide.cards.forEach((card) => {
+    //                   card.style = convertStringToJson(card.style)
+    //                 });
+    //             }
+    //           });
+    //         }
+    //             page.fonts = convertStringToJson(page.fonts)
+    //             page.styles = convertStringToJson(page.styles)
+    //             page.cardStyles = convertStringToJson(page.cardStyles)
+    //           setItemJson(page);
+    //         });
+    //     })
+    //     .catch(function (err) {
+    //       console.log("Error: ", err);
+    //     });
+    // } else {
+    //   // console.log('ExplainerPage:', itemJson.dataFile);
+    //   setItemJson(itemJsonFile);
+    // }
+  }, []);
   useEffect(() => {
-
-       
     console.log("ITEMJSON:", itemJson);
     if (itemJson?.fonts) {
-      (function(d) {
-        var wf = d.createElement('script'), s = d.scripts[0];
-        wf.src = itemJson.fonts.google.urls[0];
-        wf.async = true;
-        wf.type="text/css";
-        s.parentNode.insertBefore(wf, s);
-      })(document);
-      WebFont.load ( { 
-        google : { 
-          families: itemJson.fonts.google.families
-        } 
-      } ) ;
-      
+      // (function(d) {
+      //   var wf = d.createElement('script'), s = d.scripts[0];
+      //   wf.src = itemJson.fonts.google.urls[0];
+      //   wf.async = true;
+      //   wf.type="text/css";
+      //   s.parentNode.insertBefore(wf, s);
+      // })(document);
+      try {
+
+        WebFont.load ( {
+          google : {
+            families: itemJson.fonts.google.families
+          }
+      } );
+        } catch (error) {
+
+        }
+
       // console.log(WebFontConfig)
       console.log("FONT")
-      // var new_font = new FontFace(itemJson.fonts.families[0], "url(" + itemJson.fonts.urls[0] + ")");
-      // new_font
-      //   .load()
-      //   .then(function (loaded_face) {
-      //     // use font here
-      //     console.log("La fuente cargó");
-      //     document.fonts.add(loaded_face);
-      //   })
-      //   .catch(function (error) {});
     }
   }, [itemJson]);
-
+  const convertStringToJson = (input)=>{
+    var convert = null
+    try {
+      convert = input?(typeof input==='object'?input:JSON.parse(input)):null
+      if(convert)
+      Object.keys(convert).forEach(value=>{
+        if(convert[value] === undefined) delete convert[value]
+      })
+      console.log("convertStringToJson:",convert)
+    } catch (error) {
+    }
+    return convert
+  }
   const isSafarioIos = className(`left-side ${isSafari() || iOS() ? "scrollyTeller-lottie-height" : ""}`);
 
   const [componentNumberstate, setComponentNumberstate] = useState({
@@ -143,30 +187,52 @@ const Explainerpage = (props) => {
     if(inView){
       setComponentNumberstate(
         {
-          inViewData: [],
+          inViewData: {isView:-1},
     currentScrollState: { slide: -1, card: -1 },
         }
       )
     }
-    
+
   }, [inView])
   return (
     <>
          
-
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative" }} ref={ref}>
         <Dots
           isHeader={inView}
           setComponentNumberstate={setComponentNumberstate}
           componentNumberstate={componentNumberstate}
           slides={itemJson.slides}
         />
-        <div ref={ref} className="Scrollyteller" style={itemJson?.styles?{...itemJson?.styles}:{}}>
+        <div
+          className="Scrollyteller"
+          style={
+            Object.assign(
+                {},
+                itemJson?.styles,
+                componentNumberstate.inViewData?.isView >= 0 &&
+                itemJson?.slides[
+                    componentNumberstate.inViewData?.isView
+                ]?.pageStyles,
+            )
+        }
+      >
           <section className="Scrollyteller__section">
-            <div className="graphic">
+            <div className="graphic" style={{ width: `${width}px` }}>
               {itemJson?.slides?.length > 0
                 ? itemJson.slides.map((left, i) => {
                     switch (left.type) {
+                      case 'video':
+                        return (
+                          <Videojs
+                            width={width}
+                            key={i}
+                            src={componentNumberstate.inViewData?.isView === i ? left.data : left.data}
+                            placeholder={left.placeholder}
+                            isVisible={componentNumberstate.inViewData?.isView === i}
+                            shouldPreload={componentNumberstate.inViewData?.isView === i - 1}
+                          />
+                        );
                       case 'image':
                         return (
                           <div
@@ -179,7 +245,7 @@ const Explainerpage = (props) => {
                             style={{
                               display: componentNumberstate.inViewData?.isView === i ? "flex" : "none",
                             }}
-                            id={`canvascontainer${i}`}
+                            id={`image${i}`}
                             key={i}
                           >
                           <Image
@@ -189,17 +255,6 @@ const Explainerpage = (props) => {
                             isVisible={componentNumberstate.inViewData?.isView === i}
                           />
                           </div>
-                        );
-                      case 'video':
-                        return (
-                          <Videojs
-                            width={width}
-                            key={i}
-                            src={componentNumberstate.inViewData?.isView === i ? left.data : left.data}
-                            placeholder={left.placeholder}
-                            isVisible={componentNumberstate.inViewData?.isView === i}
-                            shouldPreload={componentNumberstate.inViewData?.isView === i - 1}
-                          />
                         );
                       case "text":
                         return (
@@ -233,19 +288,39 @@ const Explainerpage = (props) => {
                           id={`canvascontainer${i}`}
                           key={i}
                         >
-                          {
                             <LottiePlayer
                               className="left-side"
                               id={`lottie${i}`}
                               mode="seek"
                               src={left.data}
+                              i={i}
                               key={i}
                               renderer="canvas"
                               frames={left.frames}
+                              Display = {componentNumberstate.inViewData?.isView === i}
                             />
-                          }
                         </div>
                       );
+                      case "animation3D":
+                        return (
+                            <div
+                                className={isSafarioIos}
+                                style={{
+                                    display:
+                                        componentNumberstate
+                                            .inViewData
+                                            ?.isView === i
+                                            ? "flex"
+                                            : "none",
+                                    width: "100%",
+                                    transformOrigin:
+                                        "0px 0px 0px"
+                                }}
+                                key={i}
+                            >
+                                <Viewer3D data={left.data} background={left.placeholder}></Viewer3D>
+                            </div>
+                        );
                     default:
                       return null;
                   }
@@ -261,7 +336,11 @@ const Explainerpage = (props) => {
                     componentNumberstate={componentNumberstate}
                     i={i}
                     text={narr?.cards?.map((card) => card.description)}
-                    styles={narr?.cards?.map((card) => card.style)}
+                    styles={narr?.cards?.map(card => Object.assign(
+                      {},
+                      itemJson.cardStyles,
+                      card.style,
+                  ))}
                     isText={narr.type === 'text'}
                     isFirst={i === 0}
                     isLast={i === itemJson.slides.length - 1}

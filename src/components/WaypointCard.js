@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import className from 'classnames';
 import { useInView } from 'react-intersection-observer';
-import '../assets/styles/components/WaypointCard.css';
+import './WaypointCard.css';
 import { useResizeDetector } from 'react-resize-detector/build/withPolyfill';
 import SubCard from './SubCard';
 
@@ -9,7 +9,7 @@ const WaypointCard = (props) => {
   const { i, setComponentNumberstate, componentNumberstate, text, isText, isFirst, isLast, background, styles } = props;
   const [refView, inView] = useInView();
   const { height, ref } = useResizeDetector();
-  const [subview, setSubview] = useState(0);
+  const [subview, setSubview] = useState([]);
   useEffect(() => {
     const auxarray = componentNumberstate;
     if (inView) {
@@ -32,12 +32,11 @@ const WaypointCard = (props) => {
   return (
     <div
       className={className('w-card-maindiv', { 'w-card-maindiv-first': isFirst }, { 'w-card-maindiv-last': isLast })}
-      id={`step${i}`}
       key={i}
       style={{ height: isText ? `${height}px` : 'auto' }}
     >
-      <div ref={refView} className={className('w-card-div', { 'w-card-text': isText })}>
-        <div ref={ref} style={{ width: '100%' }}>
+      <div id={`step${i}`} ref={refView} className={className('w-card-div', { 'w-card-text': isText })}>
+        <div ref={ref} className={className({'w-card-translateY':isFirst && i === 0})} style={{ width: '100%' }}>
           {text ? (
             text.map((card, j) => (
               <SubCard
@@ -53,17 +52,15 @@ const WaypointCard = (props) => {
               />
             ))
           ) : (
-            <div className="desc" id={`desc${i + 1}`} key={`${i}-0`}>
-              <SubCard
-                setSubview={setSubview}
-                j={0}
-                text={text}
-                i={0}
-                isText={false}
-                card={'Loading...'}
-                background={isText ? null : background}
-              />
-            </div>
+            <SubCard
+              setSubview={setSubview}
+              j={0}
+              text={text}
+              i={0}
+              isText={false}
+              card={'Loading...'}
+              background={isText ? null : background}
+            />
           )}
         </div>
       </div>

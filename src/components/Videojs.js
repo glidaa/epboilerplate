@@ -1,5 +1,5 @@
 import "video.js/dist/video-js.css";
-import "../assets/styles/components/Video.css";
+import "./Video.css";
 
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import videoJs from "video.js";
@@ -7,16 +7,18 @@ import videoJs from "video.js";
 const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
   const videoContainer = useRef();
   const [player, setPlayer] = useState();
+  const [stillVisible, setStillVisible] = useState(true);
+  const [waiting, setWaiting] = useState(false)
 
   const videoJsOptions = useMemo(
     () => ({
       // techOrder: ['html5', 'flash'],
-      controls: false,
-      autoplay: false,
+      controls: true,
+      autoplay: true,
       fluid: false,
       loop: true,
       height: "100%",
-      muted: false,
+      muted: true,
       sources: [{ src: src }],
     }),
     [src]
@@ -24,11 +26,30 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
 
   //  Setup the player
   useEffect(() => {
+    console.log("render")
     if (isVisible || shouldPreload) {
       if (!player) {
         setPlayer(videoJs(videoContainer.current, videoJsOptions,function onPlayerReady() {
         }));
       } else if (player && isVisible) {
+        player.on("pause", function () {
+            setStillVisible(true)
+        });
+
+        player.on("play", function () {
+            setStillVisible(false)
+        });
+        player.on("waiting", function() {
+            setWaiting(true)
+            let interval = setInterval(() => {
+              console.log("interval")
+              if(!videoContainer.current.parentElement.classList.contains("vjs-waiting")){
+                setWaiting(false)
+                window.clearInterval(interval)
+              }
+            },800)
+        })
+        player.pause();
         player.play();
       }
     } else if (!isVisible && player) {
@@ -59,13 +80,13 @@ const VideoPlayer = ({ src, isVisible, width, shouldPreload, placeholder }) => {
           <div
             data-vjs-player
             style={{
-              backgroundImage: `url(${placeholder})`,
+              backgroundImage: `url(${stillVisible ? placeholder : waiting ? placeholder: ''})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "contain",
               backgroundPosition: "center",
             }}
           >
-            <video ref={videoContainer} className="video-js" width="640" height="360"></video>
+            <video ref={videoContainer} className="video-js"></video>
           </div>
         </div>
       </div>
