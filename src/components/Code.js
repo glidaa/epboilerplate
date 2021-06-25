@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import * as GlobalTHREE from 'three'
-import {OrbitControls as GlobalOrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import * as GlobalTHREE_stdlib from 'three-stdlib'
 
 const Code = ({codeUrl, placeholder}) => {
     const elementRef = useRef(null)
@@ -23,7 +23,7 @@ const Code = ({codeUrl, placeholder}) => {
 
             if(codeUrl){
                 const THREE = GlobalTHREE
-                const OrbitControls = GlobalOrbitControls
+                const THREE_stdlib = GlobalTHREE_stdlib
                 const element = elementRef.current
                 fetch(`https://explainerpage-code.s3.amazonaws.com/public/${codeUrl}`)
                 .then(res => res.text())
