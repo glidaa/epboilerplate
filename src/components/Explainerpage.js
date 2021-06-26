@@ -13,6 +13,7 @@ import Videojs from "./Videojs";
 import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
 import Image from './Image'
+import Code from './Code'
 
 import classNames from 'classnames';
 //import VideoDash from './VideoDash'
@@ -29,12 +30,7 @@ const Explainerpage = (props) => {
   //     fetch(process.env.PUBLIC_URL + '/items.json?v=' + Date.now())
   //       .then((response) => response.json())
   //       .then((data) => {
-  //         data.header = {
-  //           imageUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people.png",
-  //           imageDepthMapUrlTop: "https://myvodstreams-devenvi-output-ixgkd1fc.s3.amazonaws.com/AMP-Wellness-White-Paper/images/two-people-depthmap.png",
-  //           description: '',
-  //           page: data.id
-  //         }
+  //         Test
   //         setItemJson(data);
   //         console.log("ITEMJSON",data)
   //       })
@@ -48,7 +44,7 @@ const Explainerpage = (props) => {
   // }, [itemJsonFile]);
   useEffect(() => {
     console.log('Test');
-    const url = 'https://j37hd76xt1.execute-api.us-east-1.amazonaws.com/devthree/Test/page/';
+    const url = 'https://vorc7ohl9f.execute-api.us-east-1.amazonaws.com/newmain/page/';
     if (!itemJsonFile) {
       fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
         .then((response) => response.json())
@@ -155,7 +151,7 @@ const Explainerpage = (props) => {
   }, [inView])
   return (
     <>
-         
+
       <div style={{ position: "relative" }} ref={ref}>
         <Dots
           isHeader={inView}
@@ -280,6 +276,26 @@ const Explainerpage = (props) => {
                                 <Viewer3D data={left.data} background={left.placeholder}></Viewer3D>
                             </div>
                         );
+                      case "code":
+                        return (
+                          <div
+                              className={isSafarioIos}
+                              style={{
+                                  display:
+                                      componentNumberstate
+                                          .inViewData
+                                          ?.isView === i
+                                          ? "flex"
+                                          : "none",
+                                  width: "100%",
+                                  transformOrigin:
+                                      "0px 0px 0px"
+                              }}
+                              key={i}
+                          >
+                              <Code codeUrl={left.data} placeholder={left.placeholder}/>
+                          </div>
+                        )
                     default:
                       return null;
                   }
