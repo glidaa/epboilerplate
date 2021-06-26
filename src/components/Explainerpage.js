@@ -43,8 +43,9 @@ const Explainerpage = (props) => {
   //   }
   // }, [itemJsonFile]);
   useEffect(() => {
-    console.log('Test');
-    const url = 'https://vorc7ohl9f.execute-api.us-east-1.amazonaws.com/newmain/page/';
+    console.log('ttps://vmzgodalek.execute-api.us-east-1.amazonaws.com/devsix/page/');
+    const url = 'https://vmzgodalek.execute-api.us-east-1.amazonaws.com/devsix/page/';
+    
     if (!itemJsonFile) {
       fetch(process.env.PUBLIC_URL + '/pageId.json?v=' + Date.now())
         .then((response) => response.json())
