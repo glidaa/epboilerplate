@@ -14,6 +14,7 @@ import Viewer3D from './Viewer3D'
 import Dots from "./Dots";
 import Image from './Image'
 import Code from './Code'
+import Menu from './Menu';
 
 import classNames from 'classnames';
 //import VideoDash from './VideoDash'
@@ -23,6 +24,8 @@ const Explainerpage = (props) => {
   const { width, ref } = useResizeDetector();
   const { itemJsonFile } = props;
   const [itemJson, setItemJson] = useState({ slides: [] });
+
+  const [toRender, setToRender] = useState({});
   //DON'T DELETE
   // useEffect(() => {
   //   console.log('Test');
@@ -55,6 +58,7 @@ const Explainerpage = (props) => {
             .then((response) => response.json())
             .then((data) => {
               console.log('DATA:', data.data.data.getPage);
+              setToRender(data.data.data.getPage)
               if(!data.data.data.getPage) return
               let page = data.data.data.getPage;
               document.title = page.title
@@ -154,6 +158,7 @@ const Explainerpage = (props) => {
     <>
 
       <div style={{ position: "relative" }} ref={ref}>
+        <Menu data={toRender.menu}/>
         <Dots
           isHeader={inView}
           setComponentNumberstate={setComponentNumberstate}
