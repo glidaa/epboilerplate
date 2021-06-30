@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import * as THREE from 'three'
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 const Viewer3D = (props) => {
     const {data, background} = props;
@@ -25,7 +26,13 @@ const Viewer3D = (props) => {
         }
 
         if(background){
-            Scene.background = background;
+            fetch(background)
+            .then(res => res.blob())
+            .then(data => {
+                new THREE.TextureLoader().load(URL.createObjectURL(data), (texture) => {
+                    Scene.background = texture
+                })
+            })
         } else{
             Scene.background = new THREE.Color("rgb(92, 92, 92)")
         }
@@ -47,6 +54,23 @@ const Viewer3D = (props) => {
             Camera.rotation.y = jsonScene.camera.rotation._y
             Camera.rotation.z = jsonScene.camera.rotation._z
 
+            if(jsonScene?.camera.animation.active){
+                animationConfig = jsonScene.camera.animation
+            }
+            if(jsonScene?.camera.orbit.active){
+                let Orbit = new OrbitControls(Camera, Renderer.domElement)
+                Orbit.minDistance = 3;
+                Orbit.maxDistance = 10;
+                if(!jsonScene.camera.orbit.rotate){
+                    Orbit.enableRotate = false
+                }
+                if(!jsonScene.camera.orbit.zoom){
+                    Orbit.enableZoom = false
+                }
+                if(!jsonScene.camera.orbit.panning){
+                    Orbit.enablePan = false
+                }
+            }
         } else{
             Camera.position.y = 0.5;
             Camera.position.z = 5;
@@ -64,8 +88,21 @@ const Viewer3D = (props) => {
             Renderer.render( Scene, Camera );
         }
 
-        const light = new THREE.AmbientLight( "rgb(255, 255, 255)" )
-        Scene.add(light)
+        if(jsonScene?.rotationObjects.objects.length > 0){
+            let rotationObjects = []
+            for(let i = 0; i < jsonScene.rotationObjects.objects.length; i++){
+                if(Scene.getObjectByName( jsonScene.rotationObjects.objects[i], true )){
+                    let object = Scene.getObjectByName( jsonScene.rotationObjects.objects[i], true );
+                    rotationObjects.push(object)
+                }
+            }
+            const speed = 2000 / jsonScene.rotationObjects.speed
+            window.addEventListener('wheel', (ev) => {
+                rotationObjects.forEach(obj => {
+                    obj.rotation.y += ev.deltaY / speed
+                })
+            })
+        }
 
         window.addEventListener('resize', () => {
             Camera.aspect = window.innerWidth/window.innerHeight
